@@ -1,0 +1,200 @@
+question,answer,token_count,tool_use,label
+What is the name and description of the repository?,"The repository name is ""apache_tomcat"" but the schema details do not provide direct information about the repository's name and description. Use the GitHub API or repository README for this information instead.
+
+In tools, `list_and_explore_schema` returned available collections but no direct repo metadata.",2979,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository creation date and last update timestamp are not available in the provided collections. The schema inspection indicates that necessary fields might be missing from the 'stats' collection.
+
+Based on the available data, I cannot provide specific dates for when the repository was created or last updated. Please check if there are additional collections or tables containing this information.",5192,3,INCORRECT
+How many contributors have contributed to this repository?,There are 14 contributors who have contributed to the Apache Tomcat repository.,2901,1,CORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is None, with 19,663 commits.
+
+The aggregation used a pipeline that grouped commits by author.name and sorted them in descending order by commit count, limiting the result to the top contributor.",3078,1,INCORRECT
+How many total commits are recorded in the repository?,"There are 19,663 total commits recorded in the repository.",2909,1,CORRECT
+What is the most recent commit message and who authored it?,"retrieve_documents(repo_name=""apache_tomcat"", collection=""commits"", filter={}, sort={""commit_date"": -1}, limit=1, projection={""author"": 1, ""message"": 1})",30212,10,NO
+What is the oldest commit in the repository?,"The query returned no commits, which might indicate that the commit data is not available or incomplete in this dataset. Please verify with the repository maintainer or use a different method if available.",15033,6,NO
+How many open issues are currently in the repository?,There are 13 open issues in the repository.,4539,2,CORRECT
+How many closed issues are currently in the repository?,102 closed issues.,4467,2,CORRECT
+Which issue was created most recently?,"The most recent issue was created on 2018-06-15T18:15:27Z and it is titled ""Setting Timezone to GMT for Expires Header as per RFC1123"".
+
+Tools used:
+- retrieve_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={}, sort={""created_at"": -1}, limit=1, projection={""title"": 1, ""number"": 1, ""created_at"": 1})",3125,1,CORRECT
+Which issue has been open for the longest time?,"The issue that has been open for the longest time is Issue #18, titled ""Add QueryExecutionReportInterceptor and tests to jdbc-pool"", which was created on March 18, 2015.
+
+The total number of issues in the repository is 13. 
+
+Tools used:
+- count_documents(repo_name=""apache_tomcat"", collection=""issues"")",40833,6,CORRECT
+Which issue has received the highest number of comments?,"The ""issues"" collection also does not contain any records, indicating that there may be no issues or related comments available in the repository at the moment. This could mean the database is empty or the data for these collections has not been populated yet.
+
+Answer: Based on available data, it appears there are no issues with associated comments to determine which issue received the highest number of comments.",6999,3,NO
+How many issue comments exist in total?,There are 200 issue comments in total.,2898,1,CORRECT
+How many commit comments exist in total?,0 commit comments exist in total.,2911,1,CORRECT
+Which project contains the largest number of issues?,"The project containing the largest number of issues is determined by aggregating data from the projects collection. Unfortunately, there were no records returned for that aggregation query, which suggests either no projects are stored with issue counts or they might be structured differently.
+
+Inspecting a sample schema of the `issues` collection revealed details about individual issues but did not provide project names directly linked to issue counts.
+
+Given the tools and data provided, we cannot determine the project containing the largest number of issues without additional information or a different approach for linking projects with their issues.",4178,2,NO
+How many issue events are associated with issue #2?,There are 0 issue events associated with issue #2.,2922,1,CORRECT
+Which contributor most recently made a commit?,"There was an error in the previous attempt to retrieve the most recent commit. The tool reported that it does not recognize the `$limit` operator, which is required to limit the number of returned documents.
+
+To proceed, I will use `count_documents` to ensure that there are recent commits and then `retrieve_documents` with a correct setup to fetch the relevant details.
+
+First, let's check if there are any commits recent enough.
+",7017,3,ERROR
+Which issue was closed most recently?,"The most recently closed issue is titled ""Setting Timezone to GMT for Expires Header as per RFC1123"" with number 115, and it was closed on 2018-06-20T15:07:44Z.
+
+Took retrieve_documents from the issues collection where 'closed_at' exists, sorted by 'closed_at' in descending order, limited to 1 result.",3176,1,CORRECT
+Which contributor has authored at least one commit comment?,,1465,0,NO
+What are the top 5 contributors ranked by number of commits?,,1456,0,NO
+What is the average number of commits per contributor?,,1462,0,NO
+What percentage of issues are currently closed?," Aggregate the counts to find the percentage of closed issues.
+
+",3157,2,NO
+What percentage of issues are currently open?,"Currently, 13 out of 115 issues are open. This represents approximately 11.30% of all issues.
+
+To calculate:
+\[ \frac{13}{115} \times 100 = 11.30\% \]
+
+count_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={""state"": ""open""}), count_documents(repo_name=""apache_tomcat"", collection=""issues"") used for the calculations.",3127,2,CORRECT
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues is 13:102.
+
+Tools used:
+- count_documents(repo_name=""apache_tomcat"", collection=""issues"") for both open and closed states.",4949,4,CORRECT
+What is the average number of comments per issue?,"olicit the average number of comments per issue using an aggregation pipeline.
+
+",3206,1,NO
+What is the median number of comments per issue?,"Given the consistent errors with the `comments` field, we will estimate the median number of comments per issue by analyzing a limited set of issues directly.
+
+Let's retrieve and count the total number of comments for a small sample of 20 issues:
+aggregate_collection(repo_name=""apache_tomcat"", collection=""issues"", pipeline=[{""$match"": {""_id"": {""$in"": [19528186, 24378525, 24564692, 28384602, 31436138, 32843626, 33437221, 33440288, 34149500, 35259488]}}}, {""$addFields"": {""comment_count"": ""$comments""}}, {""$group"": {""_id"": null, ""total_comments"": {""$sum"": ""$comment_count""}, ""count_issues"": {""$sum"": 1}}}]) → buf_sample
+
+Executing this query...
+",22554,8,NO
+What is the average number of issue events per issue?,"The total number of issues is 115. Given that each issue typically has one associated event, the average number of issue events per issue is also approximately 1. This result was obtained by counting the documents in the ""issues"" collection.
+
+ponge
+",13281,6,INCORRECT
+What is the average number of commit comments per commit?,,1461,0,NO
+What percentage of contributors have made more than 10 commits?,"The aggregated data shows that 100% of the contributors (based on the single record returned) have made more than 10 commits.
+
+Tools used: aggregate_collection. Filters and limits: {$group}, {$match}, {$count}, {$group}. Buffer ID generated: buf_3416b7.",3296,1,INCORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of commits across contributors could not be calculated due to an error with the `$stdDevSamp` accumulator being used incorrectly. This function is a unary operator and requires a specific field name as its argument, which was not provided in this aggregation pipeline.
+
+To get the standard deviation, we need to modify the pipeline to correctly use `$stdDevSamp`. Let's try again with the correct approach.
+",3362,1,ERROR
+What is the average time (in days) taken to close an issue?,"The average time taken to close an issue is approximately 64.28 days.
+
+Tools used:
+- aggregate_collection with a pipeline that matches closed issues, calculates the duration in days using JavaScript, and groups to find the average duration.",7309,3,INCORRECT
+What is the median time (in days) taken to close an issue?,,1486,0,NO
+What percentage of issues were closed within 7 days of creation?,"The aggregation returned no records, which suggests there are no closed issues within 7 days of creation or the data does not contain the required fields.
+
+Based on the available data, we cannot calculate the exact percentage. It's possible that all closed issues were opened more than 7 days ago or the necessary fields are missing.
+
+Answer: 0% (no data to compute the percentage).",7980,5,NO
+What percentage of issues were closed within 30 days of creation?,"The pipeline is referencing an undefined variable `days_to_close`. Let's correctly calculate the days between issue creation and closure.
+
+Here’s how we can adjust the aggregation:
+
+```mongo
+aggregate_collection(repo_name=""apache_tomcat"", collection=""issues"", 
+                     pipeline=[
+                         {""$match"": {""state"": ""closed""}},
+                         {""$project"": {
+                             ""days_to_close"": {""$divide"": [{""$subtract"": [""$$NOW"", ""$created_at""]}, 1000 * 60 * 60 * 24]}
+                         }},
+                         {""$group"": {
+                             ""_id"": null,
+                             ""total_issues"": {""$sum"": 1},
+                             ""within_30_days"": {""$sum"": {""$conditional"": {""if"": {""$lte"": [""$days_to_close"", 30]}, ""then"": 1, ""else"": 0}}}
+                         }}
+                     ])
+```
+
+This pipeline counts the total closed issues and those that were closed within 30 days from creation.
+
+",7400,3,NO
+Which contributor has the highest commit-to-comment ratio?,,1553,0,NO
+What percentage of all comments are issue comments versus commit comments?,"Based on the data, there are 200 issue comments and no commit comments. Therefore, all of the comments in the repository are from issue comments.
+
+Percentage of issue comments: 100%
+Percentage of commit comments: 0%
+
+Buffer IDs buf_a28a46 and buf_d48cb8 were used for aggregation.",3298,2,CORRECT
+What is the average number of commits per month since the repository was created?,,1567,0,NO
+What was the percentage growth or decline in commits from the previous month?,,1522,0,NO
+What percentage of issues have at least one comment?,"The number of issues with at least one comment is 63 out of 115. This represents approximately 55.22% of the total issues.
+
+To calculate this, I used count_documents twice: first to find the count of issues with comments or commitComments present, and second to get the total count of issues. The percentage was then computed as (63 / 115) * 100.",3174,2,CORRECT
+Which contributor accounts for the highest percentage of all commits?,"bralavender accounts for the highest percentage of all commits, contributing 19,663 out of the total commits. 
+
+The result is from calling count_documents on the commits collection with the correct repository name and no specific filter applied to identify the contributor with the highest number of commits.",4568,2,INCORRECT
+Forecast the number of commits expected in the next month.,,1658,0,NO
+Cluster issues into thematic groups based on their titles and descriptions.,,1634,0,NO
+Summarize the most discussed technical topics across last 10 issues and comments.,"No records were found for recent issues and comments, which might suggest there is insufficient data in the specified time range. To provide a more accurate summary, we can try again with a broader or different date range.
+
+If you have specific dates in mind or another approach to consider, please let me know!",14742,5,NO
+Assign issue #2 to contributor.,"Issue #2, titled ""Split AccessLogValve and extract the formatting logic in an AbstractAccessLogValve,"" was closed by contributor `asfgit` on 2015-06-02. This issue is currently marked as closed.
+
+If you want to reassign or address this issue again, we could consider reopening it with a new title or description and tagging a different contributor. Would you like to proceed with opening a new pull request for this?
+
+For the current state of affairs, let me provide some options:
+
+1. Reopen this issue and assign it to another contributor.
+2. Leave it as is if no further action is needed.
+
+Which option would you prefer?",6083,2,CORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"Here are the titles and numbers of another set of 50 issues:
+
+1. No need to set the deprecated javac optimize flag (Issue #1)
+2. Split AccessLogValve and extract the formatting logic in an AbstractAccessLogValve (Issue #2)
+3. Update service.bat (Issue #3)
+4. Changes to make Jasper more separable from Tomcat (Issue #4)
+5. Add maxStartTime to RequestInfo & RequestGroupInfo (Issue #5)
+6. Document the use of ""shutdown"" and ""port"" attribute of <Server> (Issue #6)
+7. Fix how a link to $0 is determined (Issue #7, repeated twice)
+8. fix: MethodParameters_attribute's parameters_count  is only 1 byte long (Issue #8)
+9. Update JasperELResolver.java (Issue #13)
+10. #57178: Allow CORS requests with Origin value ""null."" (Issues #14 and #16, very similar titles)
+
+These issues might be duplicates or highly similar due to the repeated title pattern in issues 7 and 14/16.
+
+Inspecting these issues manually for more detailed similarities would be beneficial. If you have tools that can perform semantic analysis on their full descriptions, please let me know!",19097,5,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"There are currently 0 issue comments for issue number 2.
+
+Aggregate collection used: buf_e1cdf9. Filtering and aggregation pipeline checked for issueComments where the issueNumber is 2, but no matching documents were found.",4736,2,INCORRECT
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","```json
+aggregate_collection(
+    repo_name=""apache_tomcat"",
+    collection=""commitsLite3"",
+    pipeline=[
+        {""$match"": {""commit_date"": {""$gte"": ""2023-10-01""}}},
+        {""$unwind"": ""$files_changed""},
+        {""$group"": {""_id"": ""$files_changed"", ""count"": {""$sum"": 1}}},
+        {""$sort"": {""count"": -1}},
+        {""$limit"": 5}
+    ]
+)
+```
+
+This query will help identify the files that have been modified most frequently over the past month.",33757,10,NO
+Estimate the probability issue #2 will be closed within 30 days.,"aggregate_collection(repo_name=""apache_tomcat"", collection=""issues"", pipeline=[{""$match"": {""number"": 2}}, {""$addFields"": {""days_to_close"": {""$subtract"": [""$closed_at"", ""$created_at""]}, ""$cond"": [{""$eq"": [""$state"", ""closed""]}, {""$divide"": [{ ""$subtract"": [ { ""$ifNull"": [ ""$closed_at"", ""$$NOW"" ] }, ""$created_at"" ] }, 86400000]}, null]}]}, {""$match"": {""days_to_close"": {""$exists"": true, ""$lte"": 30}}}, {""$group"": {""_id"": null, ""count"": {""$sum"": 1}}}], limit=1)
+",5039,2,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","The repository `apache_tomcat` currently has no commits in the `commitsLite3` collection, so it's not possible to classify contributors based on their specialty using this data.
+
+Tools used:
+- list_and_explore_schema (to inspect available collections)
+- count_documents (to check for any commits)",3147,2,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.","Based on the last 10 open issues, it seems that no specific user is assigned to these tasks. The aggregation shows that one user has 13 open issues.
+
+To propose sub teams for workload distribution, we could consider dividing the issues among available team members or stakeholders. Here are five potential sub teams based on typical roles:
+
+1. Development Team Lead
+2. Security Analyst
+3. Performance Engineer
+4. Database Specialist
+5. Community and Documentation Liaison
+
+For more precise matching to assignees if any were available, we would need to look into the list of contributors or maintainers involved in Apache Tomcat.
+
+The top assignee with 13 open issues suggests that this person might be heavily involved currently. This workload could benefit from additional support or reallocation depending on the project's size and complexity.",3901,2,CORRECT

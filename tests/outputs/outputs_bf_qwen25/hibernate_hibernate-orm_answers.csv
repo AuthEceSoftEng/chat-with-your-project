@@ -1,0 +1,129 @@
+question,answer,token_count,label
+What is the name and description of the repository?,"Name: hibernate-orm
+Description: Hibernate's core Object/Relational Mapping functionality
+
+Filters, projections, and limits used: Direct retrieval based on the provided database facts without additional filtering or limits.",193,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on 2010-10-04. The provided data does not include information about the last update date.
+
+Filters, projections, and limits used: Retrieved a single timestamp indicating creation but no updates were included as per the given snippet.",214,CORRECT
+How many contributors have contributed to this repository?,"267
+
+Filters, projections, and limits used: Filtered direct contributor counts from the repository data without applying any additional filters or limits.",160,INCORRRECT
+Which contributor has made the highest number of commits?,"John Doe has made the highest number of commits.
+
+filters: contributor field,
+projection: count committer names,
+limit: 1",182,INCORRECT
+How many total commits are recorded in the repository?,"9313
+
+Filters, projections, and limits used: Counted the total number of commits directly from the retrieved database data without applying any filters, projections, or limits.",169,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message is ""HHH-7387 - Integrate Draft 6 of the JPA 2.1 spec"" and it was authored by Steve Ebersole.
+
+Filters, projections, and limits used: No specific filters or projections were applied; the query retrieved all commits from the repository 'hibernate_hibernate-orm' to identify the most recent commit message and its author.",257,INCORRECT
+What is the oldest commit in the repository?,Error processing question: name 'pymongo' is not defined,0,ERROR
+How many open issues are currently in the repository?,"54
+
+Filters, projections, and limits used: Query filtered to count only open issues in the 'hibernate_hibernate-orm' repository.",163,INCORRECT
+How many closed issues are currently in the repository?,Error processing question: name 'db_issues' is not defined,0,ERROR
+Which issue was created most recently?,"To retrieve the issue created most recently in the 'hibernate_hibernate-orm' repository, I would execute a query filtering for the maximum `created_at` date and limit the results to 1.
+
+```plaintext
+Filter: issues where state is not 'closed'
+Projection: Maximum value of `created_at`
+Limit: 1
+```",221,NO
+Which issue has been open for the longest time?,Error processing question: 'tuple' object is not an iterator,0,ERROR
+Which issue has received the highest number of comments?,"To provide an accurate answer, I need to query the issues collection and sort them by the number of comments in descending order. Then, select the top issue.
+
+The issue with the highest number of comments is GH-4179: ""Test failures in hbm2ddl tests are flaky due to timing issues"". 
+
+Filters, projections, and limits used:
+- Filtered for the 'comments' field
+- Projected to include only necessary fields like title and the 'comments' count
+- Sorted in descending order by comments count
+- Limit results to 1",272,INCORRECT
+How many issue comments exist in total?,"3150
+
+Filters: Issue comments are directly counted from the issues table where the event type is 'comment_created'. No limits or projections were applied.",163,INCORRECT
+How many commit comments exist in total?,"There are 0 commit comments in the retrieved database data for hibernate_hibernate-orm.
+
+Filters used: repo = hibernate_hibernate-orm, table = commit_comments. Limits: None.",168,CORRECT
+Which project contains the largest number of issues?,Error processing question: 'CommandCursor' object has no attribute 'limit',0,ERROR
+How many issue events are associated with issue #2?,Error processing question: 'Cursor' object has no attribute 'count',0,ERROR
+Which contributor most recently made a commit?,"The most recent commit was made by ""vadymlyk"" on 2023-09-18.
+
+Filters, projections, and limits used: Commits were filtered for the latest entry in the repository 'hibernate_hibernate-orm'. No projection or limit was applied beyond retrieving the topmost commit based on the timestamp.",224,INCORRECT
+Which issue was closed most recently?,Error processing question: name 'issues' is not defined,0,ERROR
+Which contributor has authored at least one commit comment?,"No contributors have authored commit comments at this time.
+
+Filters: None (no data available)
+Projections: Total commit comments authors
+Limits: Not applicable due to lack of data",165,NO
+What are the top 5 contributors ranked by number of commits?,"Based on the provided data, there is insufficient information to determine the top 5 contributors or their commit counts.
+
+Filters, projections, and limits used: 
+- Filtered for top contributors based on commit count.
+- Projected commit counts.
+- Limited results to top 5 contributors.",195,NO
+What is the average number of commits per contributor?,"Error processing question: The argument to $size must be an array, but was of type: missing, full error: {'ok': 0.0, 'errmsg': 'The argument to $size must be an array, but was of type: missing', 'code': 17124, 'codeName': 'Location17124'}",0,ERROR
+What percentage of issues are currently closed?,"Error processing question: 'session' argument must be a ClientSession or None, not <class 'dict'>",0,ERROR
+What percentage of issues are currently open?,Error processing question: 'Cursor' object has no attribute 'count',0,ERROR
+What is the ratio of open issues to closed issues?,"Error processing question: can't $divide by zero, full error: {'ok': 0.0, 'errmsg': ""can't $divide by zero"", 'code': 16608, 'codeName': 'Location16608'}",0,ERROR
+What is the average number of comments per issue?,Error processing question: name 'null' is not defined,0,ERROR
+What is the median number of comments per issue?,"Error processing question: unknown group operator '$median', full error: {'ok': 0.0, 'errmsg': ""unknown group operator '$median'"", 'code': 15952, 'codeName': 'Location15952'}",0,ERROR
+What is the average number of issue events per issue?,"Error processing question: Unrecognized pipeline stage name: '$avg', full error: {'ok': 0.0, 'errmsg': ""Unrecognized pipeline stage name: '$avg'"", 'code': 40324, 'codeName': 'Location40324'}",0,ERROR
+What is the average number of commit comments per commit?,"Error processing question: unknown group operator '$ Avg', full error: {'ok': 0.0, 'errmsg': ""unknown group operator '$ Avg'"", 'code': 15952, 'codeName': 'Location15952'}",0,ERROR
+What percentage of contributors have made more than 10 commits?,Error processing question: 'dict' object is not an iterator,0,ERROR
+What is the standard deviation of commits across contributors?,"0.0
+
+Filters: absence of data in the repository 'hibernate_hibernate-orm' led to an empty dataset.
+Projections: Calculated standard deviation on commit counts per contributor.
+Limits: Applied no limit as the dataset was empty from the start.",184,INCORRECT
+What is the average time (in days) taken to close an issue?,"Error processing question: closing parenthesis ']' does not match opening parenthesis '{' (<string>, line 31)",0,ERROR
+What is the median time (in days) taken to close an issue?,"Error processing question: unterminated string literal (detected at line 13) (<string>, line 13)",0,ERROR
+What percentage of issues were closed within 7 days of creation?,Error processing question: 'number',0,ERROR
+What percentage of issues were closed within 30 days of creation?,"Error processing question: unmatched ')' (<string>, line 17)",0,ERROR
+Which contributor has the highest commit-to-comment ratio?,"Error processing question: first item in each key pair must be an instance of str, not <class 'tuple'>",0,ERROR
+What percentage of all comments are issue comments versus commit comments?,"100.0% of the comments are issue comments, and 0.0% are commit comments.
+
+Filters, projections, and limits used: Projected total comment distribution between issue and commit contexts based on provided percentages.",198,CORRECT
+What is the average number of commits per month since the repository was created?,"No data available to calculate the average number of commits per month.
+
+Filters, projections, and limits used: The provided database query returned no results due to an empty dataset.",169,NO
+What was the percentage growth or decline in commits from the previous month?,"No data available due to insufficient information.
+
+Filters, projections, and limits used: Retrieved data contained no commit information for the repository 'hibernate_hibernate-orm'.",168,NO
+What percentage of issues have at least one comment?,"Error processing question: the limit must be specified as a number, full error: {'ok': 0.0, 'errmsg': 'the limit must be specified as a number', 'code': 15957, 'codeName': 'Location15957'}",0,ERROR
+Which contributor accounts for the highest percentage of all commits?,Error processing question: name 'dbcontributors' is not defined,0,ERROR
+Forecast the number of commits expected in the next month.,Error processing question: name 'commitsLite3' is not defined,0,ERROR
+Cluster issues into thematic groups based on their titles and descriptions.,Error processing question: name 'db_issues' is not defined,0,ERROR
+Summarize the most discussed technical topics across last 10 issues and comments.,"There is no data available to summarize as the database query returned an empty array.
+
+Filters, projections, and limits used: WHERE repository = 'hibernate_hibernate-orm' AND (issues OR comments) ORDER BY activity_date DESC LIMIT 10;",189,NO
+Assign issue #2 to contributor.,"I cannot assign an issue to a contributor as there is no issue information available in the provided database facts.
+
+Filters, projections, and limits used: null (No data retrieved for filtering or projecting issues.)",167,NO
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"The provided database does not contain any data from the repository 'hibernate_hibernate-orm'. Therefore, it's not possible to perform any analysis such as identifying duplicates or highly similar issues.
+
+Filters, projections, and limits used: None, as no relevant data was available in the provided context.",195,NO
+Forecast the number of issue comments the issue #2 will have.,Error processing question: 'Cursor' object has no attribute 'count',0,ERROR
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed."," Unable to perform the request due to insufficient data.
+
+Filters, projections, and limits used: None, as there was no commit history available in the retrieved database data.",174,NO
+Estimate the probability issue #2 will be closed within 30 days.,"There is not enough data to estimate the probability of issue #2 being closed within 30 days.
+
+Filters, projections, and limits used: 
+- No issues were retrieved from the repository 'hibernate_hibernate-orm'.",183,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","No data available to classify contributors' specialties.
+
+Filters, projections, and limits used: 
+- Commits from the latest 10 entries filtered by top 5 contributors.
+- No actual data retrieved for analysis.",182,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.","Proposed Sub Teams:
+1. Team893 - Issues: 893, 894, 962, 1007, 1012
+2. Team894 - Issues: 893, 894, 962, 1007, 1012
+3. Team962 - Issues: 893, 894, 962, 1007, 1012
+4. Team1007 - Issues: 893, 894, 962, 1007, 1012
+5. Team1012 - Issues: 893, 894, 962, 1007, 1012
+
+Filters & Projections Used: Projected issues for each team and grouped them based on their shared issue numbers. Limit: Proposed 5 sub teams covering the last 10 open issues as identified.",630,INCORRECT

@@ -1,0 +1,231 @@
+question,answer,token_count,tool_use,answered,correct,label
+What is the name and description of the repository?,"The repository is named **kafka** and its description is **“Mirror of Apache Kafka.”**
+
+*Data source: retrieved from the `projects` collection via `retrieve_documents` (limit 1, projection {name, description}).*",6002,1,1,1,CORRECT
+"When was the repository created, and when was it last updated?","**Repository creation date:** 2011‑08‑15 (T‑15:06:16 Z)  
+**Last update (push) date:** 2018‑11‑08 (T‑16:59:01 Z) – the most recent `pushed_at` timestamp in the repository metadata.
+
+*Answer sourced from the MongoDB `projects` collection (field `created_at` and `pushed_at`).*",10526,2,1,1,CORRECT
+How many contributors have contributed to this repository?,"There are **1,112 contributors** who have contributed to the Apache Kafka repository.
+
+*Answer derived from a Knowledge Graph query (`MATCH (c:Contributor) RETURN count(c)`).*",5981,1,1,1,CORRECT
+Which contributor has made the highest number of commits?,"The contributor with the most commits is **ijuma**, who authored **408 commits**.
+
+*(Answer derived from a MongoDB aggregation on the commits collection, grouping by author.login and sorting by the commit count.)*",24754,5,1,1,CORRECT
+How many total commits are recorded in the repository?,"There are **5,609** total commits recorded in the repository.  
+
+*Answer derived from a knowledge‑graph query (`MATCH (c:Commit) RETURN count(c)`) on the KG for **apache_kafka**.*",5994,1,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The latest commit is **“KAFKA‑7604; Fix flaky unit test `testRebalanceAfterTopicUnavailableWithPatternSubscribe` (#5889)…”**.  
+It was authored by **Jason Gustafson** (jason@confluent.io).  
+
+*Tool used: `retrieve_documents` on the **commits** collection (sorted by author date, limit 1, projected author name/email and message).*",12506,2,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in **apache/kafka** was made on **2011‑08‑01 23:41:24 UTC** with SHA **642da2f28c9bc6e373603d6d9119ce33684090f5**.
+
+**Tools:** `aggregate_collection` on the **commits** collection (projected date & SHA, sorted ascending, limit 1). Data sourced from MongoDB.",17376,3,1,1,CORRECT
+How many open issues are currently in the repository?,"There are **530 open issues** in the apache_kafka repository.
+
+*Answer derived from a Knowledge‑Graph query:* `MATCH (i:Issue) WHERE i.state = ""open"" RETURN count(i) as openCount` (repo = apache_kafka).",9263,2,1,1,CORRECT
+How many closed issues are currently in the repository?,"There are **5,362 closed issues** in the repository.
+
+*Answer derived from the knowledge‑graph query `MATCH (i:Issue) WHERE i.state = 'closed' RETURN count(i)`.*",5982,1,1,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is **#5892 – “MINOR: Update version to 2.0.2‑SNAPSHOT”**, created on **2018‑11‑08 16:46:26 UTC**.
+
+*Answer sourced from the knowledge graph (KG) query.*",9312,2,1,1,CORRECT
+Which issue has been open for the longest time?,"**Issue #41 – “Improvements to server stop scripts”** was opened on 2015‑01‑14 and is still open, making it the longest‑standing open issue in the Apache Kafka repository.
+
+*Answer derived from MongoDB `issues` collection via a `retrieve_documents` call (filter `state: ""open""`, sort by `created_at` ascending, limit 1).*",6211,1,1,1,CORRECT
+Which issue has received the highest number of comments?,"The issue with the most comment activity is **#3131 – “org.apache.kafka.common.errors.UnknownTopicOrPartitionException: This server does not host this topic‑partition”**, which has **404 comments**.
+
+*Tools used*: KG was not queried (no comment count data). An aggregation on **issueComments** counted comments per issue, sorted descending and limited to 1 → issue 3131 with 404 comments. Then a document fetch returned the issue’s number, title, and URL. (MongoDB)",14383,3,1,1,CORRECT
+How many issue comments exist in total?,"There are 40,000 issue comments in total.  
+
+*Answer derived from a Knowledge Graph query (`MATCH (c:IssueComment) RETURN count(c)`) that returned a count of 40,000.*",9182,2,1,1,CORRECT
+How many commit comments exist in total?,"There are **0 commit comments** in total.
+
+**Tools used:**  
+- KG query `MATCH (c:CommitComment) RETURN count(c) AS total` → returned 0.  
+- MongoDB `count_documents` on collection **commitComments** with an empty filter → count = 0. Both sources agree there are no commit comments.",12551,3,1,1,CORRECT
+Which project contains the largest number of issues?,"The **project “kafka”** contains the largest number of issues, with **530 open issues**.
+
+*Tool: MongoDB aggregation on the `projects` collection – projected `open_issues`, sorted descending, limited to 1.*",18171,3,1,0,INCORRECT
+How many issue events are associated with issue #2?,"There are **0 issue events** associated with issue #2.
+
+**Tool**: query_knowledge_graph with a MATCH on Issue #2 and incoming ON_ISSUE relationships; result came from the knowledge graph.",9393,2,1,1,CORRECT
+Which contributor most recently made a commit?,"The most recent commit was authored by the contributor **tedyu**.
+
+*Answer derived from the knowledge‑graph query: matched commits to their authors, ordered by commit date descending, and returned the top record.*",9501,2,1,0,INCORRECT
+Which issue was closed most recently?,"The most recently closed issue is **#5889 – “KAFKA-7604; Fix flaky unit test `testRebalanceAfterTopicUnavailableWithPatternSubscribe`”**, closed on 2018‑11‑08 13:37:06 UTC.  
+
+*Answer sourced from the knowledge graph (KG) via a Cypher query that filtered for issues with `state = ""closed""` and ordered by `closed_at` descending, limiting to the top result.*",9418,2,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"No contributor in the apache_kafka repository has authored a commit comment — the commitComments collection contains zero entries for this repository.  
+
+*MongoDB query:* `count_documents(repo_name=""apache_kafka"", collection=""commitComments"", filter={""repo_name"":""apache_kafka""})` returned a count of 0.",54403,10,1,1,CORRECT
+What are the top 5 contributors ranked by number of commits?,"**Top 5 contributors by number of commits**
+
+| Rank | Contributor | Commits |
+|------|------------|---------|
+| 1 | ijuma | 408 |
+| 2 | hachikuji | 335 |
+| 3 | guozhangwang | 295 |
+| 4 | rajinisivaram | 226 |
+| 5 | mjsax | 225 |
+
+*Answer derived from a Knowledge Graph query (`MATCH (c:Contributor)-[:AUTHORED]->(cm:Commit) RETURN c.login AS contributor, count(cm) AS commits ORDER BY commits DESC LIMIT 5`).*",9565,2,1,1,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is **≈ 5.04**.
+
+*Answer derived from the knowledge‑graph query (KG).*",9506,2,1,1,CORRECT
+What percentage of issues are currently closed?,"Approximately 91 % of the issues are closed.
+
+*KG query returned total = 5892 issues, closed = 5362; calculated percentage ≈ 91 %.*",12723,3,1,1,CORRECT
+What percentage of issues are currently open?,"About 8.99 % of the issues are currently open.
+
+*Tools used*: `count_documents` on the **issues** collection (open = 530, total = 5 892) and `execute_math_calculation` to compute the percentage. Data came from MongoDB.",12366,3,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The repository has **530 open issues** and **5,362 closed issues**, giving a ratio of **≈ 0.099 open : 1 closed** (about 1 open issue for every 10 closed issues).  
+
+*Tools used:* KG query returned counts for open and closed issues; `execute_math_calculation` computed the ratio.",16397,4,1,1,CORRECT
+What is the average number of comments per issue?,"The repository’s issues receive on average **about 6.8 comments each** (≈ 40000 comments ÷ 5892 issues).
+
+*Tools used: query_knowledge_graph on the Apache Kafka KG to count total `IssueComment` nodes linked to `Issue` nodes and total `Issue` nodes; the result was used to compute the average.*",10157,2,1,1,CORRECT
+What is the median number of comments per issue?,"The median number of comments per issue in the **apache_kafka** repository is **5**.
+
+*Tool used:* `aggregate_collection` on the **issueComments** collection, grouping by `issue_url` to count comments per issue, sorting counts, and computing the median via aggregation pipeline (no filters or limits applied).",140747,6,1,1,CORRECT
+What is the average number of issue events per issue?,"The average number of issue events per issue is **0 events**.
+
+*Answer derived from a Knowledge‑Graph query that counted all `IssueEvent` nodes linked to each `Issue` and took the average; the KG returned an average of 0.0.*",12989,3,1,1,CORRECT
+What is the average number of commit comments per commit?,"The repository has **0 commit comments** recorded, while it contains **5,609 commits**.  
+Average commit comments per commit = 0 ÷ 5,609 ≈ **0**.
+
+*Tools used: count_documents on `commits` (5609) and on `commitComments` (0); answer derived from MongoDB counts.*",20591,5,1,1,CORRECT
+What percentage of contributors have made more than 10 commits?,"About 11 % of contributors have authored more than 10 commits (68 out of 597 contributors).  
+
+Answer based on the Knowledge Graph query (total contributors = 597, contributors with > 10 commits = 68).",13047,3,1,1,CORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of the number of commits per contributor is **34.25**.
+
+- Used a KG query to get each contributor’s commit count, stored in buffer `buf_5161b3`; then applied `std_dev` via `execute_math_calculation`. (KG + MongoDB math tool)",49231,6,1,1,CORRECT
+What is the average time (in days) taken to close an issue?,"The average time to close an issue in the **apache_kafka** repository is **≈ 35.2 days**.
+
+*Used MongoDB aggregation on the **issues** collection (matched closed issues, computed the difference between `closed_at` and `created_at`, averaged it, and converted milliseconds to days).*",15594,3,1,1,CORRECT
+What is the median time (in days) taken to close an issue?,"The median time to close an issue is **≈ 2.13 days**.
+
+*Tools used*: MongoDB aggregation on the **issues** collection (500 sample records, computed per‑issue day differences), followed by a median calculation on the resulting buffer. (KG did not contain the needed timestamps.)",40473,5,1,1,CORRECT
+What percentage of issues were closed within 7 days of creation?,"Approximately 65.55 % of issues that were closed were closed within 7 days of their creation.
+
+**Tools used:** Aggregated the issues collection to count total closed issues and those closed within 7 days, then calculated the percentage (value_a = 3515, value_b = 5362). Data sourced from MongoDB.",24753,5,1,1,CORRECT
+What percentage of issues were closed within 30 days of creation?,"76.66 % of the issues in the **apache_kafka** repository were closed within 30 days of creation.  
+
+*Tools used:*  
+- Counted total issues with `count_documents` (5892).  
+- Aggregated closed issues and computed the time difference in days with `aggregate_collection` (4517 closed ≤30 days).  
+- Calculated the percentage with `execute_math_calculation`.  ",24928,6,1,1,CORRECT
+Which contributor has the highest commit-to-comment ratio?,"The contributor with the highest commit‑to‑comment ratio is **nehanarkhede**, having 100 commits and 2 comments, giving a ratio of 50.0.
+
+*Answer derived from a knowledge‑graph query (KG) returning the top ratio.*",10180,2,1,0,INCORRECT
+What percentage of all comments are issue comments versus commit comments?,"All of the stored comments are issue comments: **100 % issue comments** and **0 % commit comments** (the repository has 40 000 issue comments and 0 commit comments).
+
+*Tools:* `count_documents` on `issueComments` (count = 40000) and on `commitComments` (count = 0) from MongoDB.",16426,4,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"The repository has averaged **≈ 63.7 commits per month** across its history (88 months have been counted).
+
+**Tools:** Used `aggregate_collection` on the **commits** collection with a pipeline that extracted the commit date, grouped by year‑month, counted commits per month, then computed the average of those monthly counts. (MongoDB)",12527,2,1,1,CORRECT
+What was the percentage growth or decline in commits from the previous month?,"The most recent month (2018‑11) had **12 commits**, while the prior month (2018‑10) had **110 commits**.  
+Percentage change = ((12 – 110) / 110) × 100 ≈ **‑89 %** (a decline of about 89 %).
+
+**Tools used:** `aggregate_collection` on **commits** with a `$dateToString` grouping by `%Y‑%m`, sorted descending and limited to the two latest months. (MongoDB)",21231,4,1,1,CORRECT
+What percentage of issues have at least one comment?,"About 79.7 % of the issues have at least one comment (4696 of 5892 issues).  
+
+*Data source: Knowledge‑graph query counting total issues and those with linked IssueComment nodes.*",9714,2,1,1,CORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor with the highest share of commits is **ijuma**, who authored 408 of the 5,609 total commits – about **7.27 %** of all commits.
+
+*Tool:* query_knowledge_graph on repository “apache_kafka” using a Cypher query that counted commits per contributor, total commits, computed the percentage, ordered descending, and limited to 1 result. (Result sourced from the knowledge graph.)",35101,7,1,1,CORRECT
+Forecast the number of commits expected in the next month.,,84751,10,0,0,ERROR
+Cluster issues into thematic groups based on their titles and descriptions.,"Using the issues collection, I retrieved the most recent 20 issue titles and bodies and ran a clustering analysis on the text (features = title + body). The clustering model returned a very low silhouette score (≈ 0.04) and produced no meaningful cluster assignments, indicating that the sampled issues do not form distinct thematic groups.
+
+**Result:** No clear thematic clusters were identified (silhouette ≈ 0.04).  
+**Tools:** MongoDB `retrieve_documents` (20 issues, title + body) → buffer `buf_4c0836`; `execute_ml_pipeline` with task_type = “clustering”.",28966,4,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Summary of the most discussed technical topics in the latest 10 issues**
+
+| Topic | Frequency (issues) | Brief description |
+|-------|--------------------|-------------------|
+| **Test flakiness / timeouts** | 4 | Several issues ( KAFKA‑7605, KAFKA‑7604, increase acceptable duration for `ReassignPartitionsClusterTest`, and the CommitCallback timeout ) focus on adjusting timeouts or fixing flaky unit tests to improve CI reliability. |
+| **Code cleanup / removal of dead code** | 2 | Minor clean‑ups such as the StreamsResetter refactor and removal of an unused abstract test method. |
+| **Metric handling** | 1 | `PushHttpMetricsReporter` conversion of non‑numeric metric values caused failures; the fix proposes handling metric values as generic objects. |
+| **Transactional benchmark support** | 1 | `Trogdor ProduceBenchWorker` now accepts a `messagesPerTransaction` field to enable transactional testing. |
+| **Documentation updates** | 1 | Updated RocksDBStore docs to clarify byte[] vs Bytes usage. |
+| **Configuration / test‑environment fixes** | 1 | Connect standalone system tests corrected to use the proper external properties file. |
+| **Version bump** | 1 | Minor release version updated to `2.0.2‑SNAPSHOT`. |
+
+**Overall pattern:** The recent discussion is dominated by improving test stability (timeouts, flaky tests) and small clean‑up or documentation changes, with a few targeted fixes for metric handling and transactional benchmarking.
+
+*Tools used:* `retrieve_documents` on `issues` (last 10) and on `issueComments` (no comments found). Answer based on issue bodies from MongoDB.",12922,2,1,1,CORRECT
+Assign issue #2 to contributor.,I’m unable to perform write operations such as assigning an issue; the available tools only let me read repository data.,2891,0,1,0,INCORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"**Result:** The semantic‑similarity analysis returned a similarity matrix for the 50 sampled issues. Pairs with high scores (≈ 0.7‑1.0) indicate duplicate or very similar issues, while lower scores indicate dissimilar ones. Key high‑similarity groups (score ≥ 0.7) include:
+
+| Issue # (Title) | Similar Issue # (Title) | Similarity |
+|----------------|------------------------|------------|
+| 5892 “MINOR: Update version to 2.0.2‑SNAPSHOT” | 5891 “MINOR: Code cleanup in StreamsResetter” | 0.94 |
+| 5886 “KAFKA‑7560; PushHttpMetricsReporter should not convert metric value to double” | 5876 “KAFKA‑7509: Avoid passing most non‑applicable properties to producer, consumer, and admin client” | 0.84 |
+| 5879 “KAFKA‑7380 Global thread restore blocks KafkaStreams#start()” | 5869 “KAFKA‑7537 Avoid sending full UpdateMetadataRequest to existing brokers” | 0.80 |
+| 5859 “MINOR: Fix a few blocking calls in PlaintextConsumerTest” | 5858 “KAFKA‑7572 Producer should not send requests with negative partition id” | 0.78 |
+| 5849 “MINOR: Improve ReplicationQuotasTest#shouldThrottleOldSegments() test…” | 5848 “KAFKA‑7557: optimize LogManager.truncateFullyAndStartAt()” | 0.76 |
+| 5829 “KAFKA‑7568 Return leader epoch in ListOffsets response” | 5828 “KAFKA‑7597: Make Trogdor ProduceBenchWorker support transactions” | 0.73 |
+| 5815 “KAFKA‑7538 Reduce lock contention for Partition ISR lock” | 5814 “KAFKA‑7520 Global store surrounded by read‑only implementation” | 0.71 |
+
+(Only a representative subset is shown; the full similarity matrix is in the tool output.)
+
+**How the answer was derived** – Retrieved 50 recent issue documents (title & body) from `issues` → executed an ML pipeline with `task_type=""semantic_similarity""` on the titles + bodies, which produced the similarity matrix presented above.
+
+**Tools used** – `retrieve_documents` (limit 50, projection title + body) → `execute_ml_pipeline` (semantic similarity).",48089,2,1,1,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"The knowledge‑graph query returned three comment timestamps for issue #2, showing that the issue currently has **3 comments**. Because there are only three data points (all on the same day), there isn’t enough historical activity to build a reliable time‑series model or to estimate a future comment count. Consequently, a meaningful forecast cannot be generated with the available data.
+
+*Tools used – KG query on `IssueComment` → `Issue` with `i.number = 2`; result from the knowledge graph.*",10426,2,1,1,CORRECT
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Clustered severity for the last 10 commits (based on number of files changed and total line changes)**  
+
+| Commit SHA | Files changed | Total changes (add + del) | Severity |
+|------------|--------------|---------------------------|----------|
+| 29383d6d6a3d42d30e815fbbb084275d449928c8 | 1 | 10 | Low |
+| 8abbf33b5978b93354ae35c5e21c474816c9cc76 | 17 | 275 | High |
+| df0faee09787ec4d14a1a5da98fe9bf4cd7f461c | 2 | 56 | Medium |
+| 7b5ffa0a070065e5e8320f481bbd8a3a26378f91 | 4 | 125 | High |
+| 63889b36e5301f63b7712540f99ef4132d2ac5ef | 1 | 41 | Medium |
+| 1c5aec6e9d1df4c3552b8de783845f07bc482a84 | 1 | 18 → Low |
+| 6f83d051315e120d148a53e3deba6541d3bb9857 | 4 | 73 | High |
+| f856082cb8370941a8dc1efc9a383c6167db12ad | 1 | 2 | Low |
+| 872df553fc03557d87dc43f4762641da9f874c2e | 1 | 4 | Low |
+| ea518e4d6734608de84cf9d0ee31342e2e6c7f3c | 1 | 2 | Low |
+
+**Method** – Used `aggregate_collection` on **commits** (sorted by author date, limited to 10) to get `fileCount` and `totalChanges`. Because the ML clustering step returned no predictions, a simple rule‑based severity mapping was applied:
+
+* **Low** – totalChanges ≤ 20  
+* **Medium** – 20 < totalChanges ≤ 70  
+* **High** – totalChanges > 70  
+
+The answer is based on MongoDB aggregation data (no KG data available).",25577,4,1,1,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"Issue #2 was opened on 2013‑01‑30 and was closed on 2015‑07‑20, i.e., more than two years later. Since the issue has already been closed after far exceeding‑30 days, the probability that it would be closed within 30 days is effectively **0 %**.  
+
+*Answer derived from a knowledge‑graph query that returned the issue’s `created_at`, `closed_at`, and `state` fields.*",9609,2,1,1,CORRECT
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","**Specialty classification of the top‑5 contributors (based on their last 10 commits)**  
+
+| Contributor | Dominant focus (specialty) | Evidence from recent commits |
+|------------|----------------------------|------------------------------|
+| **ijuma** | **Build / Tooling & Testing** | • Several commits upgrade Scala, Gradle, Jackson, SpotBugs, and replace EasyMock with Mockito. <br>• Messages reference “Simplify handling of KafkaProducer serializer overrides”, “Remove unused commitSync”, and many test‑related fixes. |
+| **hachikuji** | **Testing & Broker Core Internals** | • Multiple “Fix flaky unit test”, “Fix a few blocking calls in PlaintextConsumerTest”, and other test‑related hot‑fixes. <br>• Commits also address broker‑side changes (leader‑epoch handling, metadata cleanup, fencing protocol). |
+| **guozhangwang** | **Kafka Streams & Documentation** | • Commits focus on Streams upgrades (KIP‑330/356), DSL serde inheritance, StreamThread refactoring, state‑store docs, and caching optimisations. <br>• Several “Upgrade Documentation” changes. |
+| **rajinisivaram** | **Security & Network (SSL/SASL/OAuth)** | • Commits handle SSL transport fixes, SASL authenticator timing, truststore updates, OAuthBearer token handling, and channel idle‑timeout management. <br>• All messages are around security‑related components and related tests. |
+| **None** (the placeholder entry returned by the aggregation) | – | No real contributor – ignored. |
+
+**Tools used**
+
+- `retrieve_documents` on the **commits** collection for each contributor (`author.login` = ijuma, hachikuji, guozhangwang, rajinisivaram) with a limit of 10, projecting `commit.message` and `files.filename`.  
+- Manual thematic analysis of the retrieved commit messages to infer each contributor’s specialty.",135293,7,1,1,CORRECT
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams (derived from the last 10 open issues):**
+
+| Sub‑team | Focus area (issues that drive it) | Representative issues |
+|----------|-----------------------------------|------------------------|
+| **Streams** | All work around the **Kafka Streams** library and its runtime. | Issue 5891 (label *streams*), 5879 (label *streams*), 5884 (mentions Streams) |
+| **Tooling** | Development and maintenance of auxiliary tools used with Kafka (e.g., `kafka‑tools`, scripts, CI helpers). | Issue 5891 (label *tools*), 5878 (javadoc & client tools), 5892 (version bump of tool‑related artifact) |
+| **Testing & Quality** | Test‑suite reliability, time‑outs, flaky tests, and related test‑infrastructure improvements. | Issues 5890, 5888, 5887 (timeout/commit‑callback, unused abstract function in test, test duration) |
+| **Documentation** | Updates and clarifications in Kafka documentation, especially around new APIs or behaviours. | Issue 5884 (documentation update for RocksDBStore) |
+| **Performance / Benchmarking** | Work on performance knobs, benchmarking, and production‑grade throughput. | Issue 5885 (Trogdor ProduceBenchWorker support for transactions) |
+
+**Rationale** – The titles and the explicit labels of the ten most recent open issues fall naturally into those five domains. Grouping contributors around these topics will let each sub‑team own a clear, bounded slice of the workload while keeping related issues together.
+
+*Source: MongoDB “issues” collection (last 10 open issues, fields labels, number, title).*",7333,1,1,1,CORRECT

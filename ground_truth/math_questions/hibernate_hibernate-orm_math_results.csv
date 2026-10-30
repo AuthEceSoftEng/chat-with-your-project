@@ -1,0 +1,21 @@
+Question,Result
+What is the average number of commits per contributor?,25.12316715542522
+What percentage of issues are currently closed?,95.96804868771396
+What percentage of issues are currently open?,4.03195131228604
+What is the ratio of open issues to closed issues?,0.04201347602061038
+What is the average number of comments per issue?,2.305058957778623
+What is the median number of comments per issue?,1
+What is the average number of issue events per issue?,0.0
+What is the average number of commit comments per commit?,0.0
+What percentage of contributors have made more than 10 commits?,10.263929618768328
+What is the standard deviation of commits across contributors?,156.77887037798953
+What is the average time (in days) taken to close an issue?,55.590943559988844
+What is the median time (in days) taken to close an issue?,5.10119212962963
+What percentage of issues were closed within 7 days of creation?,55.965120887831944
+What percentage of issues were closed within 30 days of creation?,77.96274276654776
+Which contributor has the highest commit-to-comment ratio?,christianbauer
+What percentage of all comments are issue comments versus commit comments?,100.0
+What is the average number of commits per month since the repository was created?,48.505208333333336
+What was the percentage growth or decline in commits from the previous month?,0
+What percentage of issues have at least one comment?,85.73602130087485
+Which contributor accounts for the highest percentage of all commits?,"{'contributor': 'sebersole', 'percentage_of_all_commits': 27.5850961022227}"

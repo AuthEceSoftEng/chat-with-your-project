@@ -1,0 +1,118 @@
+question,answer,token_count,label
+What is the name and description of the repository?,"The name of the repository is github-plugin and its description is Jenkins GitHub plugin. 
+
+Filters, projections, and limits used: Filtered by exact matches of 'name' and 'description' fields from the jenkinsci_github-plugin repository.",191,CORRECT
+"When was the repository created, and when was it last updated?","The repository 'jenkinsci_github-plugin' was created on April 29, 2014, and was last updated on December 23, 2022.
+
+Filters, projections, and limits used: Matched by full repository name with limit=1.",210,INCORRECT
+How many contributors have contributed to this repository?,Error processing question: name 'dbcontributors' is not defined,0,ERROR
+Which contributor has made the highest number of commits?,"Error processing question: '(' was never closed (<string>, line 3)",0,ERROR
+How many total commits are recorded in the repository?,"611
+
+Filters, projections, and limits used: Projected total commit count from the available data without any specific date or range restrictions.",159,CORRECT
+What is the most recent commit message and who authored it?,"No commit data available.
+
+Filters, projections, and limits used: None (Database retrieval returned null).",150,NO
+What is the oldest commit in the repository?,"There is no data available to determine the oldest commit in the repository 'jenkinsci_github-plugin'.
+
+Filters, projections, and limits used: WHERE repository = 'jenkinsci_github-plugin' AND data_type = 'commit' ORDER BY date ASC LIMIT 1. Note that no data was retrieved due to the null result.",194,NO
+How many open issues are currently in the repository?,"3
+
+Filter: Issue state filtered to 'open'. Projection: Count of issues with the status 'open'. Limit: No specific limit applied, counted all open issues.",163,INCORRECT
+How many closed issues are currently in the repository?,"167
+
+Filters: Issue status set to 'closed'. Projections included issue counts only. Limits: No limits applied, considering all closed issues.",161,INCORRECT
+Which issue was created most recently?,"The issue created most recently is pull request 201, which was created on 2018-10-11T05:12:44Z.
+
+Filters, projections, and limits used: Filtered for the latest creation date within the provided data, projecting only the 'created_at' timestamp. No additional limits were applied.",1018,INCORRECT
+Which issue has been open for the longest time?,"The issue that has been open for the longest time is pull request #2, which was opened on 2011-06-02T23:33:06Z and closed on 2011-06-03T17:24:04Z.
+
+Filters, projections, and limits used: Query filtered for issues in the repository 'jenkinsci_github-plugin', projection included only relevant fields such as number, title, created_at, and closed_at, with a limit of one result since there is only one entry per issue number.",1378,INCORRECT
+Which issue has received the highest number of comments?,"Error processing question: A pipeline stage specification object must contain exactly one field., full error: {'ok': 0.0, 'errmsg': 'A pipeline stage specification object must contain exactly one field.', 'code': 40323, 'codeName': 'Location40323'}",0,ERROR
+How many issue comments exist in total?,"There are 1060 issue comments in total.
+
+Filters, projections, and limits used: 
+- Relevant tables: `issueComments`
+- Aggregation function: COUNT(*)",165,CORRECT
+How many commit comments exist in total?,"The database does not provide specific information about the number of commit comments in the 'jenkinsci_github-plugin' repository.
+
+Filters, projections, and limits used: None specified, as the exact count was not directly queried from the provided dataset.",176,NO
+Which project contains the largest number of issues?,"There is not enough information in the provided database facts to determine which project contains the largest number of issues, as the facts indicate an empty set.
+
+Filters, projections, and limits used: None due to lack of relevant data.",171,NO
+How many issue events are associated with issue #2?,"0
+
+Filters: Issue number 2 was queried for event associations.
+Projections: Events related to issue management were considered.
+Limits: Only one specific issue number was targeted.",164,INCORRECT
+Which contributor most recently made a commit?,Error processing question: 'dict' object has no attribute 'sort',0,ERROR
+Which issue was closed most recently?,"The issue closed most recently is issue number 200, which was created on 2018-10-08T09:50:09Z.
+
+Filters, projections, and limits used: Selected the most recent issue creation timestamp from the provided data. No additional filters or projections were applied. Limited to a single record as per the question's request.",241,CORRECT
+Which contributor has authored at least one commit comment?,"No contributors found who have authored at least one commit comment.
+
+Filters, projections, and limits used: Retrieved data contained no information, thus no specific filters, projections, or limits were applied beyond the basic scope of the query.",173,NO
+What are the top 5 contributors ranked by number of commits?,"Based on the provided data, no commit information is available to rank contributors.
+
+Filters, projections, and limits used: The query was constrained to the provided database entries, which contained no commit or contributor-related details.",178,NO
+What is the average number of commits per contributor?,"The average number of commits per contributor is 0.0.
+
+Filters, projections, and limits used:Projected fields included only ""_id"", ""average_commits_per_contributor"". No specific range or limit was applied for this query.",194,INCORRECT
+What percentage of issues are currently closed?,Error processing question: name 'null' is not defined,0,ERROR
+What percentage of issues are currently open?,"This value represents the ratio 0.05527638190954774 or approximately 5.53% of issues that are currently open in the jenkinsci_github-plugin repository.
+
+Filters, projections, and limits used: Calculated from the current issue tracking data where only open issues were considered for this percentage calculation.",220,CORRECT
+What is the ratio of open issues to closed issues?,Error processing question: 'Cursor' object has no attribute 'count',0,ERROR
+What is the average number of comments per issue?,Error processing question: name 'null' is not defined,0,ERROR
+What is the median number of comments per issue?,"Error processing question: unknown group operator '$median', full error: {'ok': 0.0, 'errmsg': ""unknown group operator '$median'"", 'code': 15952, 'codeName': 'Location15952'}",0,ERROR
+What is the average number of issue events per issue?,Error processing question: 'issue_events',0,ERROR
+What is the average number of commit comments per commit?,Error processing question: name 'null' is not defined,0,ERROR
+What percentage of contributors have made more than 10 commits?,Error processing question: 'CommandCursor' object is not subscriptable,0,ERROR
+What is the standard deviation of commits across contributors?,"Error processing question: unknown group operator '$sqrt', full error: {'ok': 0.0, 'errmsg': ""unknown group operator '$sqrt'"", 'code': 15952, 'codeName': 'Location15952'}",0,ERROR
+What is the average time (in days) taken to close an issue?,Error processing question: 'Cursor' object has no attribute 'project',0,ERROR
+What is the median time (in days) taken to close an issue?,Error processing question: 'Cursor' object has no attribute 'map',0,ERROR
+What percentage of issues were closed within 7 days of creation?,"No data available to calculate the percentage of issues closed within 7 days of creation.
+
+Filters, projections, and limits used: 
+- Restricted to the provided dataset.
+- No time range or issue type filters applied due to insufficient data.",180,NO
+What percentage of issues were closed within 30 days of creation?,Error processing question: name 'db_issues' is not defined,0,ERROR
+Which contributor has the highest commit-to-comment ratio?,Error processing question: 'author',0,ERROR
+What percentage of all comments are issue comments versus commit comments?,"Error processing question: Invalid $project :: caused by :: an expression specification must contain exactly one field, the name of the expression. Found 2 fields in { $multiply: [ { $divide: [ ""$issueComments"", ""$total"" ] }, 100 ], _id: 0 }, while parsing object { percentage: { $multiply: [ { $divide: [ ""$issueComments"", ""$total"" ] }, 100 ], _id: 0 } }, full error: {'ok': 0.0, 'errmsg': 'Invalid $project :: caused by :: an expression specification must contain exactly one field, the name of the expression. Found 2 fields in { $multiply: [ { $divide: [ ""$issueComments"", ""$total"" ] }, 100 ], _id: 0 }, while parsing object { percentage: { $multiply: [ { $divide: [ ""$issueComments"", ""$total"" ] }, 100 ], _id: 0 } }', 'code': 40181, 'codeName': 'Location40181'}",0,ERROR
+What is the average number of commits per month since the repository was created?,"Error processing question: invalid syntax. Perhaps you forgot a comma? (<string>, line 7)",0,ERROR
+What was the percentage growth or decline in commits from the previous month?,"Error processing question: invalid syntax (<string>, line 23)",0,ERROR
+What percentage of issues have at least one comment?,Error processing question: 'issue_number',0,ERROR
+Which contributor accounts for the highest percentage of all commits?,"Error processing question: expected a string as the path for $unwind stage, got object, full error: {'ok': 0.0, 'errmsg': 'expected a string as the path for $unwind stage, got object', 'code': 28808, 'codeName': 'Location28808'}",0,ERROR
+Forecast the number of commits expected in the next month.,"Based on the available data, it is not possible to forecast the number of commits for the next month.
+
+Filters, projections, and limits used: The query retrieval did not return any database entries, indicating no historical commit data is available in the context provided.",180,NO
+Cluster issues into thematic groups based on their titles and descriptions.,Error processing question: name 'db_issues' is not defined,0,ERROR
+Summarize the most discussed technical topics across last 10 issues and comments.,"The most discussed technical topics across the last 10 issues and comments in the jenkinsci_github-plugin repository include:
+- Fixing capitalization errors between ""commit"" and ""GitHub""
+- Supporting different types of SSH keys for project-specific authentication on GitHub repositories
+- Updating URLs to correctly reference commit shas
+- Enhancing compatibility with non-GitHub.com instances (Github:fi support)
+- Resolving issues related to private organization-based repositories and their hook URL authentication
+
+Filters, projections, and limits used: Issues and comments numbered 7 through 10 are considered based on the chronological order from most recent closed or merged pull requests. Estimates or ML/buffer outputs do not apply here as this is a direct analysis of the provided data.",1348,CORRECT
+Assign issue #2 to contributor.,"There are no sufficient data points available in the provided database to assign issue #2 to a specific contributor for the jenkinsci_github-plugin.
+
+Filters, projections, and limits used: No database data was retrieved, hence no filters, projections, or limits applied.",178,NO
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"There is no data available to identify duplicates or highly similar issues across the specified examples.
+
+Filters, projections, and limits used: Retrieved zero records from the database for the 'jenkinsci_github-plugin' repository, applied a limit of 50 examples for semantic similarity analysis.",189,NO
+Forecast the number of issue comments the issue #2 will have.,"There is no data available to forecast the number of issue comments for issue #2 in the jenkinsci_github-plugin repository.
+
+Filters, projections, and limits used: Empty dataset filtered; projection limited to issue comments for issue #2; limit set to none due to lack of data.",189,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.",Error processing question: name 'datetime' is not defined,0,ERROR
+Estimate the probability issue #2 will be closed within 30 days.,"Based on the provided data, we cannot estimate the probability of issue #2 being closed within 30 days as no relevant Issue metadata for issue #2 is present.
+
+Filters, projections, and limits used: Selected issues created after June 2, 2011, with a state of ""closed"". No specific issue ID was matched in the provided data.",243,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.",Error processing question: 'author',0,ERROR
+"Based on last 10 open issues, propose 5 sub teams to split workload.","Teams for Subdivision:
+- Team A: Issues #54, #58
+- Team B: Issues #133
+- Team C: Issues #149
+- Team D: Issues #169
+
+Filters, projections, and limits used: Selected the last 10 open issues based on their issue numbers. Each sub team was assigned consecutive or isolated issues to balance the workload.",271,INCORRECT

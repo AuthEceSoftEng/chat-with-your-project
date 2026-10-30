@@ -1,0 +1,224 @@
+question,answer,token_count,label
+What is the name and description of the repository?,"The repository name is spring-boot, and its description is Spring Boot.
+
+*Filters:* None – simple lookup; *Projection:* `name, description`; *Limit:* 1 record.",334,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **October 19, 2012** and was last updated on **July 8, 2018**.  
+*Filters/Projection/Limit: created_at, pushed_at; none; 1 record.*",433,CORRECT
+How many contributors have contributed to this repository?,"I’m sorry, but I don’t have any data about the contributors for this repository.",257,NO
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is **wilkinsona**, with **5270 commits**.  
+
+Filters: none; Projections: id, login, commit_count; Limit: 1",632,CORRECT
+How many total commits are recorded in the repository?,"17358
+
+Filters: none; Projection: total commits; Limit: none",415,CORRECT
+What is the most recent commit message and who authored it?,"I’m sorry, I don’t have that information.  
+
+Filters: none | Projections: none | Limits: none",438,NO
+What is the oldest commit in the repository?,"The only available commit in the data is the oldest commit, which is:
+
+- **Committer:** Andy Wilkinson  
+- **Commit message:** “Upgrade to Spring Batch 4.0.0.M2\n\nCloses gh-7645”
+
+**Filters/Projections used:** retrieved all commits for the repository (none filtered), selected the single commit entry, displayed committer name and commit message.",384,INCORRECT
+How many open issues are currently in the repository?,"The Spring Boot repository currently has **48 open issues**.  
+
+Filters used: none; Projection: count of open issues; Limit: none.",426,CORRECT
+How many closed issues are currently in the repository?,I don’t have enough information from the repository data you provided to determine how many closed issues exist.,340,NO
+Which issue was created most recently?,"Issue #13730: “@WebMvcTest should register PageableHandlerMethodArgumentResolver” was created most recently (on 2018‑07‑09).
+
+*filters*: `created_at` ascending; *projections*: `number, title`; *limits*: 1 (most recent).",361,CORRECT
+Which issue has been open for the longest time?,"The issue “FailureAnalyzer doesn't provide useful information for the “null” bean case” has been open longer than any other listed issue.
+
+Filters used: none (only one record). Projection: title and created_at. Limit: 1.",327,CORRECT
+Which issue has received the highest number of comments?,"No data is available to determine which issue has the most comments.
+
+Filters: None; Projections: None; Limits: None",466,NO
+How many issue comments exist in total?,"There are 200 issue comments in total.
+
+Filters: repository='spring-projects_spring-boot', Projections: total issue_comments, Limits: none",448,CORRECT
+How many commit comments exist in total?,"There are no commit comments.
+
+Filters: none, Projection: commit‑comment count, Limit: 0.",575,CORRECT
+Which project contains the largest number of issues?,"The only available project in the database has `project_id` = null and holds the largest known number of issues (200). 
+
+**Filters/Projection/Limit**: match all projects, project_id null → issue_count 200.",337,INCORRECT
+How many issue events are associated with issue #2?,"0 issue events are associated with issue #2.  
+#filters: issueId=2 **projection**: count **limit**: 1",507,CORRECT
+Which contributor most recently made a commit?,"I’m sorry, but the retrieved data does not include any commit timestamps, so I can’t tell which contributor made the most recent commit for this repository.  
+
+Filters/projections/limits: none applied.",665,NO
+Which issue was closed most recently?,"The most recently closed issue is #13729: ""Spring data jpa query creation keyword \""Like\"" is not work"".
+
+Filters used: closed_at, repo_name. Projections: number, title, closed_at. Limit: 1.",323,CORRECT
+Which contributor has authored at least one commit comment?,"There are no contributors recorded in the provided data that have authored a commit comment.  
+
+*Filters:* none (empty dataset retrieved).",289,CORRECT
+What are the top 5 contributors ranked by number of commits?,"I’m sorry, but no contributor data is available in the retrieved records, so I can’t provide a ranking.
+
+Filters used: none; Projections: none; Limits: none.",354,NO
+What is the average number of commits per contributor?,"The average number of commits per contributor is **37.57142857142857**.
+
+Filters: repository = 'spring-projects_spring-boot'; Projection: averageCommits; Limits: none.",436,INCORRECT
+What percentage of issues are currently closed?,"I don't have any issue data for the repository to calculate that percentage.
+
+filters: none, projections: none, limits: none",330,NO
+What percentage of issues are currently open?,"There are no issue records in the current data, so a percentage of open issues cannot be calculated.  
+
+**Filters/Projection/Limit:** None (no issues present).",300,NO
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues is **≈ 0.3158** (open : closed ≈ 0.3158 : 1).  
+
+Filter: repository = `spring-projects_spring-boot`; Projection: open_to_closed_ratio; Limit: 1",621,CORRECT
+What is the average number of comments per issue?,"There is insufficient data in the provided database to calculate the average number of comments per issue for spring‑projects/spring‑boot.
+
+filters: none, projections: none, limits: none",419,NO
+What is the median number of comments per issue?,"The median number of comments per issue cannot be determined because the query to retrieve the data failed with a pipeline operator error.
+
+Filters: none – Projection: none – Limit: none",576,ERROR
+What is the average number of issue events per issue?,"I’m sorry, but I don’t have any data on issue events in this repository to calculate an average.",259,NO
+What is the average number of commit comments per commit?,"I’m sorry, but there is no available data to calculate an average number of commit comments per commit in the repository.
+
+*Filter: none – no data retrieved*",296,NO
+What percentage of contributors have made more than 10 commits?,"I’m sorry, but I don’t have any contributor or commit data available for the repository, so I can’t calculate that percentage.  
+
+**Filters / Projections / Limits used:** None (no data retrieved).",353,NO
+What is the standard deviation of commits across contributors?,"I’m sorry, but I don’t have any data on contributor commits in the repository, so I can’t compute the standard deviation.  
+
+Filters: none | Projections: none | Limit: none",459,NO
+What is the average time (in days) taken to close an issue?,"I’m sorry, but I can’t calculate that value with the information available.
+
+Retrieved Context: No issue data retrieved.",391,NO
+What is the median time (in days) taken to close an issue?,"I’m sorry, but I don’t have any data about issue closing times for the repository in the provided information.  
+
+Filters: {}
+Projected fields: {}
+Limit: 0",275,NO
+What percentage of issues were closed within 7 days of creation?,"I’m sorry, but I can’t calculate that percentage with the information available here.  
+**(Filters: none, Projections: none, Limits: none – no data retrieved.)**",555,NO
+What percentage of issues were closed within 30 days of creation?,"I’m sorry, but I don’t have any data on the issue history for `spring-projects/spring-boot`, so I can’t calculate the percentage of issues closed within 30 days.  
+
+Filter: none. Projection: none. Limit: none.",357,NO
+Which contributor has the highest commit-to-comment ratio?,"I’m sorry, but I don’t have enough data from the repository to determine which contributor has the highest commit‑to‑comment ratio.  
+_Filters used: None (no relevant data available)._",334,NO
+What percentage of all comments are issue comments versus commit comments?,"All 200 comments are issue comments (100 %) and none are commit comments (0 %).  
+
+Filters: none | Projections: issue_comments_pct, commit_comments_pct | Limits: none",404,CORRECT
+What is the average number of commits per month since the repository was created?,"I’m unable to provide the average number of commits per month because the repository data couldn’t be retrieved.
+
+Filters: None; Projections: None; Limits: none – the query failed with a ""'CommandCursor' object has no attribute 'limit'"" error.",541,NO
+What was the percentage growth or decline in commits from the previous month?,"The database does not provide commit growth data for the previous month.  
+
+Filters: none; Projections: none; Limits: none.",355,NO
+What percentage of issues have at least one comment?,"I’m sorry, but I can’t answer that question because the requested data was not retrieved – the query failed with a “unrecognized field 'limit'” error.  
+
+**Filters, projections, and limits used based on the retrieved context:** None available.",401,ERROR
+Which contributor accounts for the highest percentage of all commits?,"The contributor with the highest share of commits is **wilkinsona**, with **30.36 %** of all commits.  
+*(Filter: contributor, projection: login, percentage)*",602,CORRECT
+Forecast the number of commits expected in the next month.,"There isn’t enough data in the retrieved facts to generate a reliable forecast for the next month’s commit activity.  
+Filters: {}, Projections: {}, Limit: 1",461,NO
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic Clusters**
+
+1. **Configuration & Properties Issues**
+   - FailureAnalyzer “null” bean case
+   - Missing application.properties/yml
+   - Property key substitution failures
+   - Unsupported multiline properties in 1.5.x
+   - Bean overriding default off
+   - Support for `EXTRA_JAVA_OPTS`
+   - Disable security on springboot2
+   - Enable git remote linking automatically on CF
+   - Override multiline properties
+   - Set property substitution in environment after preparation
+   - Support for `spring.profiles.active` in tests
+
+2. **Dependency & Plugin Upgrade / Compatibility**
+   - Multiple upgrade lists (Maven plugins, Spring Framework, JDK, Tomcat, etc.)
+   - snakeyaml conflict with Elasticsearch 6.2.x
+   - Legacy dependency‑management mismatches (e.g., `org.elasticsearch.distribution.zip`, `maven-resources-plugin` version conflict)
+   - Runtime class‑loading failures (`org.slf4j.impl.StaticLoggerBinder`, `javax.sql.DataSource`)
+   - Failures due to newer Java (JDK 9+, Kotlin 1.2.51, Java 10 modules)
+
+3. **Actuator / Endpoint Problems**
+   - Actuator breaks `schema.sql` init
+   - Liquibase endpoint auto‑commit leaks
+   - Custom endpoint generation cannot read method parameter names
+   - Endpoint exposure and security defaults (health/info)
+
+4. **Web & DI/Test Startup Bugs**
+   - DevTools restart issues (Framework 5.1, JDK 9+)
+   - ApplicationContext loading for each test
+   - Failure of @WebFluxTest / @WebMvcTest (handler resolvers, security, secure flag)
+   - Servlet and Tomcat startup failures, missing ServletWebServerFactory
+   - RestartClassLoader unrelated bugs
+   - Double registration of handlers (e.g., `HandlerInterceptorAdapter`, `RequestMatcherFactory`)
+
+5. **Security & CSRF**
+   - Invalid CSRF token on multipart/form‑data
+   - Session cookie secure flag control
+   - Default security for health/info endpoints
+
+6. **Persistence / Database Integration**
+   - Spring Data ElasticSearch, MongoDB Atlas, MongoDriver, Mongo GridFS, Hibernate+Flyway, JPA query “Like” issue
+   - DataSource bean missing
+   - Session timeout not applied to Redis backend
+   - Connection auto‑commit issue (Liquibase, Flyway)
+
+7. **Error Reporting & Logging**
+   - Show stacktraces on startup failures
+   - SLF4J NOP logger defaulting
+   - Failure analysis misleading for bean mis‑match
+   - Banner control
+
+8. **Performance & Resource Loading**
+   - Thymeleaf sample addition
+   - Tomcat static resource lower performance
+   - DispatcherServletPathProvider multiple paths support
+   - Tomcat web‑resource caching disable flag
+
+9. **Miscellaneous / Documentation / Localization**
+   - Polish translations and contributors
+   - Documentation improvements (example, reference, tag guidance)
+   - Anchor issues in docs, Javadoc formatting
+   - Other minor bugs (e.g., zip entry size, Servlet filter differences between startup and tests)
+
+10. **Framework‑Level Feature / Migration**
+    - Migration from 1.5.10 → 2.0.3 and “spring-boot-v2 Migration Guide” suggestions
+    - Spring Boot maven plugin errors
+    - SpringBootTest with Java 10 modules
+    - ApplicationListener inefficiency
+    - Binder performance & optimization
+    - Environment variable ordering and precedence
+
+**Filters, projections, limits used**: Queried `issues.title`, no projections beyond title extraction, no pagination applied.",4356,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"I’m sorry, but no data could be retrieved for the requested query (“Error executing query: '_number'”), so I can’t summarize the most discussed technical topics.  
+
+**Filters / Projections / Limits**: N/A.",423,ERROR
+Assign issue #2 to contributor.,"I’m unable to assign issue #2 to a contributor because the operation is forbidden – I received an “Unauthorized” error when attempting to update the issues collection.  
+
+Filters/Projections/Limits: attempted update on issues collection without authorization.",708,ERROR
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"I’m unable to perform a semantic similarity search because the database query failed with the error “CommandCursor object has no attribute 'limit'.” Consequently, I cannot retrieve or analyze the 50 issue examples.  
+
+**Filters/projections/limits:** None (query error).",381,ERROR
+Forecast the number of issue comments the issue #2 will have.,"I’m unable to forecast the number of issue comments for issue #2 because there is no issue data available in the repository record.  
+
+Filter: None (no issues retrieved)  | Projection: Estimate (none)  | Limit: 0 documents.",525,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","I don’t have the commit list or file change details, so I can’t cluster the last ten commits by severity.",378,NO
+Estimate the probability issue #2 will be closed within 30 days.,"I cannot estimate the probability for issue #2 because the repository database does not contain any data about the issue's status, creation or closing dates.  
+
+**Filters/Projections/Limits:** None – no relevant data available.",370,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","I’m sorry, but I don’t have any commit data to work with—my query failed with  
+`'CommandCursor' object has no attribute 'limit'`.  
+
+**filters/projections/limits used:** error retrieving last 10 commits of top 5 contributors.",379,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed five sub‑teams (based on the last 10 open issues)**  
+
+| Sub‑team | Primary focus | Issues that fit the focus |
+|----------|---------------|--------------------------|
+| **Triage & Feedback** | Rapid triage of new issues and managing the “waiting‑for‑feedback” state. | #13730, #13728, #13720 (labels status: waiting-for‑triage & waiting‑for‑feedback) |
+| **Core Enhancements** | Address “type: enhancement” improvements and underlying core changes. | #13717 (Register SpringBeanContainer), #13715‑#13718 cycle |
+| **Security & Endpoint** | Re‑evaluate default security for health/info endpoints and related tasks. | #13723 (Reconsider default exposure for info endpoint), #13722 (Reconsider default security for health endpoint) |
+| **Documentation & Migration** | Update guides, migration docs and provide documentation‑type improvements. | #13716 (Migration Guide suggestions), #13727 (Polish some Collectors) |
+| **Testing & QA** | Fix broken tests, performance, and add quality‑related checks. | #13724 (Use PropertySources.stream()), #13718 (Allow mocks with ApplicationContextRunner) |
+
+---
+
+**Filters / projections used:** queried the 10 most recent open issues (`number >= 13716 && number <= 13730`) and grouped them by their primary label types (`status:`, `type:`, `for:`) to allocate to sub‑teams.",1949,CORRECT

@@ -1,0 +1,159 @@
+question,answer,token_count,label
+What is the name and description of the repository?,"jenkinsci_github-plugin – Jenkins GitHub plugin
+
+Filters: repo_name = ""jenkinsci_github-plugin""; Projections: repo_name, description; Limit: 1.",337,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **2010‑12‑13T05:35:14Z** and last updated on **2018‑12‑24T23:21:25Z**.  
+Filters: none | Projections: created_at, updated_at | Limit: 1",405,CORRECT
+How many contributors have contributed to this repository?,I don't have enough information in the provided data to determine how many contributors have contributed to this repository.,304,NO
+Which contributor has made the highest number of commits?,"There is no contributor information in the data you provided, so I cannot determine who made the most commits.
+
+Filter: none, Projection: none, Limit: none.",337,NO
+How many total commits are recorded in the repository?,"There are 611 commits recorded in the repository.  
+**Filters/Projection/Limit:** {total_commits: 611}",298,CORRECT
+What is the most recent commit message and who authored it?,"Commit message: “add optional trailing slashes to patterns”  
+Author: Andrew Byrd  
+
+Filters: repository=jenkinsci_github-plugin; projections=commit.message, commit.author.name; sort=timestamp desc; limit=1",479,INCORRECT
+What is the oldest commit in the repository?,"The oldest commit in the repository is commit b3329dd500e58e1a579484d36350f1b7e9b63daa, made on 2009‑06‑09 T 20:35:36 Z, with the message “Add: Root directory for the github Plugin.”  
+
+Filters/Projection/Limit: sort by commit.committer.date asc, project sha, message, committer.date, limit 1.",576,CORRECT
+How many open issues are currently in the repository?,"There are 11 open issues in the `jenkinsci_github-plugin` repository.
+
+Filters: none, Projections: open issues count, Limits: none.",399,CORRECT
+How many closed issues are currently in the repository?,There are **188 closed issues** in the repository.\n\nFilters/projections/limits: None; only the directly retrieved count (188) was used.,339,CORRECT
+Which issue was created most recently?,"The most recently created issue in the jenkinsci_github-plugin repository is **issue #201** (created on 2018‑10‑11).  
+
+— Filters: repository_id=jenkinsci_github‑plugin, sorted by created_at descending; projection: issue number, created_at.",1055,CORRECT
+Which issue has been open for the longest time?,"The open issue that has been open the longest is **#54 – “Add ability to specify GitHub events.”**  
+It was created on April 27, 2015 and remains open.
+
+**Filters, projections, limits:** `state=""open""`, projected `created_at`, `number`, `title` (no limits).",1114,CORRECT
+Which issue has received the highest number of comments?,"I’m sorry, but the provided data set does not include the issue ID or comment counts for individual issues, so I can’t determine which issue received the most comments.",286,NO
+How many issue comments exist in total?,"There are **1,060** issue comments in total.  
+#filters: none #projection: count #limit: none",377,CORRECT
+How many commit comments exist in total?,"There are **53** commit comments in total.  
+
+**Filters:** repository = jenkinsci_github-plugin; **Projection:** count; **Limit:** none",384,CORRECT
+Which project contains the largest number of issues?,"Unable to determine – the query returned an error, so no issue data is available.
+
+filters: none; projections: none; limits: none",478,ERROR
+How many issue events are associated with issue #2?,"There are no issue events recorded for issue #2 in the jenkinsci_github-plugin repository.  
+
+**Filters/Projection/Limit used:** repository = jenkinsci_github-plugin, issue_id = 2, event_type = issue_event.",421,INCORRECT
+Which contributor most recently made a commit?,"abyrd
+
+Filters: none, Projections: author.login, Limit: 1",368,NO
+Which issue was closed most recently?,"add mvnw
+Filters: {}, Projections: {title, closed_at}, Limit: 1",480,CORRECT
+Which contributor has authored at least one commit comment?,"I don’t have any data about commit comments from contributors in this repository.  
+
+Filters/Projection/Limits: None (no retrieved facts).",306,NO
+What are the top 5 contributors ranked by number of commits?,"Top contributors by commit count (for the available authors):
+
+| Rank | Author | Commits |
+|------|--------|---------|
+| 1 | `lanwen` | 176 |
+| 2 | `kohsuke` | 85 |
+| 3 | `KostyaSha` | 61 |
+| 4 | `stephenc` | 34 |
+
+(The entry with `commit_count` 83 has a null author and therefore isn’t listed.)
+
+**Filters/Projection:** ordered by `commit_count` descending, limited to non‑null authors.",1655,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is **611.0**.
+
+*Filters: None; Projection: {average_commits}; Limit: 1*",325,INCORRECT
+What percentage of issues are currently closed?,"The percentage of issues that are currently closed is **94.47 %**.
+
+*Filters: closed_percentage; no projection or limit applied.*",290,CORRECT
+What percentage of issues are currently open?,"5.53%
+
+Filters: none; Projection: open‑issue percentage; Limit: single value returned.",317,CORRECT
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues is approximately 0.0585 (11 open ÷ 188 closed).  
+Filters: open=11, closed=188. Projections: ratio. Limit: N/A.",334,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **1060.0**.  
+
+Filters: None | Projections: average_comments_per_issue | Limits: 1",364,INCORRECT
+What is the median number of comments per issue?,"The median number of comments per issue is 1060.
+
+Filters: none  Projections: none  Limits: none",383,INCORRECT
+What is the average number of issue events per issue?,Error processing question: Timeout after 3 minutes.,0,ERROR
+What is the average number of commit comments per commit?,"The average number of commit comments per commit is 0.0867430441898527.
+
+*filters: none·projection: average commit comments per commit·limit: none*",373,INCORRECT
+What percentage of contributors have made more than 10 commits?,"I’m unable to determine the percentage because no contributor or commit data is available in the repository database.
+
+filters: none, projections: none, limit: none",391,NO
+What is the standard deviation of commits across contributors?,"0.0  
+Filter: {}, Projection: {stdDev: 1}, Limit: 1",394,INCORRECT
+What is the average time (in days) taken to close an issue?,"I’m sorry, but no issue data could be retrieved from the repository database, so the average time to close an issue cannot be calculated.  
+
+_filters used: query failed, no rows returned._",418,NO
+What is the median time (in days) taken to close an issue?,"The median time to close an issue could not be calculated because the data query failed with an error.  
+
+Filters: {} Projections: {} Limits: 0",550,ERROR
+What percentage of issues were closed within 7 days of creation?,"I don’t have any data on how many issues were closed within 7 days of creation.
+
+Filters: {}; Projections: {}; Limit: none.",566,NO
+What percentage of issues were closed within 30 days of creation?,"I’m sorry, but I can’t provide that percentage because the query failed with a type error (cannot subtract strings).  
+
+**Filters / Projections / Limits**: none.",524,ERROR
+Which contributor has the highest commit-to-comment ratio?,"No contributor information is available in the provided data.  
+**Filters / Projection / Limits**: None (single aggregate row).",389,NO
+What percentage of all comments are issue comments versus commit comments?,"Issue comments: 95.24 %  
+Commit comments: 4.76 %
+
+Filters: issue_comments_percent, commit_comments_percent Projections: issue_comments_percent, commit_comments_percent Limits: none",383,CORRECT
+What is the average number of commits per month since the repository was created?,"The average number of commits per month since the repository was created is **611.0**.  
+*Filters: {} Projections: {avg_commits_per_month: 1} Limit: 1*",362,INCORRECT
+What was the percentage growth or decline in commits from the previous month?,"I’m sorry, but I don’t have the percentage growth or decline in commits from the previous month for the Jenkins GitHub plugin because the query that would provide that information failed to execute.  
+
+Filters: none (query error); Projections: none; Limits: none.",537,NO
+What percentage of issues have at least one comment?,I don’t have enough data to calculate that percentage – no issue or comment counts were provided.,316,NO
+Which contributor accounts for the highest percentage of all commits?,"The contributor account that accounts for the highest percentage of all commits is **null**, representing **100.0 %** of commits.  
+*Filters*: none; *Projections*: contributor, percentage; *Limits*: none",380,INCORRECT
+Forecast the number of commits expected in the next month.,"I’m unable to provide a reliable commit forecast with the single data point (611.0) that’s been supplied. More historical commit data would be required for a meaningful prediction.  
+**filters:** none, **projections:** none, **limits:** none",432,NO
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic issue clusters for *jenkinsci_github-plugin*:**
+
+| Cluster Theme | Representative issue titles | Number of issues |
+|---------------|------------------------------|------------------|
+| Minor wording / typos | “Minor grammatical fix”, “Fix typos – s/mailformed/malformed” | 2 |
+| Hook‑management changes | “Always update existing hooks to make sure all options (… )”, “[FIXES JENKINS-30207] Don’t run cleaner if github plugin not manage hooks” | 2 |
+| Build‑flow configuration | “Enable FindBugs in the local build flows.” | 1 |
+| Payload verification | “[JENKINS-33974] Payload verification using shared secrets” | 1 |
+| Jenkins release‑notes / versioning | “Change since annotations to new release version (0.13.0)” | 1 |
+| Commit‑status handling | “Allow for commit status backref configuration” | 1 |
+| URL handling | “Handle ssh:// URLs that doesn’t contain git@” | 1 |
+| Source compatibility | “Restore source compatibility of GitHub plugin after #183” | 1 |
+
+*Filters applied: group by similarity of titles/contents; projections: _id, groupTitle, count, sampleIssue; no explicit limit used.*",1128,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"I don’t have records of the last 10 issues or their comments in the database provided, so I can’t summarize the most discussed technical topics.  
+
+*Used filters:* none – *projection:* none – *limit:* none.",409,NO
+Assign issue #2 to contributor.,"I’m sorry, but I can’t assign issue #2 to a contributor because I don’t have permission to update the database.",485,INCORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"I don’t have the issue bodies or titles to compare, only a list of 199 issue IDs. To compute semantic similarity and flag duplicates or highly similar issues among 50 examples, I would need the full text (titles, descriptions, comments, etc.) for each of those 50 issues. Once those texts are available, I can run a semantic similarity analysis on them.  
+
+**Filters/Projections Used:** Retrieved context contained only issue IDs (no titles/descriptions).",1398,NO
+Forecast the number of issue comments the issue #2 will have.,"I don’t have any data on issue #2 in the jenkinsci_github-plugin repository, so I’m not able to forecast its comment count.  
+
+**Filters:** issue id=2; **Projection:** none; **Limit:** 0 hits.",375,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","I’m sorry, but I don’t have any commit data for the repository, so I can’t cluster the last 10 commits by severity.  
+
+No data retrieved; no filters, projections, or limits applied.",688,NO
+Estimate the probability issue #2 will be closed within 30 days.,"I’m sorry, but I don’t have enough data to estimate that probability.",313,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","I’m sorry, but the available data does not include any information about each contributor’s specialty, so I can’t provide a classification.  
+
+**Filters, projections, limits used:** author login in [lanwen, kohsuke, KostyaSha, stephenc] (top 5 contributors), projection: none, limit: 5.",1652,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed 5 sub‑teams**
+
+| Team | Focus area (based on issue titles) | Key issues to handle |
+|------|-----------------------------------|----------------------|
+| Documentation Team | Keep README, guides, and release notes up‑to‑date | “Update the README.md” |
+| Core Update Team | POM / dependency updates, plugin stability | “Update Parent POM to 2.37 …”, “Support aborted build status reporting” |
+| Hook & Configuration Team | Managing GitHub hook logic and configuration changes | “Always update existing hooks …”, “Ignorable pusher” |
+| Event & Feature Team | Adding new event data to jobs and feature experiments | “Add push event information …” |
+| Deprecation & Maintenance Team | Work‑in‑progress, deprecation cleanup, compatibility fixes | “WIP [JENKINS-33228] …”, “WIP Deprecate magic method.”, “Prevent stacktrace …”, “More compatible adaptation.” |
+
+**Filters, projections, limits:**
+used last 10 open issues (created_at 2018‑10‑11 to 2015‑06‑23) and projected titles.",1163,CORRECT

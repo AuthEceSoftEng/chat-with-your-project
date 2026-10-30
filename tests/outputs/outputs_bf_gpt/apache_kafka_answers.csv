@@ -1,0 +1,180 @@
+question,answer,token_count,answered,correct,label
+What is the name and description of the repository?,"The repository name is **kafka** and its description is **“Mirror of Apache Kafka.”**  
+Filters: none; Projections: name, description; Limit: 1.",340,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **2011‑08‑15 18:06:16 UTC** and was last updated on **2018‑11‑08 15:57:25 UTC**.  
+Filters: none; Projection: created_at, updated_at; Limit: 1 record.",358,1,1,CORRECT
+How many contributors have contributed to this repository?,"345 contributors have contributed to the repository.  
+**Filters/Projections/Limit:** Retrieved the sole numeric field from the repository data (no filters applied, default projection, limit = 1).",294,1,0,INCORRECT
+Which contributor has made the highest number of commits?,"The database does not contain any information about individual contributors, so the highest‑commit contributor cannot be determined from the available data.  
+**Filters/Projections:** retrieved the single document with fields `_id` and `commit_count`; no contributor fields were present.",310,1,0,NO
+How many total commits are recorded in the repository?,"The repository records a total of **5,609** commits.  
+Filters: repository='apache_kafka'; Projection: total commit count; Limit: none.",304,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message is:
+
+“KAFKA-7604; Fix flaky unit test `testRebalanceAfterTopicUnavailableWithPatternSubscribe` (#5889)
+
+The problem is the concurrent metadata updates in the foreground and in the heartbeat thread. Changed the code to use ConsumerNetworkClient.poll, which enforces mutual exclusion when accessing the underlying client.”
+
+It was authored by **Jason Gustafson** (GitHub login: **hachikuji**).
+
+*Filters: none; Projections: commit.message, commit.author.name, author.login; Limit: 1*",597,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the **apache_kafka** repository is the initial check‑in on **2011‑08‑01** (author date 2011‑08‑01T23:41:24Z).  
+
+*Filters: repository=apache_kafka, commit.author.date; Projection: commit.author.date, commit.message; Limit: 1 (earliest date).*",507,1,1,CORRECT
+How many open issues are currently in the repository?,"There are **530** open issues in the repository.  
+Filters: open‑issue status; Projection: count; Limit: none.",347,1,1,CORRECT
+How many closed issues are currently in the repository?,"5,362 closed issues are currently in the repository.  
+**Filters/Projections/Limit:** Retrieved the total count of closed issues (no additional filters applied).",289,1,1,CORRECT
+Which issue was created most recently?,"Issue #5892 – “MINOR: Update version to 2.0.2‑SNAPSHOT”, created on 2018‑11‑08T16:46:26Z.  
+Filters: none (all records); Projection: created_at, number, title; Limit: 1 (most recent).",478,1,1,CORRECT
+Which issue has been open for the longest time?,"Issue **#41** (""Improvements to server stop scripts"") has been open the longest.  
+*Filters: none (retrieved all issues); Projection: number, title, created_at; Limit: 1 (only issue in data).*",339,1,1,CORRECT
+Which issue has received the highest number of comments?,"I’m sorry, but there’s no issue data available in the retrieved records, so I can’t determine which issue has the highest number of comments.  
+*Filters: none (no data retrieved); Projections: none; Limit: 0*",266,1,0,NO
+How many issue comments exist in total?,"There are **40,000** issue comments in total.  
+*Filters: none; Projection: total count of issue comments; Limit: none.*",320,1,0,INCORRECT
+How many commit comments exist in total?,"0  
+Filters: none; Projection: total count of commit comments; Limit: none.",330,1,0,INCORRECT
+Which project contains the largest number of issues?,"Apache Kafka has the largest number of issues, with 5,892 reported.  
+**Filters/Projections/Limit:** No filter applied, projected `issue_count`, limit 1.",319,1,0,INCORRECT
+How many issue events are associated with issue #2?,"0  
+Filters: issue_number = 2; Projections: none; Limit: none (empty result set).",275,1,0,INCORRECT
+Which contributor most recently made a commit?,"The available data does not contain any information about contributors or commit timestamps, so the most recent contributor cannot be identified.
+
+*Filters/Projections/Limit: retrieved all records with the `author` field; projection returned the `author` object; no limit applied.*",342,1,0,NO
+Which issue was closed most recently?,"The most recently closed issue is **#5889 – “KAFKA-7604; Fix flaky unit test `testRebalanceAfterTopicUnavailableWithPatternSubscribe`.”**
+
+**Filters/Projections/Limit:** Queried `apache_kafka` issues selecting `closed_at`, `number`, `title`; sorted by `closed_at` descending and limited to 1 result.",374,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"No contributor data is available in the current repository database, so we cannot identify any contributor who has authored a commit comment.
+
+*Filters/Projections/Limit*: No records retrieved (empty result set).",267,1,0,NO
+What are the top 5 contributors ranked by number of commits?,"1. (author: null) – 724 commits  
+2. ijuma – 408 commits  
+3. hachikuji – 335 commits  
+4. guozhangwang – 295 commits  
+5. rajinisivaram – 226 commits  
+
+*Filters: none; Projection: author, commit_count; Limit: 5 (top‑5 by commit_count).*",618,1,1,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor for the **apache_kafka** repository is **16.257971014492753**.
+
+*Filters: repository=apache_kafka; Projection: average commits per contributor; Limit: none.*",346,1,1,CORRECT
+What percentage of issues are currently closed?,"The percentage of issues that are currently closed is **91.00%** (approximately 91.00475220638154%).  
+*Filters: none; Projections: percentage_closed; Limit: 1 (single retrieved record).*",296,1,1,CORRECT
+What percentage of issues are currently open?,"Approximately 8.99 % of the issues are currently open.  
+Filters: none; Projection: open‑issue percentage; Limit: 1 record.",333,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues is **0.09884371503170458**.  
+Filters: none; Projection: ratio value; Limit: 1.",417,1,1,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **40,000**.
+
+Filters: none; Projection: averageCommentsPerIssue; Limit: 1.",320,1,0,INCORRECT
+What is the median number of comments per issue?,"The median number of comments per issue is **40,000**.  
+*Filters: none; Projection: median; Limit: none*",286,1,0,INCORRECT
+What is the average number of issue events per issue?,"I’m sorry, but the repository data doesn’t contain any information about issue events, so I can’t calculate an average number of events per issue.
+
+*Filters/Projections/Limit: none – no relevant issue‑event records were found in the retrieved dataset.*",299,1,0,NO
+What is the average number of commit comments per commit?,I’m unable to calculate an average because the repository data does not contain any commit‑comment information. — Filters: none; Projection: none; Limit: none (no relevant rows retrieved).,332,1,0,NO
+What percentage of contributors have made more than 10 commits?,"Approximately 16.81% of contributors have made more than 10 commits.  
+*Used filter: none; projection: raw value; limit: 1.*",297,1,0,INCORRECT
+What is the standard deviation of commits across contributors?,"I’m unable to provide the standard deviation of commits across contributors because the required data could not be retrieved.
+
+Filters/Projections/Limits: no data retrieved; query resulted in an error, so no filters or projections were applied.",359,1,0,NO
+What is the average time (in days) taken to close an issue?,"I’m sorry, but the issue‑closing data could not be retrieved, so I can’t calculate the average time to close an issue.
+
+Filters/Projections/Limit: No data retrieved due to query error.",398,1,0,ERROR
+What is the median time (in days) taken to close an issue?,"I’m unable to determine the median time (in days) taken to close an issue because the required issue‑closure data could not be retrieved from the repository.  
+
+*Filters/Projections/Limit: No data retrieved due to an error (“Unrecognized expression '$dateDiff'”).*",342,1,0,ERROR
+What percentage of issues were closed within 7 days of creation?,"I’m unable to provide the percentage of issues closed within 7 days because the database query failed and no issue data could be retrieved.
+
+*Filters/Projections/Limit: none – the query returned an error, so no records were obtained.*",338,1,0,ERROR
+What percentage of issues were closed within 30 days of creation?,"I’m unable to determine the percentage of issues closed within 30 days because the issue data could not be retrieved (the query resulted in an error).  
+
+**Filters/Projections/Limit:** No data was available; the retrieval attempt returned an error (`cant $subtract astring from a string`).",390,1,0,ERROR
+Which contributor has the highest commit-to-comment ratio?,"The contributor with the highest commit‑to‑comment ratio is **jghoman**.
+
+*Filters: none; Projection: contributor, ratio; Limit: 1 (highest ratio).*",318,1,0,INCORRECT
+What percentage of all comments are issue comments versus commit comments?,"All comments are issue comments (100 %) and none are commit comments (0 %).  
+*Filters/projections: type field; no additional filters; full dataset used.*",306,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"The repository averages about **5,609 commits per month** since its creation.
+
+*Filters/Projections/Limit: No filters applied; retrieved the `avgCommitsPerMonth` field from the single document (limit = 1).*",315,1,0,INCORRECT
+What was the percentage growth or decline in commits from the previous month?,"I’m unable to provide the percentage growth or decline in commits for the previous month because the retrieved data contains only an error message and no commit statistics for the repository.
+
+**Filters/Projections/Limit:** No data retrieved; only an error message was returned.",377,1,0,ERROR
+What percentage of issues have at least one comment?,"I’m unable to determine the percentage of issues with at least one comment because the provided data does not contain any information about issues or comments for the apache_kafka repository.  
+
+*Filters/Projections/Limit: none applied – no issue or comment data was retrieved.*",333,1,0,NO
+Which contributor accounts for the highest percentage of all commits?,"The data shows that the highest‑percentage contributor is listed as **null** (i.e., no specific contributor name is recorded), accounting for 12.91% of all commits.
+
+Filters/Projections/Limit: No filters applied; retrieved contributor, commit_count, percentage for all rows, limit 1.",346,1,0,NO
+Forecast the number of commits expected in the next month.,"The forecast for the next month is **5,609 commits**.  
+Filters: none; Projection: forecast_next_month_commits; Limit: 1.",293,1,0,INCORRECT
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic grouping of the listed Kafka issues**
+
+| Thematic Group | Issues (titles) |
+|----------------|-----------------|
+| **Scala / Build / Dependency Updates** | • Switch to using scala 2.9.2  <br>• zkclient and scalatest library updates  <br>• maven + windows  <br>• Added changes so that bin/*.sh files can work with CYGWIN under windows,… |
+| **Bug Fixes / Minor Corrections** | • Fix mis‑spell in ConsumerConfig.scala  <br>• Unmap before resizing  <br>• fixed typo  <br>• Escape the . in the kafka.Kafka chain |
+| **Producer / Consumer Enhancements** | • Modified the async producer so it re‑queues failed batches.  <br>• commitOffsets can be passed the offsets to commit  <br>• KAFKA-1180 WhiteList topic filter gets a NullPointerException on complex Regex |
+| **Replica / Rack‑Aware Management** | • KAFKA-948 : Update ReplicaStateMachine.scala  <br>• Rack‑Aware replica assignment option  <br>• Rack aware replication  <br>• Adding rack‑aware replication option. |
+| **Documentation / README Updates** | • Update README |
+| **JIRA Issue Tracking** | • KAFKA-294  <br>• KAFKA-1180 WhiteList topic filter gets a NullPointerException on complex Regex  <br>• [KAFKA-1344] - Added compression codec option feature for ConsoleProducer |
+| **Integration / Compatibility** | • Fix to run hadoop‑consumer with hadoop 2  <br>• Update LogManager.scala |
+| **Feature Additions** | • [KAFKA-1344] - Added compression codec option feature for ConsoleProducer |
+
+*Notes:*  
+- Some titles belong to multiple logical categories (e.g., a JIRA ticket that also describes a feature). They are placed in the most descriptive group.  
+- The grouping is based solely on the information available in the titles.
+
+**Data retrieval filters:** none (all records) | **Projection:** `title` field only | **Limit:** all 20 entries retrieved.",990,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Summary of the most‑discussed technical topics in the last 10 issues**
+
+| Rank | Technical topic (derived from issue titles / bodies) | Why it appears frequently |
+|------|------------------------------------------------------|---------------------------|
+| 1️⃣ | **Test flakiness and timing problems** – several issues propose increasing time‑outs or acceptable durations (e.g., KAFKA‑7605, “Increase timeout for commit callback in testing”; KAFKA‑7604, “Fix flaky unit test …”; issue 378028016, “Increase acceptable duration time for ReassignPartitionsClusterTest”). | The development team is repeatedly tweaking test‑framework time limits to reduce spurious failures on slower CI machines. |
+| 2️⃣ | **Concurrency / client‑side bugs** – KAFKA‑7604 describes a fix for flaky rebalance tests caused by concurrent metadata updates, and KAFKA‑7605 adjusts a timeout related to commit callbacks that can be affected by thread contention. | Underlying race‑conditions in the consumer network client are a recurring source of test instability. |
+| 3️⃣ | **Metrics handling** – KAFKA‑7560 highlights that `PushHttpMetricsReporter` incorrectly forces metric values to `double`, breaking non‑numeric metrics (e.g., version strings). | Proper metric serialization is important for monitoring integrations and system‑test reliability. |
+| 4️⃣ | **Transactional support in benchmarking tools** – KAFKA‑7597 adds a `messagesPerTransaction` field to the Trogdor ProduceBenchWorker, enabling transaction‑aware load testing. | Extending the benchmark suite to cover newer Kafka transactional features is a priority. |
+| 5️⃣ | **Code cleanup / refactoring** – Minor clean‑up tickets such as “Code cleanup in StreamsResetter”, removal of an unused abstract function in a test class, and documentation updates (RocksDBStore example) show ongoing housekeeping. | Maintaining code quality and documentation remains an active effort. |
+| 6️⃣ | **Test framework correctness** – The issue fixing Connect standalone system tests (KAFKA‑7559) and the version bump to 2.0.2‑SNAPSHOT illustrate routine maintenance of the test harness and release process. | Ensuring test infrastructure aligns with branch policies and versioning. |
+
+**Overall pattern:** The recent issue flow is dominated by engineering efforts to stabilize flaky tests (by adjusting timeouts and fixing concurrency bugs), to improve observability (metrics reporter), and to extend testing capabilities (transactional benchmark support), alongside routine clean‑ups and documentation updates.  
+
+*Filters applied: retrieved the 10 most recent issue records for repository **apache_kafka**, projected `title` and `body`, limited to 10 entries.*",2180,1,1,CORRECT
+Assign issue #2 to contributor.,"I’m unable to assign issue #2 because the system returned an “unauthorized” error when attempting to update the issues collection.
+
+Filters/Projections: none (operation blocked by authorization error).",490,1,0,ERROR
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"**Duplicate / highly‑similar issue groups**
+
+| Issue # | Title (shortened) | Reason for similarity |
+|--------|-------------------|-----------------------|
+| 14, 15, 16 | *Rack‑aware replica assignment / replication* | Same feature (rack‑id, max‑rack‑replication) described in three consecutive pull‑requests; wording and code purpose are identical. |
+| 27, 28 | *Clarify log‑deletion configuration options* | Identical body explaining the independence of time‑ and size‑based log retention; only the target release (0.8.1 vs trunk) differs. |
+| 47, 48 | *KafkaHealthcheck.register failure on irregular hostnames* | Same title and body; duplicated entry. |
+| 30, 31 | *KAFKA‑1369 – snappy‑1.1.x update* | Both address the same snappy library version upgrade (RHEL 4‑6); titles differ only by formatting. |
+
+*Filters: title LIKE ‘%rack%’, ‘%log deletion%’, ‘%KafkaHealthcheck%’, ‘%snappy%’; projection [number, title]; limit none.*",4949,1,1,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"I cannot forecast the number of comments for issue #2 because no issue‑comment data is available in the repository information.
+
+Filters used: none (no relevant records retrieved). Projections: none. Limit: 0.",268,1,0,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","All of the commits retrieved from the repository are labeled **Low** severity; there are no Medium or High‑severity entries among the last ten commits in the provided data.
+
+**Filters / Projections / Limits:** Queried the `Low` severity list, extracting each commit’s metadata and changed files; no other severity categories were present.",8178,1,0,INCORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"I’m unable to estimate the probability that issue #2 will be closed within 30 days because the repository data retrieval failed and no information about that issue is available.
+
+Filters/Projections/Limit: none (no data retrieved).",382,1,0,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","I’m unable to classify the top five contributors by specialty because no commit data was retrieved from the repository.  
+**Filters/Projections/Limit:** No entries returned for the query (empty result set).",289,1,0,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams (aligned with the last 10 open issues)**  
+
+| Sub‑team | Focus (issues covered) | Example issue numbers |
+|----------|------------------------|----------------------|
+| **Minor‑Task Team** | All issues prefixed with “MINOR” that involve small clean‑ups or incremental changes. | 5892, 5891, 5888, 5884, 5878 |
+| **Testing & Reliability Team** | Issues that extend test time‑outs, improve test utilities, or adjust performance thresholds. | 5890, 5887 |
+| **Kafka‑Streams Team** | Work related to the StreamsResetter and global thread restoration in Kafka Streams. | 5891, 5879 |
+| **Transactional Produce Team** | Enhancements to Trogdor ProduceBenchWorker and idempotent producer behavior. | 5885, 5881 |
+| **Documentation & Javadoc Team** | Updates to documentation and Javadoc for various components (e.g., RocksDBStore). | 5884, 5878 |
+
+These five teams split the workload roughly evenly across the ten recent issues, grouping them by similar functional areas indicated in the issue titles.
+
+*Filters: none (used all records); Projections: created_at, number, title; Limit: 10 (last ten open issues).*",1138,1,1,CORRECT

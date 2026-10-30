@@ -1,0 +1,185 @@
+question,answer,token_count,label
+What is the name and description of the repository?,"The repository name is **tomcat** and its description is **“Mirror of Apache Tomcat.”**  
+Filters: {} ; Projections: [name, description] ; Limits: none.",353,CORRECT
+"When was the repository created, and when was it last updated?","The repository creation and last update dates are not present in the provided data.
+
+Filter: none. Projection: none. Limit: none.",390,NO
+How many contributors have contributed to this repository?,"There are no contributors recorded in the current repository database for `apache_tomcat`.  
+
+**Filters / Projections / Limits:** None applied (retrieved all contributor data).",336,NO
+Which contributor has made the highest number of commits?,"I’m sorry, but the data you provided does not include any contributor information, so I can’t determine which contributor made the most commits.  
+
+Filters/Projections/Limit: None applied (only total commit count available).",322,NO
+How many total commits are recorded in the repository?,"There are 19,663 commits recorded in the repository.  
+Filter: None | Projection: Total commits | Limit: None",336,CORRECT
+What is the most recent commit message and who authored it?,"Most recent commit message:  
+“Fix cache interoperability problem.\nNote: Always adding this header reduces the usefulness of caches significantly. Next task is to look at possible optimisations.\n\ngit-svn-id: https://svn.apache.org/repos/asf/tomcat/trunk@1835271 13f79535-47bb-0310-9956-ffa450edef68”
+
+Author: Not specified in the provided data.
+
+# Filters, projections, limits: retrieved commit.message and commit.author from the database, with no additional filtering.",584,CORRECT
+What is the oldest commit in the repository?,"The oldest commit available in the provided data is:
+
+- **Commit ID**: `1295998`  
+- **Message**: *“Fix access to poller registration”* (including a blank line and the svn identifier `13f79535‑47bb‑0310‑9956‑ffa450edef68`)
+
+*Filters: commit; Projection: commit.message, commit.svn-id; Limit: 1.*",430,INCORRECT
+How many open issues are currently in the repository?,"There are 13 open issues in the apache_tomcat repository.  
+
+Filters / projections: {status: ""open""}, limit: none.",394,CORRECT
+How many closed issues are currently in the repository?,"There are **102 closed issues** in the repository.  
+
+— *Filters: none. Projections: closed issues. Limit: 1.*",323,CORRECT
+Which issue was created most recently?,"Issue #115 – “Setting Timezone to GMT for Expires Header as per RFC1123” (created 2018‑06‑15T18:15:27Z).  
+
+Filters: [] Projections: [_id, title, created_at] Limits: 1",1447,CORRECT
+Which issue has been open for the longest time?,"Add QueryExecutionReportInterceptor and tests to jdbc‑pool (created 2015‑03‑18) has been open for the longest time.
+
+# Filters/Projections/Limits: retrieved all issues from repository 'apache_tomcat' and selected the one with the earliest creation date.",325,CORRECT
+Which issue has received the highest number of comments?,"The issue that received the most comments is **#1 – “No need to set the deprecated javac optimize flag.”** It has accumulated 2 comments.
+
+— Filters: issue number 1; Projections: number and title.",1356,INCORRECT
+How many issue comments exist in total?,"There are 200 issue comments in total in the repository.  
+
+**Filters / projections / limits used:** none (counted total).",353,CORRECT
+How many commit comments exist in total?,"There are 0 commit comments in the repository.  
+Filters: none; Projections: none; Limit: 0.",722,CORRECT
+Which project contains the largest number of issues?,"The only project listed – the `apache_tomcat` repository – has the largest number of issues, totaling 115.  
+*Applied filter: none; projection: `_id`, `count`; limit: 1.*",389,INCORRECT
+How many issue events are associated with issue #2?,"There is no record of any issue events for issue #2 in the available data.
+
+Filters/projections/limits: none applied.",284,CORRECT
+Which contributor most recently made a commit?,"No contributor data is available to determine the most recent commit.
+
+*Filters: None, Projections: None, Limits: None*",330,NO
+Which issue was closed most recently?,"The most recently closed issue is **#115 – “Setting Timezone to GMT for Expires Header as per RFC1123”** (closed on 2018‑06‑20).  
+**#Filters: {} | #Projections: [number,title,closed_at] | #Limit: 1**",476,CORRECT
+Which contributor has authored at least one commit comment?,"No contributor with commit comments can be identified from the available data.  
+No filters, projections, or limits were applied because the dataset returned no records.",334,NO
+What are the top 5 contributors ranked by number of commits?,"**Top 5 contributors to Apache Tomcat by commit count**
+
+| Rank | Contributor | GitHub login | Commits |
+|------|-------------|--------------|---------|
+| 1 | Markus E. F. Sommer | `markt-asf` | 13,583 |
+| 2 | Unknown | (null `_id`) | 4,279 |
+| 3 | René Maucher | `rmaucher` | 1,020 |
+| 4 | Violet Agg | `violetagg` | 378 |
+| 5 | Martin Turcotte | `mturk` | 129 |
+
+*Filters: none; projections: `_id.login`, `commit_count`; limits: top 5 sorted by `commit_count` descending.*",1676,CORRECT
+What is the average number of commits per contributor?,"I'm sorry, but with just the single value 19663.0 I cannot calculate the average number of commits per contributor because the number of contributors is not provided. 
+
+Filters: None • Projections: None • Limits: None",462,INCORRECT
+What percentage of issues are currently closed?,"0.0 %
+
+Filters: repo=apache_tomcat; Projection: percentageClosed.",285,INCORRECT
+What percentage of issues are currently open?,"Error processing question: '[' was never closed (<string>, line 1)",0,ERROR
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues for the repository `apache_tomcat` is **0.12745098039215685**.  
+*Filter: repository = apache_tomcat; Projection: open_issues/closed_issues; Limit: 1*",440,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue in the repository `apache_tomcat` is **200.0**.  
+Filters: repo=apache_tomcat, Projections: avg_comments_per_issue, Limits: none",528,INCORRECT
+What is the median number of comments per issue?,"Error processing question: unrecognized field 'limit', full error: {'ok': 0.0, 'errmsg': ""unrecognized field 'limit'"", 'code': 9, 'codeName': 'FailedToParse'}",0,ERROR
+What is the average number of issue events per issue?,"The repository data for `apache_tomcat` does not contain any issues, so the average number of issue events per issue cannot be calculated.
+
+Filter, projection & limits: None used.",263,NO
+What is the average number of commit comments per commit?,"I’m sorry, but I don’t have enough data in the repository to calculate the average number of commit comments per commit.",273,NO
+What percentage of contributors have made more than 10 commits?,"100.0 % of contributors have made more than 10 commits.
+
+Filters: repository = 'apache_tomcat'; Projection: percentage of contributors with >10 commits; Limit: single result.",326,INCORRECT
+What is the standard deviation of commits across contributors?,"I’m sorry, there’s no commit‑count data for contributors in the current repository snapshot, so the standard deviation can’t be computed.
+
+*Filters: contributor, commits*  
+*Projection: commit count*  
+*Limit: none*",362,NO
+What is the average time (in days) taken to close an issue?,"Error processing question: cant $subtract astring from a string, full error: {'ok': 0.0, 'errmsg': 'cant $subtract astring from a string', 'code': 16556, 'codeName': 'Location16556'}",0,ERROR
+What is the median time (in days) taken to close an issue?,"Error processing question: cant $subtract astring from a string, full error: {'ok': 0.0, 'errmsg': 'cant $subtract astring from a string', 'code': 16556, 'codeName': 'Location16556'}",0,ERROR
+What percentage of issues were closed within 7 days of creation?,"Error processing question: cant $subtract astring from a string, full error: {'ok': 0.0, 'errmsg': 'cant $subtract astring from a string', 'code': 16556, 'codeName': 'Location16556'}",0,ERROR
+What percentage of issues were closed within 30 days of creation?,"Error processing question: Unrecognized expression '$dateDiff', full error: {'ok': 0.0, 'errmsg': ""Unrecognized expression '$dateDiff'"", 'code': 168, 'codeName': 'InvalidPipelineOperator'}",0,ERROR
+Which contributor has the highest commit-to-comment ratio?,"No contributor with a defined commit‑to‑comment ratio is present in the data.  
+Only the user “violetagg” is listed, and their ratio field is `null`, so a comparison cannot be made.  
+**Filters/Projections**: Retrieved `author.login` and `author.ratio` for contributor records.",682,NO
+What percentage of all comments are issue comments versus commit comments?,"All comments are issue comments (100 %), with commit comments comprising 0 %.  
+
+Filter: *None (sample data only)*, Projection: issue_comments_percentage, commit_comments_percentage, Limit: none.",279,CORRECT
+What is the average number of commits per month since the repository was created?,"Error processing question: Unrecognized expression '$dateDiff', full error: {'ok': 0.0, 'errmsg': ""Unrecognized expression '$dateDiff'"", 'code': 168, 'codeName': 'InvalidPipelineOperator'}",0,ERROR
+What was the percentage growth or decline in commits from the previous month?,"I’m sorry, but there’s no commit data available for the previous month in the repository, so I can’t calculate a growth or decline percentage.  
+
+**Filters / projections used:** none – no commit statistics were retrieved.",331,NO
+What percentage of issues have at least one comment?,"I’m sorry, but the current dataset doesn’t contain any issue or comment information, so I can’t calculate that percentage.  
+
+No filters, projections, or limits were applied because no data was retrieved.",390,NO
+Which contributor accounts for the highest percentage of all commits?,"Contributor: **null** accounts for the highest percentage of commits – 100.0%.  
+
+Filters: contributor = null, projection: contributor, percentage, limit 1.",362,INCORRECT
+Forecast the number of commits expected in the next month.,"There isn’t enough data in the provided record to make a reliable forecast for the next month’s commit volume. Only a single total‑count figure (19 663) is available, and without historical trend or time‑stamped data we cannot establish a commit rate or predict future activity.  
+
+**Filters:** None; **Projection:** commit count; **Limit:** 1",610,NO
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic clustering of Apache Tomcat issues**
+
+| Theme | Representative titles | # of/issues |
+|-------|------------------------|------------|
+| **Parser & protocol bugs** | “Fix http parser”, “Fix parser to fail if leading zeros in IPv4 part of IPv6 address”, “Fix possible infinite loop in AprEndpoint.Poller#run when wrapper is null” | 3 |
+| **Null‑Pointer & logic errors** | “Fix NPE in AuthConfigFactoryImpl.detachListener()”, “Fix wrong return value from removeListener()”, “Fix NPE on removeRegistration in case getConfigProvider is called with…”, “Fix NPE when persisting a provider without layer or app context” | 4 |
+| **Bugzilla link hard‑coding** | “Fix https://issues.apache.org/bugzilla/show_bug.cgi?id=56518”, “Fix https://bz.apache.org/bugzilla/show_bug.cgi?id=61232”, “Fix https://bz.apache.org/bugzilla/show_bug.cgi?id=59901”, “Fix https://bz.apache.org/bugzilla/show_bug.cgi?id=61223” | 4 |
+| **JMX & MBean issues** | “Fix bug #61214 : NoSuchMethodException in JMX Proxy (Context MBeans)”, “Fix bug #61215 : NoSuchMethodException in JMX Proxy (RemoteAddrValve)”, “Fix #61216 - Enhanced output format of CompositeData and TabularData”, “Fix #61224 - Make the GlobalRequestProcessor mbeans read‑only” | 4 |
+| **Configuration & documentation** | “Fix config context.xml documentation about jndiExceptionOnFailedWrite”, “added portOffset attribute to server.xml per BZ‑61171”, “added javadoc comment(s)”, “added findbugs false positive” | 4 |
+| **Compression & MIME handling** | “Fix compressibleMimeType handling for compression=on” | 1 |
+| **Session & request handling** | “Add maxStartTime to RequestInfo & RequestGroupInfo”, “Add new accesslog valve pattern %X for recording connection status”, “Add SessionInitializerFilter” | 3 |
+| **Remote‑IP support** | “Add ipv6 loopback address to the RemoteIpFilter and RemoteIpValve default internalProxies”, “add nioendpoint note”, “add some useful note” | 3 |
+| **Build & deployment** | “Add maven‑install target”, “Add tomcat in the cloud abstract implementation”, “Update service.bat”, “Update JasperELResolver.java”, “Update RemoteIpValve.java” (duplicated) | 6 |
+| **Miscellaneous adds/updates/commits** | “Add JASPIC API (JSR 196) to build process”, “Commit the added comment on Application.java”, “add” (generic) | 3 |
+
+*Note: Titles are grouped by common subject matter inferred from their wording; counts reflect the number of issue entries in each theme.*
+
+Filter/Projection/Limit used: **Filter: all issues; Projection: thematic group; Limit: none.**",2321,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"Error processing question: Unrecognized pipeline stage name: '$unionWith', full error: {'ok': 0.0, 'errmsg': ""Unrecognized pipeline stage name: '$unionWith'"", 'code': 40324, 'codeName': 'Location40324'}",0,ERROR
+Assign issue #2 to contributor.,"Error processing question: not authorized on gddata to execute command { update: ""issues"", ordered: true, lsid: { id: UUID(""6e1d597d-c289-476c-8e7e-6a8e52fca2bb"") }, $db: ""gddata"" }, full error: {'ok': 0.0, 'errmsg': 'not authorized on gddata to execute command { update: ""issues"", ordered: true, lsid: { id: UUID(""6e1d597d-c289-476c-8e7e-6a8e52fca2bb"") }, $db: ""gddata"" }', 'code': 13, 'codeName': 'Unauthorized'}",0,ERROR
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"No duplicate or highly similar issues are detected among the 4 records in the current dataset:  
+- “Support null for provider class name when registering a provider” – 2 occurrences (IDs 275082010, 276102680)  
+- “Update RemoteIpValve.java” – 2 occurrences (IDs 210088337, 210092640)  
+- “Commit the added comment on Application.java” – 2 occurrences (IDs 220499243, 220503045)  
+- “Fix how a link to $0 is determined” – 2 occurrences (IDs 33437221, 33440288).  
+
+**Filters:** None applied. **Projections:** `_id`, `count`. **Limit:** 4.",621,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"I’m unable to forecast the number of comments for issue #2 because no related data were retrieved.
+
+Filters: none; Projection: none; Limit: none.",414,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","All ten retrieved commits are classified as **Low** severity. <br/>
+Filters used: none -> Projected onto `severity` field (Low). 10 commits retrieved.",1127,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"Error processing question: Unrecognized expression '$dateDiff', full error: {'ok': 0.0, 'errmsg': ""Unrecognized expression '$dateDiff'"", 'code': 168, 'codeName': 'InvalidPipelineOperator'}",0,ERROR
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","Error processing question: Bad projection specification, cannot include fields or add computed fields during an exclusion projection: { author_id: 0, commits: 1, specialty: ""$contrib.specialty"" }, full error: {'ok': 0.0, 'errmsg': 'Bad projection specification, cannot include fields or add computed fields during an exclusion projection: { author_id: 0, commits: 1, specialty: ""$contrib.specialty"" }', 'code': 40179, 'codeName': 'Location40179'}",0,ERROR
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed 5 Sub‑Teams for Managing the Current Open Issues**
+
+1. **Connection‑Pool & Database Team**  
+   - *Focus:*  
+     • “Use initSQL instead of Validator on connection initialization”  
+     • “underlying connection closed unexpectedly, so we must destroy this proxy”  
+     • “Debug log for pool's db properties”  
+   - *Goal:* Ensure robust, secure, and well‑logged database connectivity.
+
+2. **Deployment & Runtime Team**  
+   - *Focus:*  
+     • “Improve undeployment in parallel deployment scenario”  
+     • “added portOffset attribute to server.xml per BZ‑61171”  
+     • “Respect minimum pool size [#61032]”  
+   - *Goal:* Streamline Tomcat deployment, scaling, and runtime configuration.
+
+3. **Security & Validation Team**  
+   - *Focus:*  
+     • “Fix https://bz.apache.org/bugzilla/show_bug.cgi?id=59901”  
+     • “#41 Check and update session record if one already exists.”  
+   - *Goal:* Address security‑related bugs and session‑management correctness.
+
+4. **Code‑Quality & Refactoring Team**  
+   - *Focus:*  
+     • “Remove throws declaration of an exception which is not thrown”  
+     • “Iamtjw patch 1”  
+   - *Goal:* Clean up codebase, improve exception handling, and apply patches.
+
+5. **Logging & Diagnostics Team**  
+   - *Focus:*  
+     • “Debug log for pool's db properties” (also overlaps with Team 1)  
+     • Survey overall diagnostic logs across projects.  
+   - *Goal:* Centralize diagnostics improvement and provide visibility into runtime behavior.
+
+*Filters/Projections/Limit used:* Retrieved last 10 entries (`created_at` & `title` fields) from the repository.",1091,CORRECT

@@ -1,0 +1,4 @@
+To install memgraph use the docker file in your desired location.
+Modify pull_policy to always and run: docker compose up and then docker compose stop.
+Then modify it to never and to run the instance use: docker compose start.
+To stop the service use: docker compose stop.

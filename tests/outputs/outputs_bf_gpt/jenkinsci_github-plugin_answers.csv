@@ -1,0 +1,169 @@
+question,answer,token_count,answered,correct,label
+What is the name and description of the repository?,"The repository name is **github-plugin** and its description is **Jenkins GitHub plugin**.  
+Filters: none; Projection: name, description; Limit: 1.",299,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on 2010‑12‑13 at 05:35:14 UTC and was last updated on 2018‑12‑24 at 23:21:25 UTC.  
+*Filters: repository = “jenkinsci_github-plugin”; Projections: created_at, updated_at; Limit: 1*",402,1,1,CORRECT
+How many contributors have contributed to this repository?,"60 contributors.
+
+Filters: none; Projection: total contributor count; Limit: none.",300,1,0,INCORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is **lanwen**.
+
+Filters: none (retrieved all documents); Projection: `_id`, `commit_count`; Limit: 1 (top result).",311,1,0,INCORRECT
+How many total commits are recorded in the repository?,"There are **611** total commits recorded in the repository.  
+*Filters: none; Projection: total commit count; Limit: 1 record.*",324,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message is **""[maven-release-plugin] prepare for next development iteration""**, authored by **Kirill Merkushev**.  
+
+*Filters/Projections/Limit: retrieved the single commit record for the repository and extracted its `message` and `author.name` fields (no additional filters applied).*",378,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the repository is SHA b3329dd500e58e1a579484d36350f1b7e9b63daa dated 2009‑06‑09T20:35:36Z.  
+**Filters/Projections/Limit:** No additional filters; retrieved the full commit record (author date and SHA) with a limit of 1.",386,1,1,CORRECT
+How many open issues are currently in the repository?,"There are currently **11 open issues** in the repository.  
+*Filters: none; Projection: open‑issues count; Limit: 1.*",350,1,1,CORRECT
+How many closed issues are currently in the repository?,"188 closed issues are currently in the repository.  
+Filters: issue state = closed; Projection: count of matching issues; Limit: none.",383,1,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is #201 – “Update the README.md”, opened on 2018‑10‑11T05:12:44Z.  
+Filters: `repo_name = ""jenkinsci_github-plugin""`; projection: `number, title, created_at`; limit: 1 (most recent).",1133,1,1,CORRECT
+Which issue has been open for the longest time?,"Issue #54, titled “Add ability to specify GitHub events,” is the longest‑open issue (created on 2015‑04‑27).  
+**Filters/Projections/Limit:** Retrieved issues for repository `jenkinsci_github-plugin` with no additional filters, projected `number`, `title`, `created_at`, and limited to the single record returned.",356,1,1,CORRECT
+Which issue has received the highest number of comments?,"The available data only provides an aggregate `comment_count` value (1060) for the repository and does not include per‑issue comment details, so the specific issue with the most comments cannot be identified.
+
+Filters: none (retrieved whole collection); Projection: `comment_count`; Limit: none.",380,1,0,NO
+How many issue comments exist in total?,"The repository has **1,060** issue comments in total.  
+*Filters: none; Projection: total count of issue comments; Limit: none (single aggregated value).*",328,1,1,CORRECT
+How many commit comments exist in total?,"There are 53 commit comments in total.
+
+*Filters: repository = “jenkinsci_github-plugin”; Projection: total count of commit comments; Limit: 1 record returned.",336,1,1,CORRECT
+Which project contains the largest number of issues?,"The jenkinsci_github‑plugin project has the highest issue count, with 199 issues.  
+*Filters: repository = jenkinsci_github-plugin; Projections: issue_count; Limit: 1*",346,1,0,INCORRECT
+How many issue events are associated with issue #2?,"There are **0 issue events** associated with issue #2.  
+*Filter: issue number = 2; Projection: count of events; Limit: none.*",299,1,0,INCORRECT
+Which contributor most recently made a commit?,"The most recent contributor is **lanwen**, who committed on 2018‑10‑08 09:55:42 UTC.
+
+*Filter: author.login, commit.author.date; Projection: author.login, commit.author.date; Limit: 1 (most recent entry).*",338,1,1,CORRECT
+Which issue was closed most recently?,"Issue #200 (“add mvnw”) was the most recently closed issue.
+
+Filters: none (all records); Projection: closed_at, number, title; Limit: 1 (most recent).",318,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"I’m sorry, but the available data does not include any information about contributors or commit comments for this repository.  
+*Filters: none (no records); Projections: none; Limit: 0 (empty result set).*",318,1,0,NO
+What are the top 5 contributors ranked by number of commits?,"1. lanwen – 176 commits  
+2. kohsuke – 85 commits  
+3. (no login) – 83 commits  
+4. KostyaSha – 61 commits  
+5. stephenc – 34 commits  
+
+*Filters: none; Projection: `login`, `commit_count`; Limit: 5.*",514,1,1,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor for the **jenkinsci_github-plugin** repository is **≈ 10.18**.
+
+*Filters/Projections/Limit: Retrieved the single metric value (average commits per contributor) for the repository without additional filters; no further projection or limit applied.*",355,1,1,CORRECT
+What percentage of issues are currently closed?,"Approximately 94.47 % of the issues are currently closed.  
+Filters: none; Projection: issue‑closed‑percentage; Limit: 1.",401,1,1,CORRECT
+What percentage of issues are currently open?,"Approximately 5.53 % of the issues are currently open.  
+**Filters/Projections:** Retrieved the single numeric value 5.527638190954774 from the repository’s data; no additional filters or limits applied.",374,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues for **jenkinsci_github-plugin** is approximately **0.0585**.
+
+*Used filter: repository = jenkinsci_github-plugin; projection: single numeric value (0.05851063829787234); limit: 1.*",385,1,1,CORRECT
+What is the average number of comments per issue?,"I’m sorry, but I can’t calculate the average number of comments per issue because the number of issues isn’t available in the provided data.  
+**Filters/Projections:** Retrieved value = 1060.0 (no issue count present).",387,1,0,NO
+What is the median number of comments per issue?,"I’m sorry, but I don’t have the necessary data to determine the median number of comments per issue.
+
+*Filters/Projections/Limit: none – data retrieval failed with an error.*",375,1,0,ERROR
+What is the average number of issue events per issue?,"I’m unable to calculate the average number of issue events per issue because the provided data only includes a single value (1862.0) and does not specify the total number of issues needed for the calculation.  
+**Filters/Projections/Limit:** Retrieved only the value 1862.0 with no additional context or related counts.",397,1,0,NO
+What is the average number of commit comments per commit?,"The average number of commit comments per commit is **3.3125**.  
+*Filters/Projections/Limit: no filters applied; projection = average commit comments per commit; limit = 1.*",376,1,0,INCORRECT
+What percentage of contributors have made more than 10 commits?,"13.11 % of contributors have made more than 10 commits.  
+Filters: none; Projection: single numeric value; Limit: 1.",439,1,1,CORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of commits across contributors is **27.478168184505247**.  
+**Filters/Projections/Limits:** No filters applied; projected the standard deviation of commits across contributors; limited to a single retrieved value.",371,1,1,CORRECT
+What is the average time (in days) taken to close an issue?,"I’m unable to calculate the average time to close an issue because the required issue‑date data could not be retrieved.  
+**Filters/Projections/Limit:** No issue records were returned due to a data retrieval error.",408,1,0,ERROR
+What is the median time (in days) taken to close an issue?,"I’m sorry, but the repository data needed to calculate the median time to close an issue isn’t available—the query failed with an error, so I can’t provide that metric.
+
+**Filters/Projections/Limit:** No data retrieved (error on query).",372,1,0,ERROR
+What percentage of issues were closed within 7 days of creation?,"I’m unable to calculate that percentage because the issue data could not be retrieved.  
+
+**Filters/Projections/Limit:** No data was returned from the database query, so no filters, projections, or limits were applied.",394,1,0,ERROR
+What percentage of issues were closed within 30 days of creation?,"I’m unable to determine the percentage of issues closed within 30 days because no issue data could be retrieved—the database query returned an error.  
+**Filters/Projections/Limit:** none applied; the query failed with an “Unrecognized expression '$dateDiff'” error.",355,1,0,ERROR
+Which contributor has the highest commit-to-comment ratio?,"The contributor with the highest commit‑to‑comment ratio is **lanwen**.
+
+Filters: none (all entries); Projection: contributor, commit_to_comment_ratio; Limit: 1 (top result).",307,1,0,INCORRECT
+What percentage of all comments are issue comments versus commit comments?,"Issue comments make up about 95.24 % of all comments, while commit comments account for roughly 4.76 % of the total.
+
+*Filters/Projections: retrieved `issue_comments_pct` and `commit_comments_pct` fields; no limit applied.*",357,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"I’m unable to calculate the average number of commits per month because the repository data required for that computation could not be retrieved (the database returned an error).  
+**Filters/Projections/Limit:** none applied – no commit data was available from the query.",320,1,0,ERROR
+What was the percentage growth or decline in commits from the previous month?,"I’m sorry, but there’s no commit data available for the repository, so I can’t calculate a percentage change.  
+
+*Filters: none (no records retrieved); Projection: none; Limit: 0*",308,1,0,NO
+What percentage of issues have at least one comment?,"0% of issues have at least one comment.  
+Filters: none; Projection: percentage_of_issues_with_comments; Limit: 1.",299,1,0,INCORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor with the highest percentage of all commits is **lanwen**.
+
+Filters: none | Projection: `login`, `percentage` | Limit: 1.",376,1,1,CORRECT
+Forecast the number of commits expected in the next month.,"I’m unable to provide a forecast for the number of commits in the next month because the repository data could not be retrieved – the query returned an error (“can’t convert from BSON type string to Date”). Without actual commit history or trend information, I can’t generate a meaningful estimate.
+
+*Filters/Projections/Limit: none – no repository data was available due to the retrieval error.*",385,1,0,ERROR
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic clusters**
+
+| Theme | Issues (title) |
+|-------|----------------|
+| **1. UI & Naming** | “Update icon and fix capitalization” |
+| **2. JGit / Eclipse compatibility** | “fix for https://github.com/juretta/hudson‑github‑plugin/issues/1” |
+| **3. GitHub URL parsing & normalization** | “Adding ssh://git@github.com/x/x.git support for post commit hook”, “Fix URL_PATTERNS”, “Accept github uris in the form github‑xxx”, “Fix URL check to look for /tree/ as a complete fragment”, “URL normalisation corrupts urls where the project name legitimately ends in ‘tree/’”, “Match ssh://git@github.com:user/repo.git URLs”, “handle non‑suffixed github urls”, “Fixed a broken URL.” |
+| **4. Webhook / Service integration** | “Github:fi support”, “Fixed private Organization‑based repos”, “Refactored the GitHubWebHook to expose the functionality to trigger a job configured to github repo”, “update to use the new Jenkins github service hook”, “Also trigger jobs with GitHub repositories configured via MultipleSCMs plugin” |
+| **5. Triggering, build cause & logging** | “Change GitHubPushCause to extend from SCMTriggerCause”, “Log the GitHub user who was the pusher that triggered the build.”, “Save the polling log with the build cause”, “Exclude specific users from triggering …”, “[FIXED JENKINS‑12487] Global configuration not saved since Jenkins 1.445” |
+| **6. Version / build maintenance** | “Bumped to version to next development version” |
+
+*Filter used: Selected all records for repository `jenkinsci_github-plugin`; projected `title` and `body`; grouped by manually identified keyword patterns in titles/bodies (e.g., “icon”, “JGit”, “URL”, “hook”, “cause”, “version”). Limit = all 20 entries.*",2379,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Summary of the most discussed technical topics in the last 10 issues and comments**
+
+| Topic | How it appears in the issues / comments |
+|-------|------------------------------------------|
+| **Installation documentation** | Issue #201 asks to update the README with proper install steps; comment #2 points out the need for a redirect to the Jenkins plugin‑install page and notes the README is redundant for developers. |
+| **Security‑related changes** | Issue #199 discusses reintegrating non‑regression security tests; Issue #196 requests merging a branch that contains three security fixes (SECURITY‑799, ‑804, ‑915). |
+| **Plugin release 1.29.3** | Comment #8 asks about the release of 1.29.3; comment #7 notes it was released as 1.29.3. |
+| **Webhook shared‑secret update** | Comment #1 raises the problem of manually updating the shared secret in many GitHub webhooks and asks if anything blocks merging a fix for it. |
+| **Minor clean‑up / typo fixes** | Issues #195, #192 (cleanup of contributing guide and a typo in an error message) and comment #10 (cleanup task) focus on small wording, whitespace and formatting improvements. |
+| **Build‑data / contextSource code changes** | Issues #198 and #197 address a bug in build‑data calculation when multiple actions exist and a pattern change for setting `contextSource`. |
+| **Additional language support** | Issue #193 adds a Chinese translation. |
+| **Maven wrapper addition** | Issue #200 adds the `mvnw` wrapper script. |
+
+**Overall pattern:** The discussion centers on improving documentation (installation and webhook management), integrating security fixes and preparing the next plugin release (1.29.3), while also handling a handful of smaller code‑quality and feature‑addition tasks.
+
+*Filters used: `issues` limited to the most recent 10 entries (numbers 201‑192) with fields `title` and `body`; `comments` limited to the most recent 10 entries with field `body`.*",2472,1,1,CORRECT
+Assign issue #2 to contributor.,"I’m unable to assign issue #2 because the requested operation requires access to the repository’s issue‑tracking data, which I cannot retrieve or modify at this time.  
+
+*Filters/Projections/Limit: none – no issue data could be accessed due to an authorization error.*",477,1,0,NO
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"**Duplicate / highly‑similar issues in the GitHub plugin pull‑request list**
+
+| Group | Similar issues (by number & title) | Why they are duplicates / near‑duplicates |
+|-------|-------------------------------------|-------------------------------------------|
+| 1️⃣ | 21 – “handle non‑suffixed github urls”  <br>24 – “Relax URL matching for GitHub Webhook triggered builds.” <br>30 – “Don’t force GitHub repository URLs to end in .git.” <br>5 – “Fix URL_PATTERNS” <br>26 – “Handle trailing slashes and whitespace in GitHub hooks, warn on failures” | All address the same problem: the plugin’s URL matcher being too strict (requiring “.git”, no trailing slash/whitespace) and the need to accept URLs with or without the “.git” suffix and tolerant of extra characters. |
+| 2️⃣ | 31 – “remove condition preventing github enterprise instances being returned” <br>32 – “Different host on enterprise” <br>37 – “Ensure github‑plugin can auto register hooks with enterprise git” <br>22 – “Github plugin should work with Github enterprise by allowing for overriding the github URL” | All focus on making the plugin work with GitHub Enterprise instances by removing the hard‑coded check for *github.com* and allowing a custom GitHub endpoint. |
+| 3️⃣ | 47 – “Use the combined status API” <br>50 – “[FIXED JENKINS‑23995] Set context for GH status” | Both modify how the plugin sets GitHub commit status, adding a custom “context” (e.g., “jenkins”) and using the combined status API. Issue 50 explicitly supersedes 47. |
+| 4️⃣ | 7 – “Fixed a broken URL.” <br>5 – “Fix URL_PATTERNS” | Both are short fixes that correct the URL‑matching logic; the description of 7 is a terse version of the same change described in 5. |
+| 5️⃣ | 24 – “Relax URL matching …” <br>30 – “Don’t force GitHub repository URLs to end in .git.” | Although listed in Group 1, these two are especially overlapping because they each relax the requirement that URLs end with “.git”. |
+| 6️⃣ | 40 – “Tightens exception handling for Github Webhooks.” <br>41 – “fix unclosed github‑polling.log files” | Both improve robustness of webhook handling (exception handling vs. resource‑leak fixes), tackling reliability of the same code path. |
+
+*No other pull‑requests in the provided set share a clear semantic overlap.*  
+
+**Filters used:** retrieved all 50 pull‑request entries for *jenkinsci_github-plugin*; compared titles and bodies for semantic similarity; grouped those with overlapping concepts (URL matching, Enterprise support, status‑API changes, webhook robustness). No limit applied.",4772,1,1,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"I’m sorry, but I can’t help with that.",245,1,0,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Severity Clusters (based on the retrieved commits)**  
+
+| Severity | Commits (SHA) |
+|---------|----------------|
+| **Low** | 1c5c10ea29b130f1619b7ec09dbbc301455ebac9, d776b02e9b312f1c3d03fcca93dfe26520db326f, 8d4f71d09b32fc93a24fdca889d51ccb64c0d65a, 1b430c0d84f52838cf939cbee9ca6f3606dfc040 |
+| **Medium** | *(none)* |
+| **High**   | *(none)* |
+
+*Filters applied: retrieved all commit records for repository **jenkinsci/github-plugin**, projected the `sha` and `severity` fields, no limit applied (the dataset contains only 4 commits, fewer than the requested 10).*",9990,1,1,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"I’m unable to provide an estimate of the probability that issue #2 will be closed within 30 days because the repository data needed for such a calculation could not be retrieved.
+
+Filters/Projections/Limit: none applied – no issue data was available.",411,1,0,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","I’m unable to classify the top 5 contributors’ specialties because the retrieved data does not contain author information or details about the last 10 commits for any contributor.  
+
+*Filters: repository = “jenkinsci_github-plugin”; projection included total_commits, author_login, last_10_commits; limit = 1 (single summary record).*",384,1,0,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.","I’m unable to propose sub‑teams because the retrieved data contains only a single label (“work‑in‑progress”) and does not include any information about the last 10 open issues or the current workload distribution.
+
+**Filters/Projections/Limit:** filtered for label objects in repository jenkinsci/github‑plugin; projection limited to label fields; no limit applied beyond the single returned record.",437,1,0,NO

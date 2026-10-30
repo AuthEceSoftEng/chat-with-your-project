@@ -1,0 +1,235 @@
+question,answer,token_count,tool_use,label
+What is the name and description of the repository?,"**Repository name:** *spring-boot*  
+**Description:** *Spring Boot*
+
+**Tools used:** retrieve_documents (filtered for one project, projection of `name` and `description`, limit = 1).",4404,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **October 19 2012** at 15:02:57 UTC and was last updated on **July 9 2018** at 03:08:28 UTC.
+
+*Tool used: retrieve_documents, filter={}, limit=1, projection={created_at, updated_at}.",10323,2,CORRECT
+How many contributors have contributed to this repository?,"There are 200 contributors who have contributed to the Spring Boot repository.  
+Tool called: count_documents with filter={} and limit not needed.",4248,1,CORRECT
+Which contributor has made the highest number of commits?,"**Contributor with the most commits:** *wilkinsona* – 5,270 commits.
+
+*Tools used*: aggregate_collection, pipeline=group by $author.login → count, sort descending, limit 1.",14253,3,CORRECT
+How many total commits are recorded in the repository?,"There are 17,358 commits recorded in the repository.  
+Tool used: count_documents(repo_name=""spring-projects_spring-boot"", collection=""commits"", filter={})",4233,1,CORRECT
+What is the most recent commit message and who authored it?,"The latest commit is titled  
+**“Merge branch '2.0.x'”**  
+
+and it was authored by **Wilkinsona** (Andy Wilkinson).  
+
+_Used retrieve_documents with sort by commit date, limit 1, projection of author.login and commit.message._",10289,2,CORRECT
+What is the oldest commit in the repository?,"The earliest commit in the repository is commit **00021dcd75df70b6632b859120fbbf9d21c95d2b**.  
+*Date*: 2012‑10‑21 T17:53:52Z (UTC)  
+
+*Tool used*: aggregate_collection – grouped by commit author date, selected the minimum date and returned the corresponding commit SHA.",10057,2,CORRECT
+How many open issues are currently in the repository?,"There are 48 open issues.  
+
+Tool used: count_documents with filter {""state"":""open""} and limit 48.",4233,1,CORRECT
+How many closed issues are currently in the repository?,"152 closed issues.
+
+Tools used: count_documents(filter={""state"":""closed""}, limit=none)",4240,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is issue #13,730:
+
+**Title:** @WebMvcTest should register PageableHandlerMethodArgumentResolver  
+**Created at:** 2018‑07‑09 T01:42:23Z  
+
+The data was retrieved from the `issues` collection, sorted by `created_at` descending, and limited to 1.",4482,1,CORRECT
+Which issue has been open for the longest time?,"Issue #13531 – “FailureAnalyzer doesn’t provide useful information for the “null” bean case” has been open the longest, first opened on 2018‑06‑20.  
+
+**Tool used:** aggregate_collection, filter: `{""state"":""open""}`, sort: `{""created_at"":1}`, limit: 1, projection: `{""created_at"":1,""number"":1,""title"":1}`.",4550,1,CORRECT
+Which issue has received the highest number of comments?,"Issue #60 receives the most comments with **9 comments**.  
+
+Tools used: aggregate_collection (`issues_url` field, group by URL → count) and limited to the top result.",11401,3,CORRECT
+How many issue comments exist in total?,"200 issue comments exist in total.  
+
+Tool used: count_documents(repo_name=""spring-projects_spring-boot"", collection=""issueComments"", filter={})",4222,1,CORRECT
+How many commit comments exist in total?,"0 commit comments exist in total.  
+
+Tool call: count_documents(collection=""commitComments"", filter={}, repo_name=""spring-projects_spring-boot"")",6616,2,CORRECT
+Which project contains the largest number of issues?,"The project **spring-projects/spring-boot** contains the largest number of issues, with 200 issues.  
+
+Tools used: aggregate_collection with pipeline  [{""$group"": {""_id"": ""$repo_name"", ""n"": {""$sum"": 1}}}, {""$sort"": {""n"": -1}}, {""$limit"": 1}] on the issues collection.",22779,4,INCORRECT
+How many issue events are associated with issue #2?,"There are no issue events recorded for issue #2.
+
+Count query used: filter {""issue.number"":2} (limit not applicable).",8310,2,CORRECT
+Which contributor most recently made a commit?,"The most recent commit was made by user **wilkinsona** on **2018‑07‑06**.
+
+Tools used: aggregate_collection\nfilter=none, sort=commit.author.date descending, limit 1.",23647,5,CORRECT
+Which issue was closed most recently?,"The most recently closed issue is **#13729** – *“Spring data jpa query creation keyword ""Like"" is not work”* (closed on 2018‑07‑08).  
+Tools used: retrieve_documents with filter = {state:""closed""}, sort by closed_at descending, limit = 1.",8683,2,CORRECT
+Which contributor has authored at least one commit comment?,No contributor in the *spring-projects_spring-boot* repository has authored a commit comment – the *commitComments* collection contains 0 documents.,18200,5,CORRECT
+What are the top 5 contributors ranked by number of commits?,"Top 5 contributors by commit count:  
+1. `wilkinsona` – 5 270 commits  
+2. `snicoll` – 4 259 commits  
+3. `philwebb` – 2 601 commits  
+4. `dsyer` – 1 648 commits  
+5. `None` (anonymous/unknown) – 952 commits  
+
+[aggregate_collection call on `commits` with group/sort/limit applied]",24689,7,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is **≈ 37.57**.  
+Tool used: aggregate_collection filtered no limit, execute_math_calculation average on field ""commits"".",31799,4,CORRECT
+What percentage of issues are currently closed?,"76 % of the issues are currently closed.  
+Tool used: count_documents for total issues (200) and for closed issues (152).",6570,2,CORRECT
+What percentage of issues are currently open?,"24% of issues are currently open.  
+
+Tool calls: counted open issues (48 of 200).",6591,2,CORRECT
+What is the ratio of open issues to closed issues?,"There are 48 open issues and 152 closed issues.  
+**Ratio (open : closed)** = 48 ÷ 152 ≈ **0.32** (about 32 % as many open as closed).  
+
+Tool used: `count_documents` for open and closed – limits satisfied.",9119,3,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **1.0**.  
+
+(Computed as 200 issue comments ÷ 200 issues.)",7128,2,INCORRECT
+What is the median number of comments per issue?,"Median number of comments per issue: **2**
+
+Tools used: aggregate_collection (group by issue_url, count comments), execute_math_calculation (median on field “n”).",24202,5,CORRECT
+What is the average number of issue events per issue?,"**Answer:**  
+There are no issue event records in the repository, so the average number of issue events per issue is **0.0 (zero events).**
+
+**Tool usage:**  
+- `count_documents` on collection `""issueEvents""` (filter `{}`) → count = 0  
+- `count_documents` on collection `""issues""` (filter `{}`) → count = 200",18076,5,CORRECT
+What is the average number of commit comments per commit?,"There are no commit comment records in the spring‑projects_spring‑boot repository, so the average number of commit comments per commit is 0.  
+
+Tool used: count_documents on collection commitComments with filter {} (limit 0).",15212,4,CORRECT
+What percentage of contributors have made more than 10 commits?,"30 contributors have made more than 10 commits.  
+Total contributors: 200.  
+Percentage: 30/200 × 100 = 15 %.  
+
+---  
+
+Tools used:  
+- `count_documents` with filter {} (limit 200)  
+- `count_documents` with filter {""contributions"":{""$gt"":10}} (limit 30)",10749,3,CORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of commits per contributor is **≈ 348.42**.
+
+Tools used: aggregate_collection (group by author.login to get commit counts), execute_math_calculation (std_dev on field “n”).",41235,5,CORRECT
+What is the average time (in days) taken to close an issue?,"Average time to close an issue: **≈ 0.95 days** (less than one day).
+
+Tools used: an `aggregate_collection` query that 1) matched closed issues, 2) converted `created_at` and `closed_at` to dates, 3) computed the difference in milliseconds and divided by 86 400 000, and 4) averaged over all 152 closed issues.",30196,6,CORRECT
+What is the median time (in days) taken to close an issue?,"The median time to close an issue is ~0.31 days (about 7.5 hours).
+
+Tool used: `aggregate_collection` on “issues” with filter `{closed_at: {$ne: null}}`, projecting `duration_days = ($subtract(toDate(closed_at), toDate(created_at)))/86400000`, sorting, and computing the median.",18338,5,CORRECT
+What percentage of issues were closed within 7 days of creation?,"About 95 % of the issues were closed within seven days of being created (145 out of 152 closed issues that had a closing date).  
+
+The value was obtained by aggregating the `issues` collection: counting all closed issues (`total`) and counting those whose difference between `closed_at` and `created_at` was ≤ 604 800 000 ms (7 days). Then 145 / 152 ≈ 0.9539, i.e. 95.4 %.  
+
+**Tools used**: `aggregate_collection` (to compute counts); simple division for the final percentage.",20398,4,CORRECT
+What percentage of issues were closed within 30 days of creation?,"100 % of closed issues were resolved within 30 days.  
+
+Tools used: aggregate_collection with filter {""closed_at"":{""$ne"":null}} and date calculations, then execute_math_calculation with value_a = value_b = 152.",30560,6,CORRECT
+Which contributor has the highest commit-to-comment ratio?,"No commit comments are stored in the *commitComments* collection for this repository, so a commit‑to‑comment ratio cannot be computed.",74047,8,CORRECT
+What percentage of all comments are issue comments versus commit comments?,"There are 200 issue comments and 0 commit comments, so 100 % of all comments are issue comments and 0 % are commit comments.  
+
+Tools used: `count_documents` (limit = default) for `issueComments` and `commitComments`.",6681,2,CORRECT
+What is the average number of commits per month since the repository was created?,"The average number of commits per month since the repository was created is **267.05 commits**.
+
+Tools used: aggregate_collection (grouped commits by year‑month, then projected `t` and `commits`), execute_math_calculation (calculated the average of the `commits` field).
+
+",10421,3,CORRECT
+What was the percentage growth or decline in commits from the previous month?,"{""collection_name"":""commits"",""repo_name"":""spring-projects_spring-boot""}",17592,5,NO
+What percentage of issues have at least one comment?,"38.5 % of all issues have at least one comment (77 out of 200 issues).  
+
+Tools used: `count_documents` on issues for the total count, and `aggregate_collection` on issueComments grouping by **issue_url** to count unique issues that received comments.",20159,5,CORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor **wilkinsona** made 5 270 commits, which is about **30.4 %** of all 17 358 commits in the repository.  
+Tools used: `count_documents` (filter={}), `aggregate_collection` (group by author.login, limit 1), `execute_math_calculation` (ratio of 5270/17358).",20939,4,CORRECT
+Forecast the number of commits expected in the next month.,"**Estimated commits for the next month: 340 (± about 104)**  
+
+The model was trained on monthly commit counts from 2012‑10 to 2018‑07 using a simple linear regression on the numeric month index. The forecast corresponds to month index 24224, which maps to **August 2018**. The prediction includes error statistics (MAE ≈ 105).  
+
+*Tool used: aggregate_collection (commits, month/y‑month index), execute_ml_pipeline (regression, target=count, feature=t).*
+
+",51623,8,CORRECT
+Cluster issues into thematic groups based on their titles and descriptions.,"I ran a clustering model on the recent 20 issues (using their title and body) but the tool did not return any cluster labels, only a silhouette score of 0.05. Because no cluster assignments were produced, I cannot list thematic groups. The clustering attempt is recorded below.  
+
+**Tools used**  
+- `aggregate_collection` to get label frequencies (filter={}, limit=10)  
+- `retrieve_documents` to fetch 20 recent issues (limit=20, projection title + body)  
+- `execute_ml_pipeline` on the retrieved data (features = [""title"",""body""], task_type = ""clustering"")  
+
+Result: silhouette ≈ 0.05, no cluster predictions returned.",42908,4,NO
+Summarize the most discussed technical topics across last 10 issues and comments.,"The last ten issues are dominated by a few recurring topics:
+
+| Topic | # of issues |
+|-------|-------------|
+| **status: invalid** | 3 |
+| **status: waiting-for-triage** | 3 |
+| **for: stackoverflow** | 1 |
+| **for: team‑attention** | 1 |
+| **type: task** | 1 |
+
+> **Interpretation**  
+> The majority of recent issues are marked as *invalid* or still awaiting triage, indicating that several tickets are either flawed or need further investigation before work can begin. The smaller set of issues flagged for “stackoverflow” or “team‑attention” highlight external help or internal coordination needs. A lone “task” entry shows a straightforward new development item.
+
+**Tools used**: `aggregate_collection` – pipeline to sort by newest, take 10, unwind labels and count them.",11130,2,CORRECT
+Assign issue #2 to contributor.,"I’m sorry, but I can’t assign an issue to a contributor.",2063,0,INCORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"After computing semantic similarity across all 50 issues I did not find any pairs with a high similarity score.  
+The similarity matrix shows only trivial matches (e.g. 0.08–0.11 for the most similar pairs) and no scores above 0.5, so no two issues in the sample set are duplicates or near‑duplicate.  
+
+Tools used: `retrieve_documents` to fetch 50 issue bodies, `execute_ml_pipeline` (semantic similarity) on the combined title + body data.",43651,3,NO
+Forecast the number of issue comments the issue #2 will have.,"Issue #2 currently has 5 comments (count_documents).  Since the last comment dates back to 2013‑06‑14 and no subsequent activity has been captured, a simple regression would predict no growth in the short‑term—i.e., the forecasted number of future comments is 0 for the next period, keeping the total at 5.
+
+(Used count_documents with filter `{""issue_url"":{""$regex"":""issues/2$""}}`. No new data points were available for training a time‑series model, so a static forecast of 0 new comments was made.)",19317,5,CORRECT
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Severity‑clustered list of the last 10 commits**
+
+| Commit SHA | # of files changed | Assigned severity |
+|-----------|-------------------|-------------------|
+| fde534c8… | 1 | Low |
+| 809e3050… | 1 | Low |
+| 9a49e8ef… | 1 | Low |
+| 68a3c234… | 4 | Medium |
+| bdd95f09… | 1 | Low |
+| 337d2d8e… | 1 | Low |
+| 58be01a7… | 1 | Low |
+| 91387232… | 1 | Low |
+| 468453b6… | 1 | Low |
+| 0e8206cd… | 1 | Low |
+
+**Explanation**  
+Using a simple rule that treats a commit touching **1 file** as *Low*, **2–4 files** as *Medium*, and **>4 files** as *High*, the 10 most recent commits cluster into 9 *Low* and 1 *Medium* – none reach *High*.
+
+**Tools used**
+
+- `retrieve_documents` with `limit=10`, `sort={""commit.committer.date"":-1}` and a projection to fetch only the `files` array for the ten latest commits.",53455,6,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"Issue #2 does not exist in the repository (the query for number 2 returned zero records). Without issue data, we cannot estimate a closure probability.",17897,4,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","**Specialty classification of the top five contributors (based on their 10 most recent commits)**  
+
+| Contributor | Recent file patterns | Likely specialty | Rationale |
+|-------------|-----------------------|------------------|-----------|
+| **wilkinsona** | `spring-boot-docs/src/main/asciidoc/*.adoc`, `pom.xml` | **Documentation & Guides** | Most recent commits touch Asciidoc docs and pom files. |
+| **snicoll** | `spring-boot-starters/README.adoc`, numerous `spring-boot-autoconfigure/src/main/java/...`, `spring-boot-docs/src/main/asciidoc/*` | **Starter & Configuration** | Focus on starter README, autoconfigure classes, and configuration docs. |
+| **philwebb** | `spring-boot/src/main/java/.../undertow/...`, `verify/...`, `spring-boot/actuator/...`, `spring-boot-autoconfigure/...` | **Web/Servlet‑Container (Undertow)** | Commit files center on Undertow server, embedded servlet container, and related tests. |
+| **dsyer** | `spring-boot-docs/src/main/asciidoc/*.adoc`, `pom.xml`, `spring-boot-autoconfigure/src/main/java/.../WebMvcAutoConfiguration.java`, `spring-boot-dependencies/pom.xml` | **Documentation & Build / MVC Configuration** | Mix of docs, dependency POMs, and MVC/Web autoconfigure classes. |
+| **None** (the generic contributor) | `pom.xml`, generic `spring-boot-project/...` | **General/Contributor** | No clear specialty from the 10 commits. |
+
+**How this was derived**
+
+1. **Aggregation** – Top 5 authors found by summing commits per author (`commits` collection).  
+2. **Recent commits** – For each author, retrieved the last 10 commits sorted by date, projecting author, date, and file names.  
+3. **Pattern‑matching** – By inspecting repeated file paths and types (docs, config, web, pom), inferred the area each contributor mainly works on.
+
+These assignments are **informed estimates** based on commit history. No ML model was actually run, but the file‐type patterns provide strong clues to each contributor’s primary specialty.",52377,10,CORRECT
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Sub‑team assignments based on the last 10 open issues**
+
+| # | Issue label(s) | Suggested sub‑team | Reasoning |
+|---|----------------|---------------------|-----------|
+| 1 | `status: waiting‑for‑triage` | **Triage & Support** | Issues needing initial review – triage will decide priority and assign to the correct team. |
+| 2 | `status: waiting‑for‑triage` | **Triage & Support** | Same as #1 – capture all waiting‑for‑triage issues. |
+| 3 | `for: team‑attention`, `status: waiting‑for‑triage` | **Task & Cleanup** | “Polish some Collectors” is a small cleanup task; the sub‑team handles quick‑turn fixes. |
+| 4 | `type: task` | **Feature‑Implementation** | “Use PropertySources.stream() …” is a concrete implementation task. |
+| 5 | none (no label) | **Core‑Engineering** | “Reconsider default exposure for info endpoint” – core feature change requiring architectural review. |
+| 6 | none (no label) | **Core‑Engineering** | Same as #5 – security‑related core change. |
+| 7 | `status: waiting‑for‑feedback`, `status: waiting‑for‑triage` | **Feedback & QA** | Awaiting user feedback; QA‑focused sub‑team to gather data and confirm fixes. |
+| 8 | `status: waiting‑for‑feedback`, `status: waiting‑for‑triage` | **Feedback & QA** | Same reasoning as #7. |
+| 9 | `type: enhancement` | **Feature‑Engineering** | “Register SpringBeanContainer with default Hibernate setup” – extends capabilities. |
+|10 | `type: documentation` | **Technical‑Writer** | “Some Suggestions for the Spring Boot Migration Guide” – documentation specialists. |
+
+### Proposed 5 sub‑teams
+1. **Triage & Support** – handle issues flagged with `status: waiting‑for‑triage`.  
+2. **Feature‑Engineering** – focus on `type: enhancement` issues and related code changes.  
+3. **Technical‑Writer** – manage `type: documentation` items.  
+4. **Task & Cleanup** – small, easily scoped tasks (`type: task` or “Polish” items).  
+5. **Feedback & QA** – collect feedback on `status: waiting‑for‑feedback` issues and verify fixes.
+
+> **Tool usage**: Retrieved the latest 10 open issues with `retrieve_documents`; filter: `{""state"":""open""}`, limit = 10, projection of labels, title, number. No further tool calls required.",6241,1,CORRECT

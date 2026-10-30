@@ -1,0 +1,21 @@
+Question,Result
+What is the name and description of the repository?,Name: github-plugin; Description: Jenkins GitHub plugin
+"When was the repository created, and when was it last updated?",Created: 2010-12-13T05:35:14Z; Updated: 2018-12-24T23:21:25Z
+How many contributors have contributed to this repository?,60
+Which contributor has made the highest number of commits?,Kirill Merkushev (91 commits)
+How many total commits are recorded in the repository?,611
+What is the most recent commit message and who authored it?,Date: 2018-10-08T09:55:42Z Message: [maven-release-plugin] prepare for next development iteration; Author: lanwen
+What is the oldest commit in the repository?,Date: 2009-06-09T20:35:36Z Message: Add: Root directory for the github Plugin.; Author: juretta
+How many open issues are currently in the repository?,11
+How many closed issues are currently in the repository?,188
+Which issue was created most recently?,Title: Update the README.md; Created at: 2018-10-11T05:12:44Z
+Which issue has been open for the longest time?,Title: Add ability to specify GitHub events.; Created at: 2015-04-27T22:27:47Z
+Which issue has received the highest number of comments?,Issue #59 ([JENKINS-27136] Workflow support for GitHub Push Triggers) with 49 comments
+How many issue comments exist in total?,1060
+How many commit comments exist in total?,53
+Which project contains the largest number of issues?,Repository: dotCMS_core with 15747 issues
+How many issue events are associated with issue #X?,2
+Which contributor most recently made a commit?,Author: lanwen; Date: 2018-10-08T09:55:42Z
+Which issue was closed most recently?,Title: add mvnw; Closed at: 2018-10-08T09:50:09Z
+Which contributor has authored at least one commit comment?,Contributor: jzaefferer
+What are the top 5 contributors ranked by number of commits?,lanwen (176 commits); kohsuke (94 commits); KostyaSha (61 commits); lanwen-ci (60 commits); stephenc (34 commits)

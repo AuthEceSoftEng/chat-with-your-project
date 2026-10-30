@@ -1,0 +1,223 @@
+question,answer,token_count,label
+What is the name and description of the repository?,"The name of the repository is kafka, and its description is a mirror of Apache Kafka.
+
+Filters used: name, description
+Projections used: name, description
+Limits used: None",172,CORRECT
+"When was the repository created, and when was it last updated?","The repository 'apache_kafka' was created on February 27, 2011, and it was last updated on October 5, 2023.
+
+Filter: Repository metadata (creation date, last update date) projected.",184,INCORRECT
+How many contributors have contributed to this repository?,"987
+
+Filter: select(count(DISTINCT contributor)) from apache_kafka; Projection: DISTINCT contributor; Limit: none.",146,INCORRECT
+Which contributor has made the highest number of commits?,"The contributor with the most commits in the 'apache_kafka' repository is cotedm with 8 contributions.
+
+Filters, projections, and limits used: 
+- Filtered for the user with the highest ""contributions"" value.
+- Projected only the ""login"" field to identify the user.
+- Limited the result to top 1 as it was required to find the contributor with the highest commits.",517,INCORRECT
+How many total commits are recorded in the repository?,"5609
+
+Filters: COUNT(commit_id)
+Projections: commit_id
+Limits: None",142,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message was ""MINOR: Print exception stack traces in ConsumerGroupCommand. (#5286)"" and it was authored by Aviem Zur.
+
+Filters, projections, and limits used: SELECT message, author.name FROM retrieved_data WHERE repository = 'apache_kafka' ORDER BY timestamp DESC LIMIT 1;",235,INCORRECT
+What is the oldest commit in the repository?,"There are no available data points to answer the question regarding the oldest commit in the repository 'apache_kafka'.
+
+Filters, projections, and limits used: None (No data retrieved from the specified repository).",158,NO
+How many open issues are currently in the repository?,"24
+
+Filters: issue state = 'open'
+Projections: count(issue)
+Limits: none",141,INCORRECT
+How many closed issues are currently in the repository?,"Error retrieving data: 'Cursor' object has no attribute 'count'
+
+The question cannot be answered with the provided information due to a data retrieval error.",163,ERROR
+Which issue was created most recently?,"The issue titled ""Introduce option to enable tracing of broker leadership elections"" was created most recently.
+
+Filters, projections, and limits used: 
+```python
+issues.find().sort('created_at', -1).limit(1)
+```",188,INCORRECT
+Which issue has been open for the longest time?,"The issue titled ""KAFKA-7371"" has been open for the longest time.
+
+ Filters: Issues opened in repository 'apache_kafka'
+ Projections: Title, Open Date
+ Limits: Limit 1 for singular result",191,INCORRECT
+Which issue has received the highest number of comments?,"No issues found in the provided database.
+
+Filters, projections, and limits used: SELECT title FROM issues ORDER BY comments DESC LIMIT 1;",147,NO
+How many issue comments exist in total?,"40000
+
+Filter: github_issues_comments
+Projection: count(*)
+Limit: None",141,CORRECT
+How many commit comments exist in total?,"0
+
+Filters: COUNT(commit_comments.commit_id)
+Projections: commit_comments.commit_id
+Limits: None",138,CORRECT
+Which project contains the largest number of issues?,"To answer this, we would filter and sort projects based on the number of issues they contain.
+
+The project ""incubator-kafka"" contains the largest number of issues. 
+
+Filters: Project name.
+Projections: Number of issues per project.
+Limits: 1 record only.",199,INCORRECT
+How many issue events are associated with issue #2?,"0
+
+SELECT COUNT(*) FROM issue_events WHERE issue_id = 2 LIMIT 1;",138,CORRECT
+Which contributor most recently made a commit?,"The query to find the most recent committer failed due to an incorrect specification of the MongoDB index. 
+
+To correctly answer this question:
+- Project documents that include the username and timestamp of commits.
+- Filter by sorting timestamps in descending order.
+- Limit results to one document.
+
+Filtering, projecting, and limiting based on commit timestamps would be used to retrieve the most recent contributor's information if the query structure were correct.",236,ERROR
+Which issue was closed most recently?,"No issues found in the retrieved data.
+
+Since no data is available to answer the question, we cannot determine which issue was closed most recently based on the provided information.",149,NO
+Which contributor has authored at least one commit comment?,"No contributors have authored at least one commit comment.
+
+Filters: None (no data available)
+Projection: Count of contributors with commit comments
+Limit: N/A",150,NO
+What are the top 5 contributors ranked by number of commits?,"The top 5 contributors, ranked by number of commits, based on provided data are:
+
+- cotedm
+- jozi-k
+- clehene
+- evverx
+- andrewstevenson
+
+Filters: $limit(5)
+Projections: login
+Sort: By count of _id, ascending implicitly represented.",321,INCORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is 24.1.
+
+Filter: `commits` collection filtered by unique committers.
+Projection: Only counted fields are 'committer' and 'sha'.
+Limit: Not explicitly set, using all data to calculate average.",199,INCORRECT
+What percentage of issues are currently closed?,"91.00%
+
+Filter: Issue status = 'closed'
+Projection: Total count of closed issues
+Limit: 1 row",160,CORRECT
+What percentage of issues are currently open?,"8.995%
+
+Filters: Issue status filter (open vs closed)  
+Projections: Count of open issues  
+Limits: No additional limits applied",165,CORRECT
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues cannot be determined from the provided data.
+
+Filters, projections, and limits used: No specific filters, projections, or limits were applied as the required data was not available in the CommandCursor object.",193,NO
+What is the average number of comments per issue?,"No data available to calculate the average number of comments per issue.
+
+Filters, projections, and limits used: None, as there is no relevant data in the provided database snapshot.",180,NO
+What is the median number of comments per issue?,"Error retrieving data: 'comment_count'
+
+The requested information could not be retrieved due to the absence of a relevant metric ('comment_count') in the provided database structure.",160,ERROR
+What is the average number of issue events per issue?,"The requested calculation cannot be performed based on the provided data due to an unrecognized pipeline stage error.
+
+Filters, projections, and limits used: None - Due to the error in the pipeline stage name, no filtering, projection, or limit was applied.",229,ERROR
+What is the average number of commit comments per commit?," estimate: 3.2
+
+Filtered and projected data from commits collection, limited to calculation of average commit comments per commit.",170,INCORRECT
+What percentage of contributors have made more than 10 commits?,"0%
+
+Filters: Pull requests and commit data were queried to identify contributors with more than 10 commits.
+Projections: Only contributor names and their corresponding commit counts were considered.
+Limits: No specific limit was applied as the result was empty.",171,INCORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of commits across contributors cannot be calculated due to insufficient or improperly formatted data retrieval.
+
+Filters, projections, and limits used:
+- None, as the required data could not be retrieved.",173,NO
+What is the average time (in days) taken to close an issue?,"No data available to calculate the average time taken to close an issue.
+
+Filters, projections, and limits used: 
+Filter: Issues related to Apache Kafka.
+Projection: Issue closure times.
+Limit: No applicable limit as required data was not retrieved.",185,NO
+What is the median time (in days) taken to close an issue?,"There are no closed issues found in the database, so I cannot compute the median time taken to close an issue.
+
+Filters: State = closed
+Projections: issue_number, closed_at
+Limits: None",168,NO
+What percentage of issues were closed within 7 days of creation?,"Error retrieving data: closing parenthesis '}' does not match opening parenthesis '(' on line 2 (<string>, line 18)
+
+Estimate: Due to the error in the query, an accurate calculation cannot be performed. Filters used: None. Projections used: None. Limits used: None.",207,ERROR
+What percentage of issues were closed within 30 days of creation?,"Error retrieving data: '最新提交时间'
+
+The required query cannot be executed due to the error in the provided data.",182,ERROR
+Which contributor has the highest commit-to-comment ratio?,"No data available for this query based on the error message received. The query to find the contributor with the highest commit-to-comment ratio cannot be executed due to an error in retrieving the necessary data.
+
+Filters, projections, and limits used: None, as no valid data was retrieved from the database.",253,ERROR
+What percentage of all comments are issue comments versus commit comments?,"Error retrieving data: The query cannot be answered as it seems there is no comment information available in the provided database context.
+
+Filters, projections, and limits used: None, as the required data ('comment') is not present.",177,ERROR
+What is the average number of commits per month since the repository was created?,"No data available to calculate the average number of commits per month.
+
+Filters, projections, and limits used: No data retrieved from the database for apache_kafka.",156,NO
+What was the percentage growth or decline in commits from the previous month?,"No relevant data found to answer the question regarding the percentage growth or decline in commits from the previous month. The provided database retrieval had an error.
+
+Filters, projections, and limits used: None applied due to the error in data retrieval.",192,ERROR
+What percentage of issues have at least one comment?,"Error retrieving data: Use of undefined variable: issue, full error: {'ok': 0.0, 'errmsg': 'Use of undefined variable: issue', 'code': 17276, 'codeName': 'Location17276'}. 
+
+Filters, projections, and limits used: None, as the required variable for filtering issues by comments was not defined in the database context provided.",259,ERROR
+Which contributor accounts for the highest percentage of all commits?,"Based on the available data, which seems to be incomplete as it mentions an issue with a non-defined variable, I cannot provide specific details about any contributor.
+
+filters: [project = 'apache_kafka']
+projections: [top contributor by commit percentage]
+limits: []",186,NO
+Forecast the number of commits expected in the next month.,"Based on historical trends, we would expect approximately 50-70 commits in the next month.
+
+Filters, projections, and limits used:
+- Estimated range based on monthly average commits over the past year.
+- No specific filtering or projection was applied to tailor the estimate; general trend analysis was conducted.",209,CORRECT
+Cluster issues into thematic groups based on their titles and descriptions.,"With no data available from the repository 'apache_kafka', thematic grouping of cluster issues is not possible.
+
+Filters, projections, and limits used: Retrieved zero records from the database with empty filters, projections, and limits.",165,NO
+Summarize the most discussed technical topics across last 10 issues and comments.,"No technical topics have been extensively discussed across the last 10 issues and comments.
+
+Filters, Projections, and Limits Used: 
+Filtered discussions from the last 10 issues and comments with no relevant technical topics found.",175,NO
+Assign issue #2 to contributor.,"Unable to assign an issue to a contributor as no relevant data is available in the repository.
+
+Filters, projections, and limits used: SELECT * FROM issues WHERE repository = 'apache_kafka' LIMIT 100;",160,INCORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"No issues found to match the query.
+
+Filters, projections, and limits used: The database returned zero results due to an empty dataset. No filtering, projecting, or limiting was applicable in this case.",164,NO
+Forecast the number of issue comments the issue #2 will have.,"Estimate: 15
+
+Filters: issue_number = 2
+Projections: comment_count
+Limits: 1",147,INCORRECT
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","No commits found to analyze.
+
+Filters: None applied as no commit data is available.
+Projections: N/A
+Limits: N/A",157,NO
+Estimate the probability issue #2 will be closed within 30 days.,"There is not enough data in the provided database to estimate the probability of issue #2 being closed within 30 days.
+
+Given the error message indicating missing data, no filters, projections, or limits were applied based on the retrieved context.",185,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","Estimating based on the common contributions:
+
+1. **JohnDoe**: Mostly fixes and bug reports -> *Bug Fixer*.
+2. **EmmaRae**: New feature implementations and enhancements -> *Feature Developer*.
+3. **ChrisLee**: Documentation improvements, release notes -> *Documentarian*.
+4. **SaraMay**: Integration tests and system testing -> *Tester*.
+5. **MikeHill**: Performance optimizations and code cleanups -> *Performance Optimizer*.
+
+Filters, projections, and limits used: Last 10 commits of top 5 contributors were analyzed for commit messages, pull requests, and associated issues to determine their specialties.",274,INCORRECT
+"Based on last 10 open issues, propose 5 sub teams to split workload.","Proposed sub-teams:
+1. Broker Management and Registration (Issues: KAFKA-1811)
+2. Partitioning Improvements and Load Balancing (Issues: KAFKA-2092)
+3. Logging and Metrics Enhancements (Issues: KAFKA-2341, KAFKA-2145)
+4. Topic Configuration and Consumer Management (Issues: support commit offset after consumed, KAFKA-2309 related)
+5. Cloud and Virtualization Support (Issue: KAFKA-2183)
+
+Filters, projections, and limits used:
+Filtered issues to only open ones from the last 10 entries. Projected issue titles and grouped by potential functionalities or areas of Kafka's operation. No specific limits applied beyond the scope of the provided context.",858,CORRECT

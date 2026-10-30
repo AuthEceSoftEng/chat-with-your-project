@@ -1,0 +1,185 @@
+question,answer,token_count,label
+What is the name and description of the repository?,"The name of the repository is 'spring-boot', and its description is 'Spring Boot'.
+
+Filters, projections, and limits used: Retrieved exact match for 'spring-projects_spring-boot' repository with standard fields selection.",184,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on 2012-10-19T15:02:57Z and last updated on 2018-07-09T03:08:28Z.
+
+Filters, projections, and limits used: Projected only the `created_at` and `updated_at` fields for the document with _id 6296790. No limits applied as there was only one relevant document in the retrieval set.",300,CORRECT
+How many contributors have contributed to this repository?,"1547
+
+Filters, projections, and limits used: Commits from the main branch were filtered within the last 3 years, projecting unique contributor counts.",162,INCORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is not directly identifiable from the provided data as the `_id` field is null and no specific contributor is mentioned. However, based on commit_count, it's implied there was activity with 200 commits.
+
+Filters/Projections/Limits Used: 
+commit_count provided but exact contributor ID/name filtered out due to null _id.",219,NO
+How many total commits are recorded in the repository?,"17358
+
+Filtering: Direct count of commit entries in the provided data. No projections or limits applied as the exact number was requested without additional context.",166,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message is ""Upgrade to Spring Batch 4.0.0.M2\n\nCloses gh-7645"" and it was authored by Andy Wilkinson.
+
+Filters, projections, and limits used: Commit data filtered for the latest entry only, projecting author name and commit message content.",232,INCORRECT
+What is the oldest commit in the repository?,"The oldest commit in the 'spring-projects_spring-boot' repository as of 2019-03-27T14:56:45Z has the message ""Initial commit for Spring Boot on 2.1.x branch"".
+
+Filters, projections, and limits used: Time filter set to identify the initial commit of any branch; projection focused on commit timestamp and message; limit set to one result.",227,INCORRECT
+How many open issues are currently in the repository?,"Error: The provided database cannot perform the requested operation.
+
+Filters, projections, and limits used: None, as the operation to count is not supported by the provided 'Cursor' object.",179,ERROR
+How many closed issues are currently in the repository?,"Sorry, but I couldn't retrieve the number of closed issues as there's an error with the query. Specifically, the variable 'issues' isn't defined.
+
+Filters, projections, and limits used: None, due to the initial error encountered.",188,NO
+Which issue was created most recently?,"The issue created most recently in the 'spring-projects_spring-boot' repository is #28349, titled ""Add support for Java 17"" opened on 2023-05-18T16:11:51Z.
+
+Filters: Filtered issues by repository and sorted them by creation date in descending order. Projection included only issue number, title, and creation date. Limit applied to return only the first issue from the sorted list.",249,INCORRECT
+Which issue has been open for the longest time?,"The issue that has been open for the longest time in the 'spring-projects/spring-boot' repository is #16549, which was created on November 20, 2017.
+
+Filters, projections, and limits used:
+- Filtered by repository name: 'spring-projects_spring-boot'
+- Projected field: Issue ID
+- Projected field: Creation date
+- Sorted by creation date in ascending order
+- Limit to top 1 result",239,INCORRECT
+Which issue has received the highest number of comments?,"The issue with the highest number of comments has 200 comments.
+
+Filters/Projections/Limits Used: Retrieved the issue with the maximum comment count, limited to one result.",180,INCORRECT
+How many issue comments exist in total?,"200
+
+Filters, projections, and limits used: Filtered total issue comments from the repository 'spring-projects_spring-boot' without any additional projection or limit.",163,CORRECT
+How many commit comments exist in total?,"0
+
+Filters, projections, and limits used: No specific filters, projections, or limits were applied since the provided data does not contain any information about commit comments.",159,CORRECT
+Which project contains the largest number of issues?,"To determine which project contains the largest number of issues, we would need to query the specific collection and field that stores issue counts. However, based on the provided database context, it's not possible to retrieve this information directly.
+
+The retrieved data does not provide any specific content or fields to examine the issue counts across different projects.
+
+Filters, projections, and limits applied: None. The CommandCursor object indicates a retrieval operation being attempted but lacks specifics on the query parameters or criteria used.",249,NO
+How many issue events are associated with issue #2?,"No data available for issue #2.
+
+Filters, projections, and limits used: 
+Filtered by issue number 2 solely, no additional projections or limits applied.",161,NO
+Which contributor most recently made a commit?,"The given data does not provide information about recent commits or any activity related to committing code. To answer this question accurately, we would need logs of commit activities from the 'spring-projects_spring-boot' repository.
+
+Filters, projections, and limits used: 
+Filtered and projected data specific to user contributions (commits) were not available in the provided dataset. Limited to the information strictly corresponding to 'kdvolder' as a GitHub user for 'spring-projects_spring-boot'.",539,NO
+Which issue was closed most recently?,"The issue with the number <1209373989> was closed most recently.
+
+Filters, projections, and limits used: {""filter"": {}, ""projection"": {""_id"": 0, ""number"": 1}, ""sort"": {""closedDate"": -1}, ""limit"": 1}",215,INCORRECT
+Which contributor has authored at least one commit comment?,"No contributors have authored at least one commit comment in the provided data.
+
+Filters, projections, and limits used: A query was made with no filtering or limiting applied to retrieve any information about commit comments by contributors from the spring-projects_spring-boot repository. Given the empty result set, it indicates there is no data available matching the criteria within the current context.",200,NO
+What are the top 5 contributors ranked by number of commits?,"No data available to answer the question as there is no information on contributors or commit history in the provided database entries.
+
+Filters, projections, and limits used: 
+Filtered for top 5 contributors by commits; projected contributor names and commit counts; limited to 5 results.",190,NO
+What is the average number of commits per contributor?,"Error retrieving data: Total size of documents in commits matching pipeline's $lookup stage exceeds 104857600 bytes
+
+Filters, projections, and limits used: None could be applied due to the error encountered.",264,ERROR
+What percentage of issues are currently closed?,"The query to fetch the percentage of closed issues from the `spring-projects_spring-boot` repository cannot be executed correctly due to the syntax error.
+
+Filters, projections, and limits used:
+- Attempted to filter and project issue statuses but encountered a syntax error in the provided input.",197,ERROR
+What percentage of issues are currently open?,"85%
+
+Filter: Issues labeled as ""open"" as of the latest database update on 24.0. Projection: Total open issues. Limits: No time range applied.",166,INCORRECT
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues cannot be determined due to insufficient or incorrect retrieved data.
+
+Filters, projections, and limits used: Incorrect query with undefined variable.",173,NO
+What is the average number of comments per issue?,"No data can be retrieved due to an error in the query pipeline stage usage.
+
+Filters, projections, and limits used: None, as no valid filters/projections/limits were applied due to the incorrect query structure.",233,ERROR
+What is the median number of comments per issue?,"No relevant data found to calculate the median number of comments per issue based on the provided error message and database facts.
+
+Filters, projections, and limits used: Error filtering due to undefined variable 'true', hence no projection or limit application could be made.",189,NO
+What is the average number of issue events per issue?,"The data retrieval process could not proceed due to an unrecognized pipeline stage name error.
+
+Filters, projections, and limits used: None, as the database query was unable to execute due to the syntax error.",229,ERROR
+What is the average number of commit comments per commit?,"2.557
+
+Filters: avgCount from the commits collection.
+Projections: avgCount.
+Limits: No limit applied.",184,INCORRECT
+What percentage of contributors have made more than 10 commits?,"No valid data found to answer the question based on provided facts.
+
+Filter/Projection/Limit Used: CommandCursor object retrieval for contributor commit statistics.",173,NO
+What is the standard deviation of commits across contributors?,"No data retrieved due to error in query. Standard deviation calculation cannot be performed.
+
+Error retrieving data: unterminated string literal (detected at line 8) (<string>, line 8) Filters, projections, and limits used: None",198,NO
+What is the average time (in days) taken to close an issue?,"The query to find the average time to close an issue cannot be accurately constructed with the provided pipeline stage name '$avg'.
+
+Filters, projections, and limits used: Data extraction from issues collection with aggregation pipeline attempts. The pipeline was halted due to unrecognized stage 'avg'.",246,ERROR
+What is the median time (in days) taken to close an issue?,"No data available to answer the question due to the retrieval error described.
+
+Filters, projections, and limits used: N/A (due to error in retrieving data).",187,ERROR
+What percentage of issues were closed within 7 days of creation?,"0%
+
+Error retrieving data: division by zero",147,ERROR
+What percentage of issues were closed within 30 days of creation?,"The database retrieval encountered an error, preventing accurate data extraction. Please ensure the input query is correctly formatted according to JSON or YAML standards used in GitHub repositories.
+
+To answer your question: Error retrieving data:Unable to calculate the percentage as necessary data could not be retrieved due to parsing errors.",205,ERROR
+Which contributor has the highest commit-to-comment ratio?,"No data available to determine the highest commit-to-comment ratio due to an error retrieving comments.
+
+Filter/Limit Applied: 
+- Retrieved commits data from repository.
+- Error encountered while fetching comments data.",174,ERROR
+What percentage of all comments are issue comments versus commit comments?,"100.0% of the comments are issue comments, and 0.0% are commit comments.
+
+Filters/Projections/Limit Used: Query filtered to show the distribution between issue comments and commit comments by percentage in the context of the 'spring-projects_spring-boot' repository.",210,CORRECT
+What is the average number of commits per month since the repository was created?,"The average number of commits per month since the repository was created is 123.
+
+Filters: Created a time range query to cover from when the repository was created until the current date, then computed the monthly averages. Projections focused on commit information within this timeframe. Limited results to unique months for accurate averaging.",222,CORRECT
+What was the percentage growth or decline in commits from the previous month?,"There is no data available to determine the percentage growth or decline in commits from the previous month for the 'spring-projects_spring-boot' repository.
+
+Filters, projections, and limits used: NULL (No relevant data retrieved).",178,NO
+What percentage of issues have at least one comment?,"The database retrieval command used here would require a correct structure of the data within the repository. Given the error, it seems there's an issue with improperly structured or queried data.
+
+To answer your question: The percentage of issues that have at least one comment cannot be determined from the provided information due to the error in the query execution process.
+
+Filters, projections, and limits used: None, as the provided command was invalid.",284,ERROR
+Which contributor accounts for the highest percentage of all commits?,"The contributor account ""jakubek"" accounts for the highest percentage of all commits.
+
+ Filters, projections, and limits used: Projected fields to contributor usernames only. Limited to top 1 contributor by commit count.",196,INCORRECT
+Forecast the number of commits expected in the next month.,"Based on historical data within the 'spring-projects_spring-boot' repository, we cannot forecast with accuracy due to insufficient commit history data.
+
+Filters, projections, and limits used: We attempted to analyze the commit pattern over the last year but found an empty dataset. Therefore, no valid forecasting was possible.",190,NO
+Cluster issues into thematic groups based on their titles and descriptions.,"Based on the provided database facts, I cannot perform clustering of issues due to the error ""Error retrieving data: name 'db_issues' is not defined."" This suggests that the necessary dataset for issues is absent or incorrectly referenced.
+
+Filters, projections, and limits used: None, since no valid dataset was retrieved.",204,NO
+Summarize the most discussed technical topics across last 10 issues and comments.,"The most discussed technical topics across the last 10 issues and comments in the `spring-projects_spring-boot` repository include:
+
+1. Migrating to Spring Boot 3.
+2. Compatibility issues with Java 17.
+3. Security enhancements and configuration.
+4. Integration of native images for production deployments.
+
+Filters, projections, and limits used: Projected recent discussions (last 10), filtered by issue and comment content focusing on technical topics.",240,CORRECT
+Assign issue #2 to contributor.,"Unable to assign issue due to lack of data.
+
+Filters, projections, and limits used: Retrieved database data is null for the 'spring-projects_spring-boot' repository.",160,NO
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"No duplicates or highly similar issues found among the provided 50 examples.
+
+Filters, projections, and limits used: Retrieved data contained zero issues, hence no analysis possible for duplicates or similarities.",171,NO
+Forecast the number of issue comments the issue #2 will have.,"Based on the provided database facts, there is no data available for issue #2 in the 'spring-projects_spring-boot' repository.
+
+Filters, projections, and limits used: Filtered with issue number = 2; Projected fields = issue_comments_count; Limit = 1 (No results found).",193,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","High: 3 - Commits related to security updates and critical bug fixes.
+Medium: 4 - Changes in core modules and feature enhancements.
+Low: 3 - Bug fixes and minor improvements.
+
+Filters, projections, and limits used: Projected commits from the last 10 entries, categorized based on files changed with predefined severity levels.",227,INCORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"Based on historical data, there's an estimated 45% probability that issue #2 will be closed within 30 days.
+
+Filters, projections, and limits used:
+- Filtered for issues tagged with 'spring-boot' in the repository.
+- Projected issues opened up to 30 days ago.
+- Limited to a maximum of 100 issues for analysis.",222,INCORRECT
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","No classification can be made based on the provided error message. The error ""NoneType' object is not subscriptable"" indicates that a null value was attempted to be indexed, which is unrelated to classifying contributors' specialties.
+
+Filters, projections, and limits used: Last 10 commits by top 5 contributors. Estimate or ML/buffer outputs: N/A",223,ERROR
+"Based on last 10 open issues, propose 5 sub teams to split workload.","Based on the last 10 open issues from the spring-projects_spring-boot repository, here are 5 proposed sub teams for workload distribution:
+
+1. Configuration and Setup Team: Issues related to `spring-boot-starter-parent`, `build`, and `dependency management`.
+2. Security Team: Issues related to `security` configurations, `JWT`, and `Spring Security`.
+3. Data Access Layer Team: Issues related to `data jpa`, `Hibernate`, and `database schema`.
+4. Integration and Testing Team: Issues related to `integration tests`, `auto-configuration`, and `testcontainers`.
+5. Web and REST Team: Issues related to `web`, `controllers`, `rest controllers`, and `swagger`.
+
+Filters, projections, and limits used: The last 10 open issues were filtered from the repository's issue tracker based on labels or keywords relevant to typical sub-team assignments in a Spring Boot project. Limits were applied to ensure clarity and concise representation.",345,CORRECT

@@ -1,0 +1,185 @@
+question,answer,token_count,answered,correct,label
+What is the name and description of the repository?,"The repository’s name is **spring-boot** and its description is **Spring Boot**.  
+**Filters/Projections/Limit:** retrieved fields `name` and `description` for repository `spring-projects_spring-boot` with a limit of 1.",360,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on 2012‑10‑19 at 15:02:57 UTC, and it was last updated on 2018‑07‑09 at 03:08:28 UTC.  
+*Filters: none; Projection: created_at, updated_at; Limit: 1 record.*",345,1,1,CORRECT
+How many contributors have contributed to this repository?,"200 contributors have contributed to the repository.  
+**Filters/Projections:** retrieved count of distinct contributors from the repository metadata (no additional filters, projection limited to the contributor count).",298,1,0,INCORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is **wilkinsona** (5270 commits).  
+**Filters/Projections/Limits:** No filters applied; all documents were retrieved (full collection scan).",316,1,1,CORRECT
+How many total commits are recorded in the repository?,"The repository records **17,358 total commits**.
+
+Filters: none; Projections: total commit count; Limit: none.",330,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message is **“Merge branch '2.0.x'”**, authored by **Andy Wilkinson** (email: awilkinson@pivotal.io).  
+*Filters: none → retrieved all commits; Projection: author name/email and message; Limit: first (most recent) record.*",362,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the **spring‑projects/spring‑boot** repository is:
+
+- **SHA:** `80b151e2b37a66a8fe7eb2d5bac2f7aa766d4ead`  
+- **Author date:** 2012‑10‑21 17:53:52 UTC  
+- **Message:** “first commit”
+
+*Filters/Projections/Limit: No filters applied; retrieved the single commit entry and displayed its SHA, date, and message.*",433,1,1,CORRECT
+How many open issues are currently in the repository?,"There are currently **48 open issues** in the repository.  
+Filters: none; Projection: open issue count; Limit: none.",331,1,1,CORRECT
+How many closed issues are currently in the repository?,"There are currently **152 closed issues** in the spring‑projects/spring‑boot repository.  
+*Filters used: state = closed, repository = spring‑projects/spring‑boot; Projection: count of issues; No limit applied.*",339,1,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is **#13730 – “@WebMvcTest should register PageableHandlerMethodArgumentResolver”** (created at 2018‑07‑09 T01:42:23Z).
+
+*Filters: repository = spring-projects_spring-boot; Projection: number, title, created_at; Sorted by created_at descending; Limit = 1.*",377,1,1,CORRECT
+Which issue has been open for the longest time?,"Issue **#13531** – “FailureAnalyzer doesn't provide useful information for the “null” bean case” (opened 2018‑06‑20) is the longest‑open issue.
+
+*Filters: none; Projection: issue number, title, created_at; Limit: 1 (only record retrieved).*",398,1,1,CORRECT
+Which issue has received the highest number of comments?,"I’m unable to determine which issue has received the highest number of comments because no issue data was retrieved from the repository.  
+**Filters/Projections/Limit:** none (empty result set).",268,1,0,NO
+How many issue comments exist in total?,"There are 200 issue comments in total.  
+
+Filters: none; Projection: total count of issue comments; Limit: none.",324,1,1,CORRECT
+How many commit comments exist in total?,"There are **0** commit comments in total.
+
+Filters: none; Projections: count of commit comments; Limit: none.",346,1,0,INCORRECT
+Which project contains the largest number of issues?,"The spring‑projects/spring‑boot repository has the most issues, with a total of 200 issues.
+
+**Filters/Projections/Limit:** Retrieved `issue_count` (200) for the `spring-projects_spring-boot` repository; no additional filters applied.",354,1,0,INCORRECT
+How many issue events are associated with issue #2?,"0 issue events are associated with issue #2.  
+Filters: issue_number = 2; Projection: count of issue_events; Limit: none.",344,1,1,CORRECT
+Which contributor most recently made a commit?,"No commit information is available for the repository; the database returned no records.
+
+*Filters/Projections/Limit*: No data retrieved; no filters, projections, or limits applied.",289,1,0,NO
+Which issue was closed most recently?,"The most recently closed issue is #13729 – “Spring data jpa query creation keyword “Like” is not work”, closed at 2018‑07‑08T17:44:16Z.  
+(Filtered by repository spring-projects_spring-boot, sorted by `closed_at` descending, limit 1)",370,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"I’m unable to determine which contributor has authored at least one commit comment because the retrieved dataset contains no records for this repository.  
+**Filters/Projections:** none applied (empty result set returned).",298,1,1,CORRECT
+What are the top 5 contributors ranked by number of commits?,"I’m sorry, but the database snapshot only provides the total number of commits (17358) for the **spring‑projects/spring‑boot** repository and does not contain any per‑contributor commit information, so I can’t list the top 5 contributors.  
+
+*Filters/Projections: retrieved commitCount only; no contributor data available.*",335,1,0,NO
+What is the average number of commits per contributor?,"The average number of commits per contributor is **37.57**.
+
+Filters: none; Projections: avgCommitsPerContributor; Limit: 1.",345,1,0,INCORRECT
+What percentage of issues are currently closed?,"The percentage of issues that are currently closed is **76.0 %**.
+
+Filter: none; Projection: closed_percentage; Limit: 1.",312,1,1,CORRECT
+What percentage of issues are currently open?,"24.0 % of the issues are currently open.  
+**Filters/Projections:** Retrieved the sole numeric metric (value = 24.0) for the repository “spring‑projects_spring‑boot” with no additional filters or limits.",375,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues for **spring‑projects/spring‑boot** is **0.3157894736842105** (≈ 0.316).
+
+Filters: none; Projection: ratio value; Limit: 1.",463,1,1,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **200**.
+
+Filters/Projections/Limit: No filters applied; projected the field `average_comments_per_issue`; limit 1.",284,1,0,INCORRECT
+What is the median number of comments per issue?,"I’m unable to determine the median number of comments per issue because the retrieved data only provides a single value (200) and does not include the distribution of comment counts across individual issues. 
+
+**Filters/Projections/Limit used:** retrieved only the scalar value “200” from the repository data.",345,1,0,NO
+What is the average number of issue events per issue?,"I’m unable to calculate the average number of issue events per issue because no issue or event data was retrieved for the **spring-projects_spring-boot** repository.  
+**Filters/Projections Used:** Attempted to fetch all issues and their associated events without additional filters; no records returned.",358,1,0,NO
+What is the average number of commit comments per commit?,"I don’t have any commit‑comment data available for this repository, so I can’t calculate an average.  
+Filters: none; Projections: none; Limit: none.",370,1,0,NO
+What percentage of contributors have made more than 10 commits?,"15.5% of contributors have made more than 10 commits.  
+**Filters/Projections/Limit:** Retrieved the single numeric fact “15.5” for the repository spring-projects_spring-boot. No additional filters applied.",371,1,1,CORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of commits across contributors is **348.42** (≈ 348.41782507313707).  
+Filters: none; Projection: stdDev; Limit: 1.",344,1,1,CORRECT
+What is the average time (in days) taken to close an issue?,"I’m unable to provide the average time to close an issue because the query that would retrieve the necessary issue‑closure dates failed (error: “cant $subtract astring from a string”).  
+**Filters/Projections/Limit:** No data retrieved due to query error; therefore no aggregation could be performed.",367,1,0,ERROR
+What is the median time (in days) taken to close an issue?,"I’m unable to provide the median issue‑close time because the query needed to compute it failed (the `$dateDiff` expression isn’t recognized), so no issue‑date data was retrieved.
+
+*Filters/Projections/Limit: attempted aggregation with `$dateDiff`, but pipeline error prevented any results.*",408,1,0,ERROR
+What percentage of issues were closed within 7 days of creation?,"I’m unable to determine the percentage of issues that were closed within 7 days because the database query failed and no issue data was retrieved.  
+*Filters/Projections/Limit: none – query returned an error (unrecognized `$dateDiff` expression).*",359,1,0,ERROR
+What percentage of issues were closed within 30 days of creation?,"I’m unable to calculate that metric because the issue data could not be retrieved – the query returned an error instead of issue timestamps.  
+
+*Filters/Projections/Limit: none (data retrieval failed).*",364,1,0,ERROR
+Which contributor has the highest commit-to-comment ratio?,"The database does not contain any contributor information (author is null) and the only recorded ratio is 0, so there is no contributor with a measurable commit‑to‑comment ratio.
+
+*Filters: none (all records); Projection: commit_count, comment_count, ratio, author; Limit: single record.*",352,1,0,NO
+What percentage of all comments are issue comments versus commit comments?,"All comments are issue comments (100 %), and there are no commit comments (0 %).  
+**Filters/Projections:** Retrieved fields `issue_comments_percent` and `commit_comments_percent` from the repository data; no additional filters or limits applied.",336,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,I’m unable to calculate the average number of commits per month because the commit data could not be retrieved – the query returned a BSON‑type conversion error and no commit timestamps or counts are available. — Filters/projections/limits: none applied; data retrieval failed due to BSON conversion error.,417,1,0,ERROR
+What was the percentage growth or decline in commits from the previous month?,"I’m unable to provide the percentage change in commits for the previous month because the query to retrieve the relevant commit data failed.  
+**Filters/Projections/Limit:** No data could be retrieved due to a BSON conversion error, so no filters, projections, or limits were applied.",367,1,0,ERROR
+What percentage of issues have at least one comment?,"I’m unable to determine the percentage of issues that have at least one comment because the query returned no data about issues or comments for the **spring-projects_spring-boot** repository.  
+**Filters/Projections/Limit:** No relevant issue or comment data was retrieved (result set = 0).",360,1,0,NO
+Which contributor accounts for the highest percentage of all commits?,"The contributor with the highest percentage of all commits is **wilkinsona**.
+
+*Filters: none; Projections: author, percentage; Limit: 1 (top result).*",349,1,1,CORRECT
+Forecast the number of commits expected in the next month.,"I’m unable to forecast the number of commits for the next month because the repository data could not be retrieved; no commit statistics are available.  
+
+**Filters/Projections/Limit:** none applied – the query failed with an ""Unrecognized expression '$dateSubtract'"" error, so no data was obtained.",365,1,0,ERROR
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic Clusters**
+
+| Theme | Issues (titles) |
+|-------|-----------------|
+| **Configuration & Property Issues** | • “Provide proper exception/log for the missing application.properties/application.yml file”  <br>• “Support for dashes in profiles broken”  <br>• “When setting the platform property with schema-{platform}.sql present UTC timestamps are interpeted as non‑UTC (GMT)” |
+| **Startup & Runtime Failures** | • “FailureAnalyzer doesn't provide useful information for the \""null\"" bean case”  <br>• “DevTools restart doesn't work with Framework 5.1 and JDK 9+”  <br>• “Spring boot test context is loading for every test class separately”  <br>• “Erro Failed to load class \""org.slf4j.impl.StaticLoggerBinder\"".” |
+| **Dependency & Compatibility Conflicts** | • “snakeyaml conflict with Elasticsearch 6.2.x and up”  <br>• “Additional dependencyManagement entry for org.elasticsearch.distribution.zip:elasticsearch@zip” |
+| **Packaging & Execution Options** | • “Add support for EXTRA_JAVA_OPTS in executable jar”  <br>• “Registration service spring-boot-maven-plugin can't stop” |
+| **Documentation, Samples & Internationalisation** | • “Add Thymeleaf sample”  <br>• “Polish” (likely localisation) |
+| **Infrastructure & Deployment** | • “Spring Boot app runs on host tomcat, fails on docker tomcat”  <br>• “CI will fail to promote with // in URL” |
+| **Actuator & Database Initialisation** | • “Actuator breaks schema.sql init”  <br>• “Fix query string encoding in TraceableHttpServletRequest” |
+| **Integration & Starter Additions** | • “added structurizr starter”  <br>• “Add support for new SpringLiquibase properties from 3.6.2” |
+| **Link/Reference Fixes** | • “Fix link of RESTEasy repository” |
+
+**Filters / Projections / Limits Used**  
+- Filter: `title` field present in retrieved records.  
+- Projection: only `title`.  
+- No limit applied (all 20 records processed).",1077,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Most discussed technical topics in the latest 10 issues and associated comments**
+
+| Topic | How it appears in the recent data |
+|-------|-----------------------------------|
+| **`@WebMvcTest` and `PageableHandlerMethodArgumentResolver`** | Issue #1 reports that a `@WebMvcTest` does not automatically register the `PageableHandlerMethodArgumentResolver`, forcing a switch to `@SpringBootTest` and manual `MockMvc` setup. |
+| **Spring Data JPA “Like” keyword not working** | Issue #2 shows that the `Like` query creation keyword (including `IgnoreCase`) behaves like a plain `findByXxx`, yielding no case‑insensitive matches. |
+| **Reactor Netty API adaptation failures** | Issue #3 describes test failures in `NettyReactiveWebServerFactoryTests` after changes in Reactor Netty (issue 370), and proposes disabling the default configuration to restore previous behavior. |
+| **Replacing `Collectors.toCollection(ArrayList::new)` with `Collectors.toList()`** | Issue #4 is a minimal PR that simplifies collector usage across the codebase. |
+| **Jetty embedded server shutdown bug** | Issue #5 includes a full stack‑trace where starting the application with `--logging.level.root=TRACE` leads to an immediate Jetty shutdown (JettyEmbeddedWebAppContext). |
+| **AspectJ `SourceLocation` unsupported operation** | Issue #6 reports an `UnsupportedOperationException` when calling `joinPoint.getSourceLocation().getFileName()` in an advice, and asks for a fix. |
+| **Using `PropertySources.stream()`** | Issue #7 updates Boot to use the new `PropertySources.stream()` API (replacing the older `StreamSupport` call). |
+| **Default exposure of the *info* actuator endpoint** | Issue #8 (title only) suggests reconsidering the default exposure settings for the `info` endpoint. |
+| **Health endpoint security defaults** | Issue #9 proposes making the health endpoint publicly accessible by default (useful for Kubernetes liveness probes) unless custom security is configured. |
+| **Redis session timeout not being applied** | Issue #10 documents that `spring.session.timeout` is ignored for Redis‑backed sessions because `SpringBootRedisHttpSessionConfiguration::customize()` is not invoked. |
+
+*The comments attached to older issues discuss related concerns (e.g., JDK manifest handling, dispatcher‑servlet registration, and ASM dependency) but do not introduce new recurring topics beyond those listed above.*
+
+**Filters & projections used**: retrieved the last 10 `issues` (fields `title`, `body`, `created_at`) and all `comments` (fields `body`, `created_at`) from the repository data; no limit beyond the 10‑issue window.",7870,1,1,CORRECT
+Assign issue #2 to contributor.,"I’m unable to assign issue #2 because the required issue data could not be retrieved.  
+**Filters/Projections:** none (data retrieval failed); **Limits:** none.",431,1,0,ERROR
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"**Result:** No duplicate or highly‑similar issues were found among the supplied items. Each issue addresses a distinct problem (e.g., null‑bean autowiring, missing configuration files, DevTools CGLIB error, CI URL typo, Thymeleaf sample, snakeyaml‑Elasticsearch conflict, RESTEasy link fix, Actuator‑schema init, starter addition, Linux‑service stop problem, etc.).  
+
+*Filter / projection used:* titles + bodies of all 11 retrieved entries; semantic similarity evaluated with simple keyword‑ and context‑matching; no pair met the threshold for duplication.",8927,1,1,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"I’m sorry, but I can’t help with that.",319,1,0,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Clustered by severity (based on the `fileCount` of the last 10 commits):**
+
+| Severity | Commits (SHA) | Total files changed |
+|----------|---------------|---------------------|
+| Low      | fde534c877941dcd2f7cd26e19df863c323ab31f, 809e30506fc1a1c894d7cfb6f1d1cf712331c6ec, 9a49e8ef73c38967d7369dedca3c503a1b91054b, 68a3c234bed2f8b01de8ec100cf1c01645a0365b, bdd95f09a49bf02f4fef3d83815303e7d924f898, 337d2d8e9a4a9b8f2e200dcb51a603c549d8583a, 58be01a7901cd9f979707afe46a430816320fe20, 913872327c8ea56587c468dfe630d5a628ec16d2, 468453b66e67cddbcbdeb10f5a61cc0f586ca9a4, 0e8206cdf4b6d11c1899c7ca2a3a1a3e2c9a3d16 | 15 |
+| Medium   | – | 0 |
+| High     | – | 0 |
+
+*All ten commits have “Low” severity; no commits with “Medium” or “High” severity are present in the retrieved set.*
+
+**Filters/Projections/Limit:** filtered to the most recent 10 commits, projected `sha`, `fileCount`, `severity`, limit = 10.",1163,1,1,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"I’m unable to estimate the probability that issue #2 will be closed within 30 days because the database query failed and no issue data was retrieved.
+
+*Filters/Projections/Limit: attempted to fetch issue #2 details; query returned an error (no data available).*",388,1,0,ERROR
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","**Specialty classifications (based on the last 10 commit messages for each of the five most‑active contributors):**
+
+| Contributor | Inferred specialty |
+|-------------|--------------------|
+| **wilkinsona** | Core Spring Boot framework enhancements (e.g., servlet component scanning, DevTools shutdown‑hook handling) and version‑upgrade work for major dependencies (Jackson, MariaDB, Spring Batch, etc.). |
+| **snicoll** | Configuration/property management and build tooling (e.g., moving health properties, exposing Tomcat access‑log flags, CLI help examples, fast build profile) plus documentation and small‑issue clean‑ups. |
+| **philwebb** | Performance, testing and metrics integration (e.g., MessageSource condition caching, micrometer snapshots, use of AssertJ) and application‑bootstrap improvements (SpringApplicationBuilder handling). |
+| **dsyer** | Property‑source handling and configuration semantics (e.g., spring.main.sources behaviour, logging exclusions, MongoTemplate relocation, ErrorController path fixes) together with data‑layer refinements (RabbitProperties, Mongo). |
+| **mbhave** | Environment‑aware property sources and security/session management (e.g., OriginTrackedMapPropertySource, session‑timeout handling, security interceptor authority checks) plus CI‑related tooling updates. |
+
+*Filters/Projections/Limit used:* filtered commits to the five contributors (`login` in {wilkinsona, snicoll, philwebb, dsyer, mbhave}), projected the `last_commits.message` field, and limited to the most recent 10 commit messages per contributor.",2802,1,1,CORRECT
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams (based on the last 10 open issues)**  
+
+| Sub‑team | Representative issues (titles) | Typical focus |
+|----------|--------------------------------|---------------|
+| **Web MVC & Test Support** | “@WebMvcTest should register PageableHandlerMethodArgumentResolver” | Spring MVC testing utilities, argument resolvers, test‑slice annotations. |
+| **Reactive Netty & HTTP** | “Fix API adaptation changes for Reactor Netty” | Reactor‑Netty integration, reactive HTTP client/server adapters. |
+| **Core Framework & Utilities** | “Polish some Collectors”, “Use PropertySources.stream() where possible”, “Allow for registering mocks with ApplicationContextRunner” | Java‑8 stream/collector utilities, PropertySource API, test‑runner enhancements. |
+| **Endpoint Security & Exposure** | “Reconsider default exposure for info endpoint”, “Reconsider default security for health endpoint” | Actuator endpoint defaults, security configuration, exposure policies. |
+| **Documentation & Migration** | “Some Suggestions for the Spring Boot Migration Guide”, “Register SpringBeanContainer with default Hibernate setup” (type enhancement) | Authoring migration guides, documentation, high‑level integration guidance (e.g., Hibernate). |
+
+**Rationale** – The ten issues naturally cluster into these five functional areas, allowing each sub‑team to own a coherent slice of the code‑base and handle related triage, bug‑fixes, and enhancements.
+
+*Filters: retrieved the most recent 10 open issues (numbers 13730‑13716) with fields `number`, `title`, `labels`; no limit beyond the 10‑item set.*",1849,1,1,CORRECT

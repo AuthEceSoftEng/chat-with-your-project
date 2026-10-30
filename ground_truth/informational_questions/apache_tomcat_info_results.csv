@@ -1,0 +1,31 @@
+Question,Result
+What is the name and description of the repository?,Name: tomcat; Description: Mirror of Apache Tomcat
+"When was the repository created, and when was it last updated?",Created: 2011-10-01T07:00:19Z; Updated: 2018-07-07T18:35:15Z
+How many contributors have contributed to this repository?,14
+Which contributor has made the highest number of commits?,Mark Emlyn David Thomas (9148 commits)
+How many total commits are recorded in the repository?,19663
+What is the most recent commit message and who authored it?,"Date: 2018-07-06T17:20:05Z Message: Fix cache interoperability problem.
+Note: Always adding this header reduces the usefulness of caches significantly. Next task is to look at possible optimisations.
+
+git-svn-id: https://svn.apache.org/repos/asf/tomcat/trunk@1835271 13f79535-47bb-0310-9956-ffa450edef68; Author: markt-asf"
+What is the oldest commit in the repository?,"Date: 2006-03-27T13:53:46Z Message: - Attempt to create a new repository according to the earlier thread.
+- No modules right now.
+- Dependencies on c-logging, c-modeler (which I think I will merge/simplify to util, as done with 
+  digester earlier), Ant, JDT, PureTLS and JavaMail. Maybe it is possible to add dummy sources
+  for JavaMail to build without having to get the JAR, don't know about PureTLS.
+- Will require Java 5.
+
+git-svn-id: https://svn.apache.org/repos/asf/tomcat/tc6.0.x/trunk@389146 13f79535-47bb-0310-9956-ffa450edef68; Author: rmaucher"
+How many open issues are currently in the repository?,13
+How many closed issues are currently in the repository?,102
+Which issue was created most recently?,Title: Setting Timezone to GMT for Expires Header as per RFC1123; Created at: 2018-06-15T18:15:27Z
+Which issue has been open for the longest time?,Title: Add QueryExecutionReportInterceptor and tests to jdbc-pool; Created at: 2015-03-18T05:17:04Z
+Which issue has received the highest number of comments?,Issue #56 (Convert Cluster Manager human-readable channelSendOptions names to integer [61127/8]) with 36 comments
+How many issue comments exist in total?,200
+How many commit comments exist in total?,0
+Which project contains the largest number of issues?,Repository: dotCMS_core with 15747 issues
+How many issue events are associated with issue #X?,0
+Which contributor most recently made a commit?,Author: markt-asf; Date: 2018-07-06T17:20:05Z
+Which issue was closed most recently?,Title: Setting Timezone to GMT for Expires Header as per RFC1123; Closed at: 2018-06-20T15:07:44Z
+Which contributor has authored at least one commit comment?,No commit comments found
+What are the top 5 contributors ranked by number of commits?,markt-asf (13583 commits); Konstantin Kolinko (1614 commits); Filip Hanik (1097 commits); rmaucher (1020 commits); Rainer Jung (481 commits)

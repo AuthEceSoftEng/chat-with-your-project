@@ -1,0 +1,212 @@
+question,answer,token_count,answered,correct,label
+What is the name and description of the repository?,"The repository’s name is **tomcat**, and its description is **“Mirror of Apache Tomcat.”**  
+*Filters: none; Projections: name, description; Limit: 1 record.*",325,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **2011‑10‑01 07:00:19 UTC** and last updated on **2018‑07‑07 18:35:15 UTC**.  
+**Filters/Projections/Limit:** Retrieved `created_at` and `updated_at` fields for repository “apache_tomcat” with no additional filters; limit = 1.",350,1,1,CORRECT
+How many contributors have contributed to this repository?,"14 contributors.
+
+*Filters: none; Projections: contributor count field; Limit: 1*",340,1,0,INCORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is **markt-asf**, with 13,583 commits.  
+*Filters: none; Projections: contributor, commit_count; Limit: 1*",346,1,1,CORRECT
+How many total commits are recorded in the repository?,"The repository records **19,663 total commits**.
+
+Filters: none; Projection: total commit count; Limit: none.",322,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message is:
+
+“Fix cache interoperability problem.  
+Note: Always adding this header reduces the usefulness of caches significantly. Next task is to look at possible optimisations.
+
+git-svn-id: https://svn.apache.org/repos/asf/tomcat/trunk@1835271 13f79535-47bb-0310-9956-ffa450edef68”
+
+It was authored by **Mark Thomas**.
+
+*Filters/Projections/Limit: Retrieved commit records for repository apache_tomcat, projected author.name and commit.message, sorted by date (latest first), limit 1.*",538,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the repository is the one authored on **2006‑03‑27 13:53:46 UTC** with SHA **a84fabcbc6fee8a69253ad92a304b4718e96a7c9**. Its message is:
+
+```
+- Attempt to create a new repository according to the earlier thread.
+- No modules right now.
+- Dependencies on c-logging, c-modeler (which I think I will merge/simplify to util, as done with 
+  digester earlier), Ant, JDT, PureTLS and JavaMail. Maybe it is possible to add dummy sources
+  for JavaMail to build without having to get the JAR, don't know about PureTLS.
+- Will require Java 5.
+
+git-svn-id: https://svn.apache.org/repos/asf/tomcat/tc6.0.x/trunk@389146 13f79535-47bb-0310-9956-ffa450edef68
+```
+
+*Filters: commit.author.date ≤ 2006‑03‑27T13:53:46Z; Projections: commit.author.date, commit.message, sha; Limit: 1 (oldest)*",754,1,1,CORRECT
+How many open issues are currently in the repository?,"13  
+Filters: repository = apache_tomcat, status = open; Projection: count of issues; Limit: none.",319,1,1,CORRECT
+How many closed issues are currently in the repository?,"There are currently **102 closed issues** in the Apache Tomcat repository.  
+*Filters: status=closed; Projections: count; Limits: none.*",308,1,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is **“Setting Timezone to GMT for Expires Header as per RFC1123”** (created on 2018‑06‑15).
+
+*Filters: none (all records); Projection: title, created_at; Limit: 1 sorted by created_at descending.*",1453,1,1,CORRECT
+Which issue has been open for the longest time?,"I’m sorry, but there are no issue records available in the current dataset, so I can’t determine which issue has been open the longest.
+
+(Empty result set; no filters, projections, or limits applied.)",304,1,0,NO
+Which issue has received the highest number of comments?,I’m unable to determine which issue has received the highest number of comments because no issue data was retrieved from the repository. — filters: none; projections: none; limit: none.,261,1,0,NO
+How many issue comments exist in total?,"200 issue comments exist in total.  
+Filters: none; Projections: total count of issue comments; Limit: none.",300,1,0,INCORRECT
+How many commit comments exist in total?,"0 commit comments exist in total.  
+Filters: none; Projection: total count of commit comments; Limit: none.",310,1,0,INCORRECT
+Which project contains the largest number of issues?,"The repository **apache_tomcat** has the highest issue count, with **115 issues**.
+
+*Filters: none; Projection: `issue_count`; Limit: 1 (single record retrieved).*",303,1,0,INCORRECT
+How many issue events are associated with issue #2?,"0  
+Filters: issue_id = 2; Projection: count of events; Limit: none.",342,1,0,INCORRECT
+Which contributor most recently made a commit?,"I’m sorry, but there’s no commit data available in the provided repository information, so I can’t determine which contributor made the most recent commit.  
+*Filters/Projections/Limit: none – no relevant records were retrieved.*",280,1,0,NO
+Which issue was closed most recently?,"The most recently closed issue is **#115 – “Setting Timezone to GMT for Expires Header as per RFC1123.”**
+
+**Filters/Projections/Limit:** retrieved records filtered by repository = apache_tomcat, projected fields = closed_at, number, title, sorted by closed_at desc, limit = 1.",384,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"I’m unable to determine which contributor has authored at least one commit comment because the repository data returned no relevant records.  
+**Filters/Projections/Limit:** Queried for contributors with commit comments in the apache_tomcat repository; no matching entries were found.",274,1,0,NO
+What are the top 5 contributors ranked by number of commits?,"**Top 5 contributors (by commit count)**  
+
+| Rank | Login | Commits |
+|------|-------|---------|
+| 1 | markt-asf | 13 583 |
+| 2 | *(no login)* | 4 279 |
+| 3 | rmaucher | 1 020 |
+| 4 | violetagg | 378 |
+| 5 | mturk | 129 |
+
+*Filters applied: selected records with a `commit_count` field, projected `login` and `commit_count`, sorted descending by `commit_count`, limit 5.*",1977,1,1,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is **1404.5**.
+
+*Filters: none; Projections: average_commits_per_contributor; Limit: 1*",344,1,1,CORRECT
+What percentage of issues are currently closed?,"The percentage of issues that are currently closed is **88.70%**.
+
+*Filters: none; Projection: `closed_percentage`; Limit: 1.*",318,1,1,CORRECT
+What percentage of issues are currently open?,"The percentage of issues that are currently open is **11.304347826086957 %**.  
+*Filters/Projections/Limit: Retrieved a single numeric value (11.304347826086957) from the repository data, no additional filtering applied.*",339,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The open‑issues‑to‑closed‑issues ratio for **apache_tomcat** is approximately **0.1275**.
+
+**Filters/Projections/Limit:** Retrieved the single numeric value `0.12745098039215685` from the database for the repository “apache_tomcat”. No additional filtering, projection, or limit applied.",387,1,1,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **200.0**.
+
+Filters: none; Projection: average_comments; Limit: 1.",348,1,0,INCORRECT
+What is the median number of comments per issue?,"I’m unable to determine the median number of comments per issue because the only retrieved data is the single value “200,” which is insufficient to compute a median.  
+**Filters/Projections/Limit:** Used the provided dataset containing just the value 200; no additional fields or records were available to calculate a median.",353,1,0,NO
+What is the average number of issue events per issue?,"I’m unable to calculate the average number of issue events per issue because no issue‑event data was retrieved for the **apache_tomcat** repository.  
+
+**Filters/Projections Used:** none (no records returned).",304,1,0,NO
+What is the average number of commit comments per commit?,"I’m sorry, but there’s no data available to calculate the average number of commit comments per commit for the **apache_tomcat** repository.
+
+*Filters/Projections/Limit: No records were retrieved (0 rows).*",304,1,0,NO
+What percentage of contributors have made more than 10 commits?,"Approximately 7.14 % of the contributors have made more than 10 commits.
+
+*Filters: repository = ""apache_tomcat""; Projection: contributor commit counts >10; Limit: none – returned single aggregate value (7.142857142857142).*",342,1,0,INCORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of commits across contributors is **3447.2355468629576**.  
+*Filters: none; Projections: stdDev; Limit: 1*",354,1,1,CORRECT
+What is the average time (in days) taken to close an issue?,"I’m unable to provide the average time taken to close an issue because the query that would retrieve issue dates failed with an error (`cant $subtract astring from a string`). No issue data is available to compute the average.  
+
+*Filters/Projections/Limit: none – data retrieval error prevented any records from being fetched.*",410,1,0,ERROR
+What is the median time (in days) taken to close an issue?,"I’m sorry, but the required issue‑close data could not be retrieved, so I can’t provide the median time to close an issue.
+
+Filters/Projections/Limit: none (data retrieval error, no records returned).",379,1,0,ERROR
+What percentage of issues were closed within 7 days of creation?,"I’m unable to determine the percentage of issues closed within 7 days because the query failed and no issue data was retrieved.  
+**Filters/Projections/Limit:** none applied – data retrieval error prevented any records from being accessed.",395,1,0,NO
+What percentage of issues were closed within 30 days of creation?,"I’m unable to calculate the percentage of issues closed within 30 days because the issue data could not be retrieved (the query returned an error).  
+
+*Filters/Projections/Limit: attempted to query issue creation and close dates but the retrieval failed with a `$subtract` type error, so no data was available for calculation.*",361,1,0,ERROR
+Which contributor has the highest commit-to-comment ratio?,"No contributor in the current data has a defined commit‑to‑comment ratio (the only entry has a null ratio).  
+
+Filters: none; Projection: login, commit_count, comment_count, ratio; Limit: none.",333,1,0,NO
+What percentage of all comments are issue comments versus commit comments?,"All comments are issue comments, making up 100 % of the total, while commit comments account for 0 % of the total.
+
+Filters: none; Projection: issue_comments_percentage, commit_comments_percentage; Limit: none.",314,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"The repository averages **19,663 commits per month**.
+
+*Filters/Projections: selected `avgCommitsPerMonth` from the `apache_tomcat` data; no additional filters or limits applied.*",291,1,0,INCORRECT
+What was the percentage growth or decline in commits from the previous month?,"The repository data does not contain a value for the commit growth percentage; the growth_percent field is null (no growth information is available).
+
+Filters: none; Projections: growth_percent; Limit: 1.",394,1,0,NO
+What percentage of issues have at least one comment?,"I’m sorry, but the provided database snapshot does not contain any issue or comment data for the **apache_tomcat** repository, so I can’t calculate the percentage of issues that have at least one comment.
+
+*Filters/Projections/Limit: none applied – no relevant data available in the retrieved context.*",331,1,0,NO
+Which contributor accounts for the highest percentage of all commits?,"The contributor with the highest percentage of all commits is **`markt-asf`** (≈ 69.08 %).  
+**Filters/Projections/Limit:** Retrieved fields `login`, `commit_count`, `percentage`; no additional filters; single record returned.",340,1,1,CORRECT
+Forecast the number of commits expected in the next month.,"I’m sorry, but the available data only provides a single aggregate commit count (19,663) without any time‑based breakdown, so a reliable forecast for the next month cannot be calculated.
+
+*Filters: none; Projection: commit_count; Limit: 1*",344,1,0,NO
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic Clusters**
+
+| Theme | Issues (titles) |
+|-------|-----------------|
+| **Jasper / JSP compilation** | • “Changes to make Jasper more separable from Tomcat” <br>• “Update JasperELResolver.java” |
+| **AccessLog improvements** | • “Split AccessLogValve and extract the formatting logic in an AbstractAccessLogValve” |
+| **Server configuration & shutdown** | • “Document the use of \""shutdown\"" and \""port\"" attribute of <Server>” |
+| **Build and script updates** | • “Update service.bat” <br>• “Create manifest.yml” |
+| **Request tracking enhancements** | • “Add maxStartTime to RequestInfo & RequestGroupInfo.” |
+| **Link resolution bug fixes** | • “Fix how a link to $0 is determined” (appears twice) |
+| **CORS handling** | • “#57178: Allow CORS requests with Origin value \""null\"".” <br>• “#57178: Allow CORS requests with Origin header value \""null\""” |
+| **Deprecated flag removal** | • “No need to set the deprecated javac optimize flag” |
+| **Realm management** | • “Prevent Removal of Realm when directory is not available at startup” |
+| **MethodParameters attribute bug** | • “fix: MethodParameters_attribute's parameters_count  is only 1 byte long” |
+| **JDBC pool enhancements** | • “Add QueryExecutionReportInterceptor and tests to jdbc-pool” |
+| **Webapp addition API** | • “Added support for addWebapp(String, InputStream) ” |
+| **Directory creation** | • “Recursively create document base directory” |
+| **Misc / Minor fixes** | • “fix typo” <br>• “now json is fashion” (likely a placeholder/typo) <br>• “Fix https://issues.apache.org/bugzilla/show_bug.cgi?id=56518” |
+
+*Filters applied:* none (full title list). *Projection:* `title`. *Limit:* none.",1080,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Summary of the most discussed technical topics in the latest 10 issues**
+
+| Topic | Key points raised |
+|-------|-------------------|
+| **HTTP header formatting** – Issue #115 | The `Expires` header is being formatted with a local timezone (e.g., “IST”) instead of the GMT format required by RFC 1123, causing cache‑reload problems in Chrome. |
+| **Exception declaration cleanup** – Issue #114 | `ServletException` is a checked exception that isn’t thrown by the relevant method; keeping it in the `throws` clause adds unnecessary complexity for callers. |
+| **Windows startup command** – Issue #113 | Proposal to change the Windows service startup command from `start` to `run` to align with typical usage. |
+| **Bug‑fix patches for Apache Bugzilla items** – Issues #112, #111 | Simple fixes for bugs BZ‑62391 and BZ‑62389 (adding IPv6 loopback to `RemoteIpFilter`/`RemoteIpValve` default internal proxies). |
+| **Debugging of DB connection properties** – Issue #110 | Non‑string property values are ignored by `java.util.Properties`; a way to log the actual properties passed to the driver is needed. |
+| **FileResource handling of directories** – Issue #109 | `FileResource` incorrectly attempts to read a directory via `FileInputStream`; directories should not be read this way. |
+| **Undeployment ordering with versioned contexts** – Issue #108 | Current plain string sorting misorders version numbers (e.g., `1.0.9` vs `1.0.10`), causing premature undeployment; a new `ContextName.compareTo()` is introduced to handle version comparisons correctly. |
+| **Proxy lifecycle on closed connections** – Issue #107 | When the underlying connection closes unexpectedly, the associated proxy must be destroyed to avoid leaks. |
+| **Cygwin script robustness** – Issue #106 | `catalina.sh` calls `cygpath` on an empty `JAVA_ENDORSED_DIRS` variable, producing “cygpath: can't convert empty path”; the fix adds a guard for empty strings. |
+
+*No comments were present, so the analysis is based solely on the issue bodies retrieved.*
+
+**Filters/Projections/Limit used:** `SELECT * FROM issues LIMIT 10` (no additional filters; comments collection empty).",2302,1,1,CORRECT
+Assign issue #2 to contributor.,"I’m unable to assign issue #2 because there is no accessible issue data—an authorization error prevented retrieval of the issue records. Without the necessary issue information, I can’t perform the assignment.  
+
+*Filters/Projections/Limits: none (no data retrieved due to authorization error).*",486,1,0,NO
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"**Duplicate / highly‑similar issues found**
+
+| # | Issue titles (and brief description) | Reason for duplication / similarity |
+|---|-------------------------------------|---------------------------------------|
+| 1 | **“Fix how a link to $0 is determined”** (appears twice) | Exact same title and body – a direct duplicate. |
+| 2 | **“Update RemoteIpValve.java”** (appears twice) | Identical titles (and bodies) – a direct duplicate. |
+| 3 | **CORS “null” origin support** – <br>• “#57178: Allow CORS requests with Origin value \""null\"".” <br>• “Add a new configuration option \""cors.allow.nullorigin\"" for CorsFilter …” | Both describe the same feature (allowing CORS requests with Origin `null`) and reference the same Bugzilla ID (57178). |
+| 4 | **IPv6/IPv4 parser fixes** – <br>• “Fix http parser” (IPv6/IPv4 parsing, tests added) <br>• “Fix parser to fail if leading zeros in IPv4 part of IPv6 address” | Both address IPv6/IPv4 host‑header parsing bugs; the second is an additional edge‑case fix to the same parser, making them highly similar. |
+| 5 | **Pre‑compressed content handling** – <br>• “Generalize the precompressed content serving from DefaultServlet” <br>• “Honour server side precompressed format preference ” | Both modify DefaultServlet to handle pre‑compressed files (gz, br) and prioritize formats, so they are closely related. |
+
+*Only the first three groups are exact duplicates; groups 4 and 5 are highly similar (same component, related fixes).*  
+
+**Filters/Projections/Limit:** Queried all 50 issue objects (no filter), projected `title` and `body`, limit = none.",5333,1,1,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"I’m unable to forecast the number of comments for issue #2 because the available database contains no information about that issue.  
+*Filters: none; Projections: none; Limit: 0 records retrieved.*",295,1,0,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","All ten of the most recent commits are classified with **Low** severity (the document retrieved has `_id: ""Low""` and contains the last 10 commit entries). No data is available for Medium or High severity within the provided snapshot, so the clustering results in a single group:
+
+- **Low severity:** 10 commits  
+- **Medium severity:** 0 commits  
+- **High severity:** 0 commits  
+
+*Filters: `_id = ""Low""`; Projection: `commits` array; Limit: 10 (last 10 commits).*",436,1,1,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"I’m unable to provide an estimate because the retrieved database query returned an error and no issue data (including issue #2’s status, activity, or timestamps) is available.
+
+Filters/Projections/Limit: none applied—the query returned an error, so no records were retrieved.",374,1,0,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","I cannot classify the specialties of the top five contributors (markt‑asf, rmaucher, violetagg, mturk, and FSchumacher) because the provided data only includes the SHA identifiers of their recent commits and contains no information about commit messages, changed files, or any other context that would indicate their areas of expertise.  
+
+**Filters/Projections Used:** Retrieved `login` and `recent_commits.sha` fields for the first five contributors; no additional limits were applied.",1817,1,0,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams and issue assignments**
+
+| Sub‑team | Focus area (based on issue titles) | Assigned issues (number – title) |
+|----------|------------------------------------|-----------------------------------|
+| **1. Exception & Code Clean‑up** | Removing unnecessary throws declarations and general code hygiene. | 114 – “Remove throws declaration of an exception which is not thrown” |
+| **2. Logging & Diagnostics** | Adding or improving debug logs for database pools. | 110 – “Debug log for pool's db properties” |
+| **3. Deployment & Undeployment** | Enhancing parallel deployment and handling undeployment correctly. | 108 – “Improve undeployment in parallel deployment scenario” |
+| **4. Database Connection Management** | Managing connection proxy lifecycle, initSQL usage, and pool size constraints. | 107 – “underlying connection closed unexpectedly, so we must destroy this proxy”<br>103 – “Use initSQL instead of Validator on connection initialization”<br>54 – “Respect minimum pool size [#61032]” |
+| **5. Configuration & Bug Fixes** | Applying patches, fixing specific bugs, and updating configuration attributes. | 105 – “Iamtjw patch 1”<br>72 – “Fix https://bz.apache.org/bugzilla/show_bug.cgi?id=59901”<br>63 – “added portOffset attribute to server.xml per BZ-61171”<br>51 – “#41 Check and update session record if one already exists.” |
+
+*Filters: none (used all issues); Projection: issue number and title; Limit: 10 (last 10 open issues).*",948,1,1,CORRECT

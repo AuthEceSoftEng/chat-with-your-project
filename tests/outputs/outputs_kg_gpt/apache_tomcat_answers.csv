@@ -1,0 +1,245 @@
+question,answer,token_count,tool_use,answered,correct,label
+What is the name and description of the repository?,"**Repository Name:** apache_tomcat  
+**Description:** Mirror of Apache Tomcat  
+
+*Answer derived from Knowledge Graph query (KG).*",9309,2,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **2011‑10‑01 T07:00:19 Z** and last updated on **2018‑07‑07 T18:35:15 Z**.
+
+*Answer derived from knowledge‑graph query (no MongoDB fallback needed).*",9401,2,1,1,CORRECT
+How many contributors have contributed to this repository?,"122 contributors have contributed to the **apache_tomcat** repository.
+
+*Answer derived from KG query `MATCH (c:Contributor) RETURN count(c) AS cnt` (KG result).*",9253,2,1,1,CORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is **markt-asf**, who has made **13,583 commits**.
+
+*Answer source: Knowledge graph query (KG).*",9467,2,1,1,CORRECT
+How many total commits are recorded in the repository?,"There are **19,663** total commits recorded in the apache_tomcat repository.
+
+*Answer derived from a knowledge‑graph query counting all Commit nodes belonging to the repository.*",9275,2,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit in the **apache_tomcat** repository is:
+
+* **Author:** Mark Thomas  
+* **Message:**  
+  ```
+  Fix cache interoperability problem.
+  Note: Always adding this header reduces the usefulness of caches significantly. Next task is to look at possible optimisations.
+
+  git-svn-id: https://svn.apache.org/repos/asf/tomcat/trunk@1835271 13f79535-47bb-0310-9956-ffa450edef68
+  ```
+
+**Tools used:** `aggregate_collection` on the **commits** collection (sorted by `commit.author.date` → latest, limited to 1, projecting `author` and `message`). The knowledge‑graph query returned the commit message but had no author information, so the MongoDB aggregation provided the complete answer.",19097,4,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the **apache_tomcat** repository is:
+
+- **SHA:** `a84fabcbc6fee8a69253ad92a304b4718e96a7c9`  
+- **Author:** Remy Maucherat  
+- **Date:** 2006‑03‑27 13:53:46 UTC  
+- **Message:** “- Attempt to create a new repository according to the earlier thread… (initial commit)”
+
+**Tool usage:** Retrieved the earliest commit by sorting `commit.author.date` ascending and limiting to 1 record from the `commits` collection (MongoDB). No knowledge‑graph query was needed.",11641,2,1,1,CORRECT
+How many open issues are currently in the repository?,"13 open issues.
+
+(Answer derived from the knowledge‑graph query.)",9418,2,1,1,CORRECT
+How many closed issues are currently in the repository?,"There are **102 closed issues** in the apache_tomcat repository.
+
+*Answer derived from a Knowledge Graph query (`MATCH (i:Issue) WHERE i.state = ""closed"" RETURN count(i)`).*",9365,2,1,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is #115 — **“Setting Timezone to GMT for Expires Header as per RFC1123”**, created on 2018‑06‑15 18:15:27 UTC.
+
+**Source:** Knowledge‑graph query (returned the newest issue by created_at).",9468,2,1,1,CORRECT
+Which issue has been open for the longest time?,"The issue that has been open the longest is **#18 – “Add QueryExecutionReportInterceptor and tests to jdbc‑pool,”** created on **2015‑03‑18** and still open.
+
+(Answer derived from a knowledge‑graph query that returned the earliest open‑issue creation date.)",9386,2,1,1,CORRECT
+Which issue has received the highest number of comments?,"The issue with the most comments is **#56 – “Convert Cluster Manager human‑readable channelSendOptions names to integer [61127/8]”**, which has **36 comments**.
+
+(Answer derived from the knowledge graph query.)",9566,2,1,1,CORRECT
+How many issue comments exist in total?,"There are **200 issue comments** in total.
+
+*Answer derived from a Knowledge Graph query (`MATCH (c:IssueComment) RETURN count(c) AS total`) on the apache_tomcat repository.*",9309,2,1,1,CORRECT
+How many commit comments exist in total?,"There are **0 commit comments** in the repository.
+
+*Answer derived from MongoDB `count_documents` on the `commitComments` collection (count = 0).*",16167,4,1,1,CORRECT
+Which project contains the largest number of issues?,"The **Tomcat** project itself has the most issues, with **13 open issues**.
+
+*Tool: aggregate_collection on the `projects` collection (sorted by `open_issues_count` descending, limit 1). Answer derived from MongoDB.*",12547,2,1,0,INCORRECT
+How many issue events are associated with issue #2?,"There are **0 issue events** linked to issue #2.
+
+*Answer derived from the knowledge‑graph query (`MATCH (i:Issue {number: 2})<-[:ON_ISSUE]-(e:IssueEvent) RETURN count(e)`) which returned a count of 0.*",9488,2,1,1,CORRECT
+Which contributor most recently made a commit?,"The most recent commit was made by the contributor **“markt-asf.”**  
+
+*Answer derived from the knowledge‑graph query (KG).*",9585,2,1,1,CORRECT
+Which issue was closed most recently?,"The most recently closed issue is **#115 – “Setting Timezone to GMT for Expires Header as per RFC1123”**, closed on 2018‑06‑20 15:07:44 UTC.
+
+(Answer derived from the knowledge‑graph query.)",9445,2,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"No contributor has authored a commit comment in the **apache_tomcat** repository – the `commitComments` collection contains zero records, so there are no commit comments to attribute to any contributor.  
+
+*(Answer based on MongoDB `commitComments` collection count; count = 0.)*",27187,6,1,1,CORRECT
+What are the top 5 contributors ranked by number of commits?,"Top 5 contributors by number of commits (KG result):
+
+1. **markt-asf** – 13,583 commits  
+2. **git:kkolinko@apache.org** – 1,609 commits  
+3. **git:fhanik@apache.org** – 1,097 commits  
+4. **rmaucher** – 1,020 commits  
+5. **git:rjung@apache.org** – 481 commits  
+
+*Answer derived from the knowledge graph query.*",9535,2,1,1,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is **≈ 479.6**.
+
+*Answer sourced from the knowledge graph (KG) query.*",9430,2,1,1,CORRECT
+What percentage of issues are currently closed?,"102 closed issues out of 115 total issues → **≈ 88.7 %** of issues are currently closed.  
+(Closed count from `count_documents` on `issues` with `{""state"":""closed""}`; total count from `count_documents` with an empty filter.)",9036,2,1,1,CORRECT
+What percentage of issues are currently open?,"Approximately 11.3 % of the issues in the **apache_tomcat** repository are currently open.
+
+*(Result derived from a knowledge‑graph query that returned 115 total issues and 13 open issues; the percentage was calculated with `execute_math_calculation`.)*",16316,4,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The repository has **13 open issues** and **102 closed issues**, giving an open‑to‑closed ratio of **13 / 102 ≈ 0.13** (about 13 %).  
+
+*Answer derived from a Knowledge Graph query that returned the counts of open and closed issues.*",9455,2,1,1,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **≈ 1.74**.
+
+*Computed from KG results: 200 total issue comments and 115 total issues → ratio = 200 ÷ 115 ≈ 1.739.*",19988,5,1,1,CORRECT
+What is the median number of comments per issue?,"The median number of comments per issue is **2**.
+
+*Data source: MongoDB aggregation on the `issueComments` collection, followed by a median calculation.*",18751,4,1,1,CORRECT
+What is the average number of issue events per issue?,"The average number of issue events per issue is **0** (no issue events are recorded for the 115 issues).
+
+**Tools used:** count_documents on `issues` (115 issues) and `issueEvents` (0 events) in the `apache_tomcat` repository.",32665,7,1,1,CORRECT
+What is the average number of commit comments per commit?,"The average number of commit comments per commit is **0.0** – there are no commit comments recorded for any commits.
+
+*Tools used*: KG query (returned avg = 0.0) and a `count_documents` on the `commitComments` collection (found 0 comments).",13158,3,1,1,CORRECT
+What percentage of contributors have made more than 10 commits?,"**Answer:** Approximately **51 %** of contributors have made more than 10 commits (21 out of 41 contributors).
+
+**Tool usage:** Queried the knowledge graph (KG) to count all contributors and those with > 10 commits; the KG returned totalContributors = 41 and contributorsOver10 = 21, from which the percentage was calculated.",13356,3,1,1,CORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of the number of commits per contributor is **≈ 2,099 commits**.
+
+*Result derived from the knowledge‑graph data (41 contributors) and calculated with a `std_dev` operation on the buffer.*",18403,4,1,1,CORRECT
+What is the average time (in days) taken to close an issue?,"The average time to close an issue in the **apache_tomcat** repository is **≈ 58.4 days**.
+
+**Tools used:**  
+- Queried the knowledge graph for `created_at` and `closed_at` timestamps of closed issues (102 records).  
+- Aggregated the MongoDB `issues` collection to compute the difference in days and the average.  
+
+Result derived from MongoDB aggregation (average ≈ 58.4 days).",26800,4,1,1,CORRECT
+What is the median time (in days) taken to close an issue?,"The median time to close an issue is **0 days** (half of the closed issues were resolved on the same day they were opened).  
+
+*Used MongoDB aggregation on the **issues** collection to compute the difference in days between `closed_at` and `created_at`, then applied a median calculation on the resulting list.*",19938,4,1,0,INCORRECT
+What percentage of issues were closed within 7 days of creation?,"62.7 % of the issues that have been closed were closed within 7 days of their creation.
+
+Tool usage: Aggregated the issues collection to count total closed issues (102) and those closed within 7 days (64), then calculated the percentage (64 ÷ 102 ≈ 62.75 %). Data came from MongoDB aggregation.",21469,5,1,1,CORRECT
+What percentage of issues were closed within 30 days of creation?,"Approximately 81.37 % of the issues in the **apache_tomcat** repository were closed within 30 days of being created (83 of 102 closed issues).
+
+**Tools used**: MongoDB aggregation on `issues` (to compute closed‑within‑30‑day count) and `count_documents` (total closed issues); then a math calculation for the percentage. No knowledge‑graph data was needed.",28657,7,1,1,CORRECT
+Which contributor has the highest commit-to-comment ratio?,,69167,10,0,0,ERROR
+What percentage of all comments are issue comments versus commit comments?,"All comments in the **apache_tomcat** repository are issue comments.  
+
+- Issue comments: 200 (100 % of all comments)  
+- Commit comments: 0 (0 % of all comments)  
+
+**Tools used:** `count_documents` on the `issueComments` and `commitComments` collections in MongoDB.",19980,5,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"The average number of commits per month since the repository was created is **≈ 132 commits/month**.
+
+(Computed from monthly commit counts aggregated from the `commits` collection and taking the average of those counts.)  
+
+*Tools used:* `aggregate_collection` on `commits` to group by year‑month, then `execute_math_calculation` (average) on the resulting buffer. Data sourced from MongoDB.",24226,4,1,1,CORRECT
+What was the percentage growth or decline in commits from the previous month?,"The commit activity fell sharply: the most recent month (2018‑07) had **43 commits**, versus **101 commits** in the prior month (2018‑06), a **≈ 57 % decline** in commit count month‑over‑month.
+
+*Tools used*: MongoDB aggregation on the **commits** collection (grouped by month, sorted descending, limited to the two most recent months). No knowledge‑graph data was needed.",11947,2,1,1,CORRECT
+What percentage of issues have at least one comment?,"Approximately 46.96 % of the issues have at least one comment.
+
+*KG query counted total issues (115) and issues with at least one comment (54); the percentage was calculated with a math operation.*",16243,4,1,1,CORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor **“markt-asf”** accounts for **≈ 69.08 %** of all commits in the Apache Tomcat repository.
+
+*(Answer derived from the knowledge graph query, which returned the top contributor and his share of total commits.)*",9661,2,1,1,CORRECT
+Forecast the number of commits expected in the next month.,,62100,10,0,0,ERROR
+Cluster issues into thematic groups based on their titles and descriptions.,"I attempted to cluster the issue records using the **execute_ml_pipeline** tool (task_type = “clustering”, features = [""title"",""body""]). The pipeline returned only a silhouette‑score (≈ 0.036) and an empty **prediction** array, indicating that the model could not produce meaningful cluster assignments for the data.
+
+**Result:** No thematic groups could be derived from the available issue titles and descriptions – the clustering attempt did not yield usable clusters.  
+
+*Tool used: execute_ml_pipeline (on buffer buf_b3d9a4, MongoDB source).*
+",20329,3,1,0,NO
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Summary of the most discussed technical topics in the last 10 issues + recent comments**
+
+| Topic | What is being discussed / why it matters |
+|-------|-------------------------------------------|
+| **Header formatting & HTTP compliance** | Issue #115 points out that the *Expires* header is being generated with a local‑timezone string instead of the GMT format required by RFC 1123, causing caching problems in browsers. |
+| **Exception declarations** | Issue #114 argues that declaring `ServletException` (a checked exception) when it is never thrown adds unnecessary complexity to user code. |
+| **Startup command & Windows quirks** | Issue #113 suggests simplifying the Windows Tomcat startup command (changing “start” to “run”) and Issue #106 fixes a Cygwin‑related bug where `catalina.sh` calls `cygpath` with an empty argument. |
+| **Bug‑track‑related fixes** | Issues #112, #111, #110 each reference Bugzilla entries (62391, 62389, etc.) – fixing IPv6 loopback handling, adding debugging for DB properties, and other small but concrete regressions. |
+| **Undeployment ordering / version handling** | Issue #108 adds a `ContextName.compareTo()` that understands version numbers, preventing wrong undeployment order when multiple versions of the same app are deployed. |
+| **Connection‑proxy cleanup** | Issue #107 notes that when an underlying connection is closed unexpectedly the proxy must be destroyed to avoid leaks. |
+| **File‑resource handling** | Issue #109 flags that `FileResource` incorrectly tries to read a directory with `FileInputStream` – a misuse that needs guarding. |
+| **Abstraction & filtering design** | Several recent comments (e.g., #343562911, #343488860) debate whether a new utility should be added as a **Filter** or as a configuration option, and discuss the trade‑offs of adding abstractions versus keeping the implementation simple. |
+| **Container / Kubernetes integration** | A comment (Nov 17 2017) mentions Azure Container Service / Kubernetes, prompting a reconsideration of Tomcat’s data model and abstraction needs for future container support. |
+| **WebSocket / JSR‑356 spec issues** | A comment (Nov 10 2017) describes difficulties with WebSocket sessions because of the JSR‑356 specification, highlighting a hard limitation that may require spec changes. |
+| **Code quality / minor fixes** | Other comments cover quick fixes such as typo corrections, PR replacements, and minor patches (e.g., applying a patch in r1815802). |
+
+**Overall picture**  
+The recent discussion centers on **bug‑fixes for edge‑case behavior** (header formatting, exception declarations, file handling), **deployment and version management**, and **design decisions around abstraction versus concrete configuration**—especially as Tomcat looks toward better container/Kubernetes support. These topics dominate both issue bodies and the most recent comment threads.
+
+*Tools used*: retrieved the 10 most recent issues (`issues` collection) and the 10 most recent issue comments (`issueComments` collection) from MongoDB for the *apache_tomcat* repository; the summary is based purely on the content returned.",32844,5,1,1,CORRECT
+Assign issue #2 to contributor.,"I can’t change the repository data, so I’m unable to assign issue #2 to a contributor for you. Assigning an issue requires write access to the repository (e.g., via the GitHub web UI or the GitHub REST/GraphQL API). If you have the necessary permissions, you can assign the issue by:
+
+1. Opening the issue on GitHub (`https://github.com/apache/tomcat/issues/2`), clicking **Assignees**, and selecting the desired contributor; or  
+2. Using the GitHub API, e.g.:
+
+```bash
+curl -X POST \
+  -H ""Authorization: token <YOUR_PERSONAL_ACCESS_TOKEN>"" \
+  -H ""Accept: application/vnd.github+json"" \
+  https://api.github.com/repos/apache/tomcat/issues/2/assignees \
+  -d '{""assignees"":[""<contributor-login>""]}'
+```
+
+Replace `<YOUR_PERSONAL_ACCESS_TOKEN>` with a token that has the `repo` scope and `<contributor-login>` with the contributor’s GitHub username. If you need help locating the issue or the contributor’s login, let me know and I can retrieve that information for you.",7240,1,1,1,CORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"I’m sorry—I wasn’t able to generate a set of duplicate or highly‑similar issues from the 50 examples. The `execute_ml_pipeline` call I made only returned clustering metrics (a very low silhouette score) and no predictions, and the tool does not support automatically extracting the most similar pairs from a buffer of documents without additional parameters. Without a way to compute pairwise semantic similarity scores or specify the number of similarity clusters, I can’t reliably identify duplicate issues from this data.",26875,2,1,0,NO
+Forecast the number of issue comments the issue #2 will have.,"The only comment data available for issue #2 is a single comment posted in one month (month 24173). With only a single historical data point, there is not enough information to build a time‑series regression model, so a reliable forecast cannot be produced.
+
+**Result:** 1 comment (so far) – insufficient history for forecasting.  
+
+*Tools used:* `aggregate_collection` to get the monthly comment count for issue #2; attempted `execute_ml_pipeline` but it failed because the dataset contained only one sample.",20562,4,1,0,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Severity clustering of the 10 most recent commits (based on number of files changed)**  
+
+| Severity | Commit SHA(s) | Files changed |
+|----------|---------------|---------------|
+| **High** | `cc0ca014c992f7cf198370d7c59f9476f363b259` | 4 |
+| **Medium** | `d9878a2d643eee0faa3daf128ef6f24b2fdbfe08`<br>`2b6465439849396d58af97aec1833f7d381824d9`<br>`17791160f3ae4bd135bd44e414bb7a6015cf8b8b` | 2 each |
+| **Low** | `3960a4c742d656095ea1c10a2a76e8a2149267e1`<br>`6095a356c98d0e048614e65a9233a19b11796fde`<br>`dcf6264e1b703ff087291b764e0bd778a059bcb7`<br>`977f3336f22a62d18bada94bd2f1e6f8ba06b50f`<br>`a5321c6325bdac8bfeafe16fec4366c9903b7a55`<br>`cccd7f232df1b3ddc3aa8f4d56ac91d0d03d3894` | 1 each |
+
+**Summary**  
+- **High severity:** 1 commit (4 files changed)  
+- **Medium severity:** 3 commits (2 files changed each)  
+- **Low severity:** 6 commits (1 file changed each)  
+
+*Answer derived from MongoDB aggregation on the `commits` collection (last 10 commits, files count computed via `$size`).*",12988,2,1,1,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"**Answer**  
+Issue #2 was created on 2013‑12‑16 and closed on 2015‑06‑02 (≈ 530 days later), so the probability that *this* issue will be closed within 30 days is **0 %** (it did not close within that window).
+
+If we estimate the likelihood for a typical issue in this repository, the historical data show that **≈ 81 %** of closed issues are resolved within 30 days (83 out of 102 closed issues).
+
+**Tools used** – KG query returned issue #2’s dates; an aggregation on the `issues` collection computed the 30‑day closure rate. Both results came from the repository’s knowledge graph and MongoDB aggregation.",31044,6,1,1,CORRECT
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","**Specialty classification of the top‑5 contributors (based on their most recent 10 commits)**  
+
+| Contributor (email) | Inferred specialty (based on commit messages) |
+|---------------------|-----------------------------------------------|
+| **markt@apache.org** (Mark Thomas) | HTTP response handling – Vary‑header management, cache‑related headers and related refactorings. |
+| **rjung@apache.org** (R. Jung) | Documentation & project‑wide build tooling – updates to README/CONTRIBUTING, file‑list adjustments, packaging scripts. |
+| **fhanik@apache.org** (Filip Hanik) | Resource‑pooling and JDBC/connection‑pool management – fixes to pooled statements, validation, and related bug‑tracking. |
+| **kkolinko@apache.org** (K. Kolinko) | Build‑system & checksum verification – dependency checksum checks, library version updates, build‑file tweaks. |
+| **remm@apache.org** (Remm) | NIO connector and timeout handling – native I/O connector improvements, timeout utilities, native library integration. |
+
+**Tools used**
+
+- KG query to list top contributors by commit count.  
+- MongoDB aggregation on `commits` to get the five highest‑commit‑count authors.  
+- MongoDB aggregation to fetch each author’s last 10 commit messages.  
+
+The specialties were derived from the content of those commit messages (no ML model was required).",60234,9,1,1,CORRECT
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams (based on the 10 most recent open issues)**  
+
+| Sub‑team | Focus area (issues that map to it) | Representative issue numbers |
+|----------|------------------------------------|------------------------------|
+| 1. **Exception & API Consistency** | Review and clean up exception declarations, ensure API contracts are accurate. | #1 |
+| 2. **Deployment & Undeployment Management** | Handle war‑deployment time‑outs, improve parallel undeployment logic. | #3, #5 |
+| 3. **Connection‑Pool & DB Configuration** | Add/adjust debug logging for DB properties, replace `Validator` with `initSQL`, enforce minimum pool size. | #2, #6, #9 |
+| 4. **Performance Optimization** | Cache JSP files, introduce `initSQL` usage, other low‑level performance tweaks. | #7, #6 |
+| 5. **Server Configuration & Session Handling** | Add `portOffset` to `server.xml`, improve session‑record update logic. | #8, #10 |
+
+*These groups reflect the main themes that emerge from the titles and bodies of the ten latest open issues, giving a balanced split of workload across five logical sub‑teams.*
+
+**Tools used:** `retrieve_documents` on the **issues** collection (repo = apache_tomcat, filter = {state:""open""}, limit = 10, projection = {title, body, number, labels}).",16587,3,1,1,CORRECT

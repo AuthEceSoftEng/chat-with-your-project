@@ -1,0 +1,174 @@
+question,answer,token_count,answered,correct,label
+What is the name and description of the repository?,"**Name:** hibernate-orm  
+**Description:** Hibernate's core Object/Relational Mapping functionality  
+
+*Filters: none; Projections: name, description; Limits: none*",335,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on 2010‑10‑04 at 16:15:52 UTC, and it was last updated on 2018‑11‑08 at 23:46:24 UTC.  
+**Filters/Projections/Limit:** No filters applied; full record retrieved with `created_at` and `updated_at` fields.",401,1,1,CORRECT
+How many contributors have contributed to this repository?,"341 contributors have contributed to this repository.  
+*Filters/Projections/Limit: retrieved the single numeric value “341” from the repository metadata.*",285,1,0,INCORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is **sebersole**, who has made **2,569** commits.
+
+*Filters/Projections/Limit: Retrieved all entries, projected `_id` and `commit_count`, no filtering applied, limit = all results.*",316,1,1,CORRECT
+How many total commits are recorded in the repository?,"The repository records **9,313 commits** in total.  
+*Filters: none; Projections: total commit count; Limit: none.*",308,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message is **“HHH-13091 Upgrade Ehcache 2 to 2.10.6 and Ehcache 3 to 3.6.1”**, authored by **Guillaume Smet**.  
+*Filters/Projections/Limit: none (single record), projected commit.message and commit.author.name, limit 1.*",431,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the **hibernate_hibernate-orm** repository is:
+
+- **SHA:** `41e94b3cf8192f0f3b4d2948f26760ac412745a0`  
+- **Author date:** `2007-06-29T19:17:02Z`
+
+*Filters/Projections/Limit: retrieved the single commit record without additional filtering.*",399,1,1,CORRECT
+How many open issues are currently in the repository?,"There are **106** open issues in the **hibernate_hibernate-orm** repository.  
+*Filters/Projections/Limit:* Retrieved the total count of open issues without additional filters or pagination.",317,1,1,CORRECT
+How many closed issues are currently in the repository?,"There are **2,523** closed issues in the repository.
+
+*Filters: status = closed; Projection: count; Limit: none.*",305,1,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is **#2629 – “HHH-12945”** (created at 2018‑11‑09 00:42:10 UTC).
+
+*Filters: none (single record); Projection: title, number, created_at; Limit: none (only one entry retrieved).*",353,1,1,CORRECT
+Which issue has been open for the longest time?,"I’m sorry, but there’s no issue data available in the retrieved repository information, so I can’t determine which issue has been open the longest.
+
+*Filters/Projections/Limit: none (no data retrieved).*",300,1,0,NO
+Which issue has received the highest number of comments?,"I’m sorry, but the available database snapshot does not contain any issue data, so I can’t determine which issue has the highest number of comments.
+
+**Filters/Projections/Limit:** none (no records retrieved).",301,1,0,NO
+How many issue comments exist in total?,"The repository contains **6,060** issue comments in total.  
+Filters/Projections/Limits: none applied; directly retrieved total issue comment count (value = 6060).",335,1,1,CORRECT
+How many commit comments exist in total?,"0 commit comments exist in total.  
+Filters: none; Projections: count of commit comments; Limit: none.",327,1,1,CORRECT
+Which project contains the largest number of issues?,"The repository **hibernate_hibernate-orm** has the largest number of issues, with a total of **2,629** issues.
+
+*Filters/Projections/Limit: No filters applied; retrieved the single document containing the `issue_count` field for the repository.*",329,1,0,INCORRECT
+How many issue events are associated with issue #2?,"0  
+Filters: issue_id = 2; Projection: count of issue events; No limit applied.",335,1,1,CORRECT
+Which contributor most recently made a commit?,"The available data only includes information about the GitHub user **sebersole**; there is no commit history or contributor list in the retrieved records, so the most recent committing contributor cannot be determined.
+
+**Filters/Projections/Limits:** Retrieved a single user record for login “sebersole” with all default fields; no commit‑related filters applied.",605,1,0,NO
+Which issue was closed most recently?,"The most recently closed issue is **#2626** – “HHH-13090 Depend on Ehcache interface instead of depending on one of the implem…”, closed on 2018‑11‑08 14:28:40 UTC.
+
+*Filters: none; Projections: closed_at, number, title; Limit: 1 (most recent entry retrieved).*",458,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"No contributor information is available in the retrieved data, so we cannot identify any contributor who has authored a commit comment.
+
+*Filters / projections / limits: none (empty result set retrieved).*",274,1,1,CORRECT
+What are the top 5 contributors ranked by number of commits?,"The repository data contains only a single contributor entry (with no name or email recorded) who made 9,313 commits. No additional contributors are available to list for a top‑5 ranking.
+
+Filters: none; Projections: author_name, author_email, commitCount; Limit: 5.",445,1,0,NO
+What is the average number of commits per contributor?,"The average number of commits per contributor is **9,313.0**.
+
+*Filters/Projections/Limit: No filters applied; retrieved the `average_commits_per_contributor` field from the sole record.*",302,1,0,INCORRECT
+What percentage of issues are currently closed?,"Approximately 95.97 % of the issues are currently closed.  
+*Filter/Projection: retrieved the single numeric metric from the repository data (value 95.96804868771396) with no additional limits.*",327,1,1,CORRECT
+What percentage of issues are currently open?,"Approximately 4.03 % of the issues are currently open.  
+**Filters:** none; **Projection:** open‑issues percentage; **Limit:** none.",414,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The ratio of open issues to closed issues is **0.04201347602061038**.  
+*Filters/Projections/Limits: none applied; directly retrieved the single numeric value.*",323,1,1,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **6060.0**.
+
+Filters/Projections/Limit: Retrieved the “average_comments_per_issue” field from the repository data without additional filters or limits.",314,1,0,INCORRECT
+What is the median number of comments per issue?,"I’m unable to determine the median number of comments per issue from the single value “6060”; additional data such as the comment counts for each individual issue would be needed.  
+**Filters/Projections/Limit:** Retrieved only the raw value 6060 with no filters, projections, or limits applied.",405,1,0,NO
+What is the average number of issue events per issue?,"I’m unable to calculate the average number of issue events per issue because the repository data does not contain any issue‑event records to analyze.
+
+*Filters/Projections/Limit: none – the query returned an empty result set.*",272,1,0,NO
+What is the average number of commit comments per commit?,"The average number of commit comments per commit is **0.0**.
+
+*Filters/Projections/Limit: retrieved the single metric value “0.0” from the database (no additional filtering applied).*",345,1,1,CORRECT
+What percentage of contributors have made more than 10 commits?,"Approximately 10.56 % of contributors have made more than 10 commits.  
+*Filters: none; Projection: single numeric value; Limit: 1*",410,1,1,CORRECT
+What is the standard deviation of commits across contributors?,"I’m unable to provide the standard deviation of commits across contributors because the repository data does not include the necessary commit counts per contributor.
+
+**Filters/Projections Used:** none (no commit data retrieved).",316,1,0,NO
+What is the average time (in days) taken to close an issue?,"I’m unable to provide the average time to close an issue because the query that would retrieve the necessary issue‑close dates failed (the data source returned a “cant $subtract astring from a string” error).  
+
+**Filters/Projections/Limit:** No data could be retrieved; the query error prevented any records, fields, or limits from being applied.",372,1,0,ERROR
+What is the median time (in days) taken to close an issue?,"I’m unable to determine the median time (in days) taken to close an issue because the required issue‑tracking data could not be retrieved.  
+
+*Filters/Projections/Limit: none – no issue data was available from the repository query.*",323,1,0,NO
+What percentage of issues were closed within 7 days of creation?,"I’m unable to determine the percentage of issues that were closed within 7 days because the required issue data could not be retrieved.  
+*Filters/Projections/Limit: none – data retrieval failed.*",313,1,0,ERROR
+What percentage of issues were closed within 30 days of creation?,"I’m unable to determine the percentage of issues that were closed within 30 days because the necessary issue data could not be retrieved from the repository.
+
+*Filters/Projections/Limits:* No issue data was available due to a retrieval error (“cant $subtract astring from a string”).",343,1,0,ERROR
+Which contributor has the highest commit-to-comment ratio?,"The only contributor in the data is **reda‑alaoui**, so they have the highest (though undefined) commit‑to‑comment ratio.
+
+*Filters: none; Projection: contributor, commitCount, commentCount, ratio; Limit: 1 (single record retrieved).*",375,1,0,INCORRECT
+What percentage of all comments are issue comments versus commit comments?,"All comments are issue comments: **100 % issue comments** and **0 % commit comments**.  
+*Filters: none; Projections: issue_comments_percent, commit_comments_percent; Limit: none.*",350,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"I’m sorry, but I don’t have enough information to calculate that average. The data retrieved only provides a total commit count (9313.0) and does not include the repository’s creation date, which is required to determine the number of months elapsed.
+
+*Filters/Projections: retrieved total commits = 9313.0; no date information available; no limit applied.*",411,1,0,NO
+What was the percentage growth or decline in commits from the previous month?,"I’m unable to determine the percentage growth or decline in commits for the previous month because no commit data is available in the retrieved repository information.  
+**Filters/Projections/Limit:** none (empty result set retrieved).",273,1,0,NO
+What percentage of issues have at least one comment?,"0.00% of issues have at least one comment.  
+**Filters/Projections/Limits:** No filters applied; retrieved overall issue comment statistic, projected percentage value.",285,1,0,INCORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor with the highest percentage of commits is **sebersole** (27.59%).  
+*Filters/Projections/Limit: retrieved all rows, projected `contributor` and `commit_percentage`, no limit applied.*",330,1,1,CORRECT
+Forecast the number of commits expected in the next month.,"I’m unable to forecast the number of commits for the next month because the provided data (a single value “9313”) does not include any information about commit timestamps or recent commit activity needed for a projection.  
+
+Filters/Projections/Limit: retrieved all entries (no filter), projected the single field containing “9313”, no limit applied.",358,1,0,NO
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic clusters**
+
+| Theme | Issues (by title) |
+|-------|-------------------|
+| **Build / Maven warnings** | “HHH‑5631 : Fixed warnings reported by Maven 3”, “Fix maven3 warnings” |
+| **Envers (audit) enhancements & fixes** | “Pull request for HHH‑5588: Improving support for entityNames in envers.”, “Patch for envers performance issue HHH‑5686”, “Envers - Proposal fix for HHH‑4646 and HHH‑5177” |
+| **Database dialects & SQL‑level performance** | “Mssql Server 2005 Dialect”, “HHH‑2655: make use of the ROW_NUMBER function”, “Sorting inserts by primary key”, “Action queue performance improvement” |
+| **JPA Metamodel / entity naming** | “HHH‑5709: JPA Metamodel: EntityType.getName != @Entity.name”, plus the duplicate “HHH‑5709” entries |
+| **Oracle CLOB handling** | “HHH‑5659 Problem using Hibernate3.6.0.Final with CLOB field in Oracle.” |
+| **CompositeUserType column defaults** | “HHH‑4347 default column properties on CompositeUserType”, “HHH‑4347 default column names/properties on CompositeUserType” |
+| **Partial fixes / patches** | “HHH‑5280: a partial fix”, “HHH‑5280 - a partial patch”, “HHH‑5280: a partial fix” |
+| **Test cases / version notes** | “HHH 5715 test case” (appears twice), “3.6” |
+| **Misc / ambiguous** | “Pull” (generic entry), “Fix” (generic), “Action” (generic) – titles lack enough context to assign a clear theme. |
+
+*Filters applied*: retrieved all documents for repository **hibernate_hibernate-orm**, projected the `title` field of each `issues` array, no limit applied.",1508,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Summary of the most‑discussed technical topics (last 10 issues + comments)**  
+
+| Topic | What was discussed / decided | Representative issues / comments |
+|-------|-----------------------------|-----------------------------------|
+| **Criteria API changes** – removal of `SelectionImplementor` and making `MapEntryExpression` implement `CompoundSelection` (HHH‑12945) | A code cleanup/fix that restores original validation in `CriteriaQueryImpl`. Reviewers were asked to look at it. | Issue 2629; comment asking “@sebersole or @dreab8 could take a look?” |
+| **Release 5.4 preparation** | Several comments mention rebasing, merging, and test‑coverage checks for the upcoming 5.4.0.Final (e.g., “Will be included in 5.4.0.Final released next week”, “plan to merge this one for 5.4”). | Comments about rebasing branches, “merged, thanks”, and “will be included in 5.4”. |
+| **Upgrade of Hibernate Commons Annotations** (to 5.1.0.Final) | Issue 2627 records the need to upgrade the annotations artifact, noting the CI will fail until it’s on Central. | Issue 2627. |
+| **Ehcache integration** – depend on the Ehcache **interface** rather than a concrete implementation | Issue 2626 proposes switching the dependency from `net.sf.ehcache.Cache` to the interface, because `BlockingCache` does not extend that class. | Issue 2626; comment about “I think it's better approach depending on interfaces”. |
+| **Sybase SQL Anywhere dialect selection** | Issue 2620 notes that the product name changed (“SQL Anywhere” vs. “Adaptive Server Anywhere”) and suggests adjusting the dialect‑selection test. | Issue 2620. |
+| **SQL Anywhere boolean mapping** | Issue 2625 adds an explicit mapping of Java `boolean` to SQL `BIT` for Sybase Anywhere. | Issue 2625. |
+| **Query‑plan optimization** | Issue 2624 requests reducing the number of calls to the query‑plan generator. | Issue 2624. |
+| **Logging level change on rollback** | Issue 2622 proposes lowering a noisy warning (when a collection with queued ops is detached on rollback) to `DEBUG`. | Issue 2622. |
+| **Composite‑key handling with non‑ID “id” property** | Issue 2621 documents a failure when an entity has a non‑ID property named `id` together with an `IdClass` composite key, and explains the limitation. | Issue 2621. |
+| **FetchMode JOIN for One‑to‑One with shared primary key** | Issue 2623 explores using `FetchMode.JOIN` to load `OneToOne` associations that share the same primary‑key column, and requests further testing. | Issue 2623. |
+| **Batch release logging** | Issue 2628 notes that batch releases still contained JDBC statements in the log. | Issue 2628. |
+| **Test failures / CI feedback** | Comments point out failing tests after recent changes (e.g., `CompositeUserTypeTest` class‑method failure) and request additional testing or fixes before merging. | Comment about test failure; comment about “And there’s a typo…”. |
+
+**Overall picture:** The recent activity revolves around finalizing the 5.4 release (code clean‑ups, merges, and test stability), addressing specific integration concerns (Ehcache, annotations, Sybase dialects), improving query handling (criteria API changes, query‑plan calls, fetch mode), and polishing logging/rollback behavior.
+
+*Filters applied: retrieved the latest 10 issues and all associated comments for repository `hibernate_hibernate-orm`; projection limited to `title`, `body`, `number` for issues and `body` for comments; no additional limit beyond the dataset provided.*",3078,1,1,CORRECT
+Assign issue #2 to contributor.,"I’m unable to assign issue #2 because no issue data could be retrieved from the repository—access to the necessary database information was denied.  
+
+**Filters/Projections/Limit:** none (no data available).",461,1,0,ERROR
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"I’m unable to identify duplicate or highly similar issues because the retrieved dataset contains no issue information.
+
+**Filters/Projections/Limits:** No filters or projections applied; the retrieved context consisted of empty records only.",404,1,0,NO
+Forecast the number of issue comments the issue #2 will have.,"I’m unable to forecast the number of comments for issue #2 because the repository data provided does not contain any information about issue #2 or its comments.  
+
+*Filters used: none (no matching records found); Projection: none; Limit: 0.*",284,1,0,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","I’m sorry, but the repository data needed to list and analyze the last 10 commits isn’t available—the only retrieved record is an error message and no commit information could be fetched.  
+
+*Filters/Projections/Limit: none applied (no commit data retrieved).",345,1,0,ERROR
+Estimate the probability issue #2 will be closed within 30 days.,"I’m sorry, but I don’t have any data about issue #2 in this repository, so I can’t provide an estimate of its likelihood of being closed within 30 days.  
+
+*Filters/Projections/Limit:* No issue data could be retrieved (error on query).",406,1,0,ERROR
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","I’m unable to classify the last 10 commits of the top 5 contributors because the requested commit data could not be retrieved.  
+
+**Filters/Projections/Limit:** No data was returned from the query (error: ‘CommandCursor’ object has no attribute ‘limit’).",327,1,0,ERROR
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams**
+
+| Sub‑team | Focus (derived from the last 10 open issue titles) |
+|----------|---------------------------------------------------|
+| **Query & Performance** | Optimizing query‑plan call counts and fixing queries that fail when a non‑ID property is named `id`. |
+| **Logging & Debugging** | Adjusting log levels (e.g., DEBUG on roll‑back) and eliminating stray JDBC‑statement logs after batch release. |
+| **Annotation & Metadata** | Upgrading Hibernate Commons Annotations (5.1.0.Final) and setting sensible defaults for `AnyMetaDef.metaType`. |
+| **Database Dialect & Mapping** | Handling database‑specific mappings such as Sybase Anywhere boolean‑to‑bit conversion and adding spatial function support (`st_makeenvelope`). |
+| **Fetch & Association** | Ensuring proper loading of `OneToOne` associations via `FetchMode.JOIN`. |
+
+*Filters applied: retrieved the last 10 open issues from the hibernate_hibernate-orm repository; no additional projection or limit beyond those 10 items.*",1035,1,1,CORRECT

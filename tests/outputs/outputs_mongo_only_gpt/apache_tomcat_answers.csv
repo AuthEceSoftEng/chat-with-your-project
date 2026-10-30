@@ -1,0 +1,262 @@
+question,answer,token_count,tool_use,answered,correct,label
+What is the name and description of the repository?,"The repository is named **tomcat** and its description is **“Mirror of Apache Tomcat.”**  
+
+(Used `list_and_explore_schema` on the `projects` collection to read the `name` and `description` fields.)",4070,1,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **2011‑10‑01** and was last updated on **2018‑07‑07**.
+
+(Used `retrieve_documents` on the **projects** collection with a projection for `created_at` and `updated_at`, limiting to 1 record.)",8602,2,1,1,CORRECT
+How many contributors have contributed to this repository?,"There are **14 contributors** who have contributed to the Apache Tomcat repository.
+
+Tool call: `count_documents(repo_name=""apache_tomcat"", collection=""contributors"", filter={})` resulted in a count of 14.",3479,1,1,1,CORRECT
+Which contributor has made the highest number of commits?,"The contributor with the most commits is **markt‑asf**, with 13,583 commits.
+
+Tool: aggregated commits by author (using `$ifNull` to fall back to commit author email), sorted descending, limited to 1.",11639,3,1,1,CORRECT
+How many total commits are recorded in the repository?,"There are **19,663** total commits recorded in the repository.
+
+*Used `count_documents` on collection `commits` with an empty filter to get the total count.*",2527,1,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit has the message:
+
+**“Fix cache interoperability problem.  
+Note: Always adding this header reduces the usefulness of caches significantly. Next task is to look at possible optimisations.
+
+git-svn-id: https://svn.apache.org/repos/asf/tomcat/trunk@1835271 13f79535-47bb-0310-9956-ffa450edef68”**
+
+It was authored by **Mark Thomas** (`markt@apache.org`).
+
+*Used retrieve_documents on commits sorted by author date descending, limit 1, projecting author name, email, and message.*",6469,2,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the **apache_tomcat** repository is:
+
+- **SHA:** `a84fabcbc6fee8a69253ad92a304b4718e96a7c9`  
+- **Date:** `2006-03-27T13:53:46Z`  
+- **Message:**  
+  ```
+  - Attempt to create a new repository according to the earlier thread.
+  - No modules right now.
+  - Dependencies on c-logging, c-modeler (which I think I will merge/simplify to util, as done with 
+    digester earlier), Ant, JDT, PureTLS and JavaMail. Maybe it is possible to add dummy sources
+    for JavaMail to build without having to get the JAR, don't know about PureTLS.
+  - Will require Java 5.
+
+  git-svn-id: https://svn.apache.org/repos/asf/tomcat/tc6.0.x/trunk@389146 13f79535-47bb-0310-9956-ffa450edef68
+  ```
+
+**Tool used:** `aggregate_collection` on `commits` with a pipeline that sorted by `commit.author.date` ascending, limited to the first record, and projected the date, message, SHA, and URL.",6619,2,1,1,CORRECT
+How many open issues are currently in the repository?,"There are **13 open issues** in the repository.
+
+*Tool used:* `count_documents` with filter `{""state"":""open""}`.",2507,1,1,1,CORRECT
+How many closed issues are currently in the repository?,"102 closed issues.
+
+Tools used: `count_documents` on the **issues** collection with filter `{""state"":""closed""}`.",2504,1,1,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is:
+
+- **Issue #115** – “Setting Timezone to GMT for Expires Header as per RFC1123” (created at 2018‑06‑15 18:15:27 UTC).
+
+*Tool: `retrieve_documents` filter={}, sort by `created_at` descending, limit 1, projection {created_at, number, title}.*",2726,1,1,1,CORRECT
+Which issue has been open for the longest time?,"The issue that has been open the longest is #18, titled **“Add QueryExecutionReportInterceptor and tests to jdbc‑pool,”** created on **2015‑03‑18**.
+
+Used `retrieve_documents` with filter `{""state"":""open""}`, sorted by `created_at` ascending, limit 1, and projected `created_at`, `number`, `title`.",2775,1,1,1,CORRECT
+Which issue has received the highest number of comments?,"The issue (pull request) with the most comments is #56, titled **“Convert Cluster Manager human‑readable channelSendOptions names to integer [61127/8]”**, which has **36 comments**.  
+
+*Used aggregate_collection on `issues` with pipeline `[{$sort: {comments:-1}}, {$limit: 1}, {$project: {comments:1, html_url:1, number:1, title:1}}]`.*",5984,2,1,1,CORRECT
+How many issue comments exist in total?,"There are **200** issue comments in total.  
+
+(Used `count_documents` on the `issueComments` collection with an empty filter.)",2486,1,1,1,CORRECT
+How many commit comments exist in total?,"0 commit comments exist in total.  
+Used `count_documents` on the **commitComments** collection with an empty filter.",2530,1,1,1,CORRECT
+Which project contains the largest number of issues?,"The **apache_tomcat** project contains the largest number of issues, with a total of **115** issues.
+
+*Tool: aggregate_collection on `issues` grouped by `repo_name`, sorted descending, returned 115 issues for `apache_tomcat`.*",22363,5,1,0,INCORRECT
+How many issue events are associated with issue #2?,"There are **0** issue events associated with issue #2.
+
+(Used `count_documents` on the **issueEvents** collection with filter `{""issue.number"": 2}`.)",5729,2,1,1,CORRECT
+Which contributor most recently made a commit?,"The most recent commit was made by **Mark Thomas** on 2018‑07‑06 17:20:05 UTC.
+
+(Used `retrieve_documents` on `commits` sorted by `commit.author.date` descending, limit 1, projecting the author name and date.)",6234,2,1,1,CORRECT
+Which issue was closed most recently?,"The most recently closed issue is **#115 – “Setting Timezone to GMT for Expires Header as per RFC1123”**, closed on **2018‑06‑20 15:07:44 UTC**.
+
+Tool: retrieved documents from `issues` filtered by `state: ""closed""` sorted by `closed_at` descending, limit 5, projected `closed_at`, `number`, and `title`.",2922,1,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"No contributor has authored any commit comment; the **commitComments** collection contains zero records. 
+
+Tool used: `count_documents(repo_name=""apache_tomcat"", collection=""commitComments"", filter={})`.",7286,3,1,1,CORRECT
+What are the top 5 contributors ranked by number of commits?,"The top 5 contributors by number of commits are:
+
+| Rank | Login          | Commits |
+|------|----------------|---------|
+| 1    | **markt-asf**  | 13 583 |
+| 2    | **rmaucher**   | 1 020 |
+| 3    | **violetagg**  | 378 |
+| 4    | **mturk**      | 129 |
+| 5    | **FSchumacher**| 109 |
+
+(These values come from the `contributors` collection, sorted by the `contributions` field.)
+
+**Tools used:** aggregate_collection on `contributors` with sort by `contributions` and limit 5.",19738,6,1,0,INCORRECT
+What is the average number of commits per contributor?,"The repository has **19,663 commits** and **14 contributors**, giving an average of **≈ 1,404 commits per contributor** (19,663 ÷ 14 ≈ 1,404).  
+
+Tool calls: count_documents on `commits` (total 19,663) and count_documents on `contributors` (total 14).",8594,3,1,0,INCORRECT
+What percentage of issues are currently closed?,"102 closed issues out of 115 total issues → **88.7 %** closed.
+
+(Counted total issues with no filter and closed issues with `{""state"":""closed""}`.)",3934,2,1,1,CORRECT
+What percentage of issues are currently open?,"13 / 115 ≈ 11.3 % of issues are currently open.  
+Used `count_documents` on `issues` (total) and on `issues` with `{""state"":""open""}`.",3954,2,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"There are **13** open issues and **102** closed issues, giving a ratio of **13 : 102** (≈ 0.1276).  
+
+*Used count_documents on the **issues** collection with filters `{""state"":""open""}` and `{""state"":""closed""}`.*",3961,2,1,1,CORRECT
+What is the average number of comments per issue?,"The repository contains **115 issues** and **200 issue comments**, giving an average of **≈ 1.74 comments per issue**.
+
+*Used `count_documents` on `issues` (115) and on `issueComments` (200) to compute the average.*",4118,2,1,0,INCORRECT
+What is the median number of comments per issue?,"The median number of comments per issue is **1**.  
+*Used aggregate_collection on `issues` with a pipeline that sorted the `comments` field, collected them into an array, and selected the middle element (floor of half the size).*",9309,3,1,1,CORRECT
+What is the average number of issue events per issue?,"There are no issue‑event records in the **issueEvents** collection, so an average number of events per issue cannot be computed (the collection is empty).  
+
+*Used `count_documents` on `issueEvents` (count = 0); aggregation on the same collection returned no records.*",7681,3,1,1,CORRECT
+What is the average number of commit comments per commit?,"The repository has **19,663 commits** and **0 commit comments**, so the average number of comments per commit is **0**.
+
+Tool calls: `count_documents` on `commits` (filter = {}, result = 19663) and `count_documents` on `commitComments` (filter = {}, result = 0).",8459,4,1,1,CORRECT
+What percentage of contributors have made more than 10 commits?,"9 out of 14 contributors have made more than 10 commits, which is **≈ 64.3 %**.
+
+Tools used: count_documents on `contributors` (total count) and count_documents with filter `{""contributions"": {""$gt"": 10}}`.",6275,3,1,1,CORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of the number of commits per contributor is **≈ 3603.55**.
+
+Used an aggregation on the **contributors** collection to compute `$stdDevSamp` of the `contributions` field.",15123,4,1,1,CORRECT
+What is the average time (in days) taken to close an issue?,"The average time to close an issue is **≈ 58.41 days**.
+
+Tool used: `aggregate_collection` on `issues` with a pipeline that matches closed issues, computes the difference between `closed_at` and `created_at` in days, and averages that difference.",8672,3,1,1,CORRECT
+What is the median time (in days) taken to close an issue?,"The median time from issue creation to closure is **≈ 2.20 days**.
+
+**Tool usage:** aggregated the closed‑issue documents, computed the difference in days, and derived the median.",22130,4,1,1,CORRECT
+What percentage of issues were closed within 7 days of creation?,"About **62.7 %** of the issues were closed within 7 days of their creation (64 of 102 closed issues).  
+
+*Tools used*: `count_documents` on issues with `{""state"":""closed""}` → 102; `aggregate_collection` on issues to count those where the time between `created_at` and `closed_at` is ≤ 7 days (604 800 000 ms) → 64.",17794,6,1,1,CORRECT
+What percentage of issues were closed within 30 days of creation?,"About 81.4 % of the closed issues were resolved within 30 days of their creation (83 of 102 closed issues).
+
+Tools used: `count_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={""state"":""closed""})` → total 102; `aggregate_collection(repo_name=""apache_tomcat"", collection=""issues"", pipeline=[{""$match"":{""state"":""closed""}},{""$addFields"":{""diffDays"":{""$divide"":[{""$subtract"":[{""$toDate"":""$closed_at""},{""$toDate"":""$created_at""}]},86400000]}}},{""$match"":{""diffDays"":{""$lte"":30}}},{""$count"":""within30""}]})` → within30 = 83.",17949,6,1,1,CORRECT
+Which contributor has the highest commit-to-comment ratio?,"The contributor with the highest commit‑to‑comment ratio is **Mark Emlyn David Thomas**, with a ratio of **9148 commits per comment** (1 comment across 9,148 commits).
+
+*Used aggregate_collection on `commits` with a pipeline that summed commits and comment counts per author, computed the ratio, sorted descending, and limited to the top record.*",6626,2,1,0,INCORRECT
+What percentage of all comments are issue comments versus commit comments?,"Out of all comment records, 100 % are issue comments and 0 % are commit comments (200 issue comments vs. 0 commit comments).  
+
+Used count_documents on `issueComments` (count = 200) and on `commitComments` (count = 0).",3998,2,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"The repository has **19,663** commits whose earliest commit dates from **2006‑03‑27**. From that date to today (2026‑10‑05) is **246 months**.  
+
+Average commits per month = 19,663 ÷ 246 ≈ **79.9 commits/month**.  
+
+*Tool used: `aggregate_collection` on `commits` to get total count and earliest commit date.*",10101,3,1,0,INCORRECT
+What was the percentage growth or decline in commits from the previous month?,"The two most recent months in the commit history are:
+
+- **July 2018:** 43 commits  
+- **June 2018:** 101 commits  
+
+The change from June to July is a **57.4 % decline** in commit count  
+((43 − 101) ÷ 101 ≈ ‑0.574 → ‑57.4 %).  
+
+Tool: aggregate_collection on `commits` with a pipeline that parsed the commit author date, grouped by month, sorted descending, and limited to the last two months.",9487,3,1,1,CORRECT
+What percentage of issues have at least one comment?,"68 of the 115 issues have at least one comment, which is **≈ 59.1 %** of all issues.
+
+Used count_documents to get total issues (115) and issues with comments > 0 (68).",8120,3,1,1,CORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor with the highest number of commits is **`markt-asf`**, who made **13,583** commits, representing the largest share of all 15,384 commits in the repository.
+
+*Aggregated total contributions (15,384) and identified the top contributor (13,583 commits) using `aggregate_collection` on the **contributors** collection.*",6839,3,1,1,CORRECT
+Forecast the number of commits expected in the next month.,"The aggregation shows an average of **≈ 85 commits per month** over the most recent 12 months. Assuming a similar activity level continues, we can forecast roughly **85 commits** for the next month.
+
+**Tool usage:** `aggregate_collection` on `commits` – grouped by year‑month, averaged the last 12 month counts, limit 12.",6830,2,1,1,CORRECT
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic clusters (based on the titles & descriptions that are present in the issue collection)**  
+
+| Cluster / Theme | Representative issue titles (sample) | What the issues in this group address |
+|-----------------|--------------------------------------|---------------------------------------|
+| **AccessLog valve refactoring** | “Split AccessLogValve and extract the formatting logic in an AbstractAccessLogValve” | Re‑architect the AccessLog valve so the formatting code lives in a reusable abstract class, making it easier to add alternative log‑output implementations. |
+| **Jasper / modularisation** | “Changes to make Jasper more separable from Tomcat” | Reducing the coupling between Tomcat and the Jasper JSP compiler, so Jasper can be used as a stand‑alone component. |
+| **Performance / optimisation flags** | “No need to set the deprecated javac optimise flag” | Removing the use of the old `-J-optimise` javac flag that has been deprecated since Java 1.3. |
+| **Build‑script / service‑batch updates** | “Update service.bat” | Fixes to the Windows service batch file (e.g., JRE‑only install for Tomcat 7.0.47). |
+| **JMX / request‑info monitoring** | “Add maxStartTime to RequestInfo & RequestGroupInfo.” | Extending the JMX‑exposed request‑processor information (adding timestamps, max request time, etc.) to improve monitoring. |
+
+**How the clusters were derived**
+
+* A quick sample of five issues (title + body) was retrieved from the **issues** collection (the only fields examined were `title` and `body`).  
+* The distinct keywords appearing in those titles (e.g., *AccessLogValve*, *Jasper*, *optimise*, *service.bat*, *RequestInfo*) were used as thematic anchors.  
+* Issues that mention the same keyword in their title or description belong to the same theme.
+
+**Scope**
+
+* The repository contains **115** issues in total (count_documents result).  
+* The clustering shown here is based on the sampled titles; a full‑text clustering across all 115 issues would likely reveal additional sub‑themes, but the above groups capture the main topics that are evident from the available data.",40389,10,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Summary of the most discussed technical topics in the latest 10 issues (by comment activity)**  
+
+| Issue # | Comments | Main technical topic (from title / body) |
+|--------|----------|------------------------------------------|
+| **115** | 14 | **Header formatting** – fixing the `Expires` response header to use GMT per RFC 1123 (time‑zone handling). |
+| **108** | 9  | **Undeployment ordering** – improving automatic undeployment when version numbers are present in context names. |
+| **109** | 4  | **FileResource handling** – handling `FileInputStream` for directories (preventing read errors). |
+| **106** | 0  | **Cygwin script robustness** – guarding against empty `JAVA_ENDORSED_DIRS` before calling `cygpath`. |
+| **112** | 1  | **Bug 62391 fix** – a simple bug‑fix patch for an Apache Bugzilla issue. |
+| **111** | 1  | **IPv6 loopback default** – adding IPv6 loopback to `RemoteIpFilter`/`RemoteIpValve` internal proxies. |
+| **110** | 0  | **Debug logging of DB properties** – proposing a logger for JDBC pool property values. |
+| **114** | 0  | **Exception declaration cleanup** – removing unnecessary `throws ServletException`. |
+| **113** | 1  | **Windows startup command** – changing the Windows service start command from `start` to `run`. |
+| **115** (duplicate in list) – already covered. |
+
+**Key take‑aways**
+
+1. **Header/HTTP compliance** – The most actively discussed issue is about ensuring the `Expires` header complies with RFC 1123 (GMT) to avoid caching problems in browsers.  
+2. **Version‑aware undeployment** – A significant discussion around the correct ordering of context names to prevent premature undeployment when newer version numbers are deployed.  
+3. **Resource handling bugs** – Multiple issues focus on concrete bugs: reading directories with `FileResource`, fixing Bugzilla‑referenced bugs, and adjusting Windows service commands.  
+4. **Configuration robustness** – Small but important fixes such as guarding against empty path variables in Cygwin scripts and cleaning up unnecessary exception declarations.  
+
+These topics dominate the recent conversation, indicating community focus on correct HTTP behavior, reliable deployment lifecycle, and fixing low‑level resource handling bugs.
+
+*Tools used: retrieved the 10 most recent issues with `retrieve_documents` (limit 10, projected `title`, `body`, `comments`).*",8186,2,1,1,CORRECT
+Assign issue #2 to contributor.,"Issue #2 is currently unassigned (`assignee: null`, `assignees: []`). The repository‑assistant tools provided are read‑only (count, retrieve, aggregate, schema inspection) and do not support modifying issue fields. Therefore I cannot assign the issue to a contributor here; that action must be performed through the GitHub interface or an API with write permissions.  
+
+*Used retrieve_documents on `issues` with filter `{ ""number"": 2 }` and projection `{ ""assignee"": 1, ""assignees"": 1, ""number"": 1, ""title"": 1 }` (limit 5).*",8825,3,1,0,INCORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"**Issue groups that are duplicates or highly similar (based on title wording and the same Bugzilla reference)**  
+
+| Bugzilla ID (from title) | Issue _id(s) | Titles (truncated) |
+|--------------------------|--------------|---------------------|
+| **61784** | `276102680` , `275082010` | “Support null for provider class name when registering a provider” / “Test case and fix for https://bz.apache.org/bugzilla/show_bug.cgi?id=61784” |
+| **62391** | `324748602` | “Fix BZ Bug 62391” (only one entry, but it is the fix for the same bug that also appears as a separate “Apply patch” entry – no separate duplicate in the 50‑sample set) |
+| **62392** | `324750402` | “Modify Windows startup command from start to run” (related to BZ‑62392, but there is no second entry with the same bug ID) |
+| **61783‑61777** (series) | each ID from `275081811` to `275080551` | These are individual “Test case and fix for …” issues, each tied to a distinct Bugzilla ID, so they are not duplicates of one another. |
+
+**Explanation**
+
+- The 50‑issue sample contains many distinct issues, most with unique titles.
+- The only clear case where two separate records address the *same* Bugzilla bug is **61784**, which has both a “support‑null” implementation issue and a separate “test‑case and fix” issue. These two are semantically overlapping because they target the same underlying problem.
+- Other issues reference the same Bugzilla number only once in this sample (e.g., 62391, 62392), so no duplicate pairs exist for them.
+- The remaining issues are all distinct in wording and context.
+
+Thus, within the 50 retrieved examples, the only duplicate/highly‑similar pair is the pair for Bugzilla 61784.",15481,2,1,1,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"The issue #2 currently has **0 comments** (count_documents returned 0).  
+The repository tools provide only the current count; they do not include a forecasting model or time‑series data for future comment activity. Therefore, a reliable forecast of how many comments the issue will receive in the future cannot be generated from the available data.",2720,1,1,0,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Severity clustering of the last 10 commits (based on number of files changed)**  
+
+| Severity | Number of commits |
+|----------|-------------------|
+| Low      | 6 |
+| Medium   | 4 |
+| High     | 0 |
+
+*The aggregation counted the files changed in each of the 10 most recent commits, bucketed them into “Low” (0‑1 file), “Medium” (2‑4 files) and “High” (5+ files), and reported the totals.*  
+
+**Tool usage:** `aggregate_collection` on `commits` with a pipeline that sorted by author date, limited to 10, computed `fileCount` from the `files` array, bucketed by file count, and mapped buckets to severity labels.",9884,3,1,1,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"Based on the historical closure times for the repository, 83 of the 102 issues that have been closed were resolved within 30 days. This gives an empirical probability of:
+
+**≈ 83 / 102 ≈ 0.81 or 81 %**
+
+So, if issue #2 follows the same pattern as past issues, there is roughly an 80 % chance it will be closed within 30 days.
+
+*Tool used: `aggregate_collection` on the **issues** collection with a pipeline that (1) filtered closed issues, (2) converted the `created_at` and `closed_at` strings to dates, (3) computed the day difference, and (4) counted total closed issues and those closed in ≤ 30 days.*",19501,6,1,1,CORRECT
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.",,53019,10,0,0,ERROR
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams (based on the last 10 open issues)**  
+
+| Sub‑team | Core focus (derived from issue titles) | Representative issues |
+|----------|----------------------------------------|------------------------|
+| **Exception & Code‑Cleanup Team** | Remove unnecessary `throws` declarations, clean up dead code, apply small patches. | #114 – “Remove throws declaration of an exception which is not thrown”; #105 – “Iamtjw patch 1”. |
+| **Logging & Diagnostics Team** | Add or improve debug logging, expose internal configuration for troubleshooting. | #110 – “Debug log for pool's db properties”. |
+| **Deployment & Undeployment Team** | Make undeployment safe, especially when many deployments run in parallel. | #108 – “Improve undeployment in parallel deployment scenario”. |
+| **Connection & Pool Management Team** | Handle connection‑lifecycle problems, enforce proper pool sizing and proxy cleanup. | #107 – “underlying connection closed unexpectedly…”; #103 – “Use initSQL instead of Validator on connection initialization”; #54 – “Respect minimum pool size”. |
+| **Configuration & Session‑Management Team** | Tackle server‑configuration changes (e.g., `portOffset`) and session‑state updates. | #63 – “added portOffset attribute to server.xml”; #51 – “Check and update session record if one already exists”. |
+
+**Why five teams?**  
+The ten recent open issues naturally cluster into five functional domains (exception handling, logging, deployment, connection/pool, and configuration/session). Assigning each domain its own sub‑team distributes the workload evenly, lets specialists focus on related code areas, and reduces cross‑team coordination overhead.
+
+*Tools used:* retrieved the 10 most recent open issues (filter `state=""open""`, sort by `created_at` desc, limit 10, projection `title`, `number`, `labels`, `created_at`).",7103,2,1,1,CORRECT

@@ -1,0 +1,267 @@
+question,answer,token_count,tool_use,label
+What is the name and description of the repository?,"The repository is named **“tomcat”** and its description is **“Mirror of Apache Tomcat.”**  
+
+Tool used: `list_and_explore_schema(repo_name=""apache_tomcat"", collection_name=""projects"")` with no filter and limit.",4191,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **2011‑10‑01T07:00:19Z** and was last updated on **2018‑07‑07T18:35:15Z**.  
+
+Tool used: retrieve_documents with filter {""repo_name"":""apache_tomcat""}, limit=1, projection {""created_at"":1,""updated_at"":1}.",9059,3,CORRECT
+How many contributors have contributed to this repository?,"14 contributors have contributed to the repository.
+
+Tool used: count_documents(repo_name=""apache_tomcat"", collection=""contributors"", filter={})",2592,1,CORRECT
+Which contributor has made the highest number of commits?,"The contributor with the most commits is **Mark Emlyn David Thomas**, with **9,148 commits**.
+
+Tool call: aggregate_collection(repo_name=""apache_tomcat"", collection=""commits"", pipeline=[{""$group"":{""_id"":""$commit.author.name"",""count"":{""$sum"":1}}},{""$sort"":{""count"":-1}},{""$limit"":1}])",13184,5,CORRECT
+How many total commits are recorded in the repository?,"19663 commits.
+
+Tool used: count_documents(repo_name=""apache_tomcat"", collection=""commits"", filter={}).",2519,1,CORRECT
+What is the most recent commit message and who authored it?,"**Most recent commit**
+
+- **Message**:  
+  “Fix cache interoperability problem.  
+  Note: Always adding this header reduces the usefulness of caches significantly.  
+  Next task is to look at possible optimisations.”
+
+- **Author**: Mark Thomas  
+
+*Tool used:* `retrieve_documents` with filter ={}), limit = 1, projection =`{""commit.committer.name"":1,""commit.message"":1}`, sort =`{""commit.committer.date"":-1}`.",10016,3,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the repository is:
+
+- **Commit ID**: `a84fabcbc6fee8a69253ad92a304b4718e96a7c9`
+- **Author**: Remy Maucherat
+- **Date**: 2006‑03‑27T13:53:46Z
+- **Message**: “- Attempt to create a new repository according to the earlier thread. …”
+
+Tool used: `aggregate_collection` with collection = “commits”, sorted by `commit.author.date` ascending, limit = 1.",11229,4,CORRECT
+How many open issues are currently in the repository?,"13 open issues.
+
+Tool used: count_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={""state"":""open""})",2504,1,CORRECT
+How many closed issues are currently in the repository?,"102 closed issues.  
+Tool used: count_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={""state"":""closed""})",2508,1,CORRECT
+Which issue was created most recently?,"The most recent issue is **#115 – “Setting Timezone to GMT for Expires Header as per RFC1123”** (created 2018‑06‑15 18:15:27 Z).  retrieve_documents with filter {}, limit 1, sort {created_at: -1}, projection {created_at, number, title}.",2781,1,CORRECT
+Which issue has been open for the longest time?,"Issue #18, titled “Add QueryExecutionReportInterceptor and tests to jdbc‑pool”, has been open the longest (since 2015‑03‑18).  
+- Tool: retrieve_documents, filter: {""state"":""open""}, sort by created_at ascending, limit = 1.",2886,1,CORRECT
+Which issue has received the highest number of comments?,"Issue #56 has received the highest number of comments—36 comments in total. 
+
+Tools used: aggregate_collection with pipeline to group by `issue_url`, sort by comment count, and limit 1.",5134,2,CORRECT
+How many issue comments exist in total?,"200 issue comments exist in total.  
+Used count_documents(repo_name='apache_tomcat', collection='issueComments', filter={})",2614,1,CORRECT
+How many commit comments exist in total?,"There are 0 commit comments recorded for the **apache_tomcat** repository.  
+
+**Tool used:** count_documents(repo_name=""apache_tomcat"", collection=""commitComments"", filter={})",8858,4,CORRECT
+Which project contains the largest number of issues?,"There is only one project in the repository, **tomcat**, which has 13 open issues. The total number of issues in the repo is 115.  
+
+Tool calls  
+- `count_documents(collection=""issues"", filter={})` → 115 issues  
+- `retrieve_documents(collection=""projects"", projection={""name"":1,""open_issues"":1})` → project “tomcat” with 13 open issues.",15924,4,INCORRECT
+How many issue events are associated with issue #2?,"0 issue events are associated with issue #2.
+
+Tool used: count_documents(repo_name=""apache_tomcat"", collection=""issueEvents"", filter={""issue"":{""number"":2}}).",5863,2,CORRECT
+Which contributor most recently made a commit?,"The most recent commit was made by the contributor **`markt-asf`** on **2018‑07‑06T17:20:05Z**.
+
+*Tool used:* retrieve_documents(repo_name=""apache_tomcat"", collection=""commits"", filter={}, sort={""commit.author.date"":-1}, limit=1, projection={""_id"":0,""author.login"":1,""commit.author.date"":1})",11333,5,CORRECT
+Which issue was closed most recently?,"**Issue closed most recently**
+
+- **Number:** 115  
+- **Title:** Setting Timezone to GMT for Expires Header as per RFC1123  
+- **Closed at:** 2018‑06‑20T15:07:44Z  
+
+**Tool call used**
+
+retrieve_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={""state"":""closed""}, sort={""closed_at"":-1}, limit=1, projection={""closed_at"":1,""number"":1,""title"":1})",5891,2,CORRECT
+Which contributor has authored at least one commit comment?,"No contributor in the Apache Tomcat repository has authored any commit comment.  
+
+Tools used: `list_and_explore_schema` for `contributors`, `list_and_explore_schema` for `commitComments`, `aggregate_collection` on `commitComments` (filtered by repo_name “apache_tomcat”).",7439,3,CORRECT
+What are the top 5 contributors ranked by number of commits?,"The five contributors with the most commits are:
+
+| Rank | Contributor | Commits |
+|------|-------------|---------|
+| 1 | `markt-asf` | **13,583** |
+| 2 | `rmaucher` | **1,020** |
+| 3 | `violetagg` | **378** |
+| 4 | `mturk` | **129** |
+| 5 | `FSchumacher` | **109** |
+
+**Tool used:** `aggregate_collection(repo_name=""apache_tomcat"", collection=""contributors"", pipeline=[{""$sort"":{""contributions"":-1}},{""$limit"":5},{""$project"":{""_id"":0,""contributions"":1,""login"":1}}])`.",4798,2,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is approximately **1,099 (1098.86)**.
+
+Tool used: aggregate_collection with filter `{}` over the `contributors` collection, grouping by contributor count and summing the `contributions` field, then dividing to find the average.",9469,4,CORRECT
+What percentage of issues are currently closed?,"The repository has 115 issues in total, of which 102 are closed. That means **approximately 88.7 % of all issues are currently closed**.  
+
+Tool usage: two count_documents calls – one for total issues (filter {}) and one for closed issues (filter {""state"":""closed""}) with a limit of 115 and 102 respectively.",4082,2,CORRECT
+What percentage of issues are currently open?,"About 11 % of all issues are currently open (13 open out of 115 total).
+
+Tools used: count_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={}), count_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={""state"":""open""})",4032,2,CORRECT
+What is the ratio of open issues to closed issues?,"Calculated ratio.Open issues / closed issues = 13 / 102 ≈ 0.127.  
+
+Tool calls: count_documents, filter={""state"":""open""}; count_documents, filter={""state"":""closed""}",8001,3,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is approximately **3.70**.
+
+Tool used: aggregate_collection ‑ group by issue_url, then compute average of comment counts.",5105,2,INCORRECT
+What is the median number of comments per issue?,"The median number of comments per issue is **1**.  
+
+Tools used: `aggregate_collection` with a `$group` to count comments per issue, then sorted ascending to determine the median.",11368,3,CORRECT
+What is the average number of issue events per issue?,"There are 115 issues in the Apache‑Tomcat repository. The `issueEvents` collection contains zero documents, so the average number of events per issue is **0**.
+
+Tools used: `count_documents` on `issues` (limit 115), `count_documents` on `issueEvents` (limit 0).",6564,3,CORRECT
+What is the average number of commit comments per commit?,"The dataset contains 19,663 commits and 0 commit comments, so the average is
+
+**0 commit comments per commit**  
+
+(count_documents called on `commits` → 19,663; `commitComments` → 0)",9035,4,CORRECT
+What percentage of contributors have made more than 10 commits?,"First, 9 contributors have made more than 10 commits.  
+Second, there are 14 contributors in total.  
+
+**Answer**  
+\[
+\frac{9}{14}\times100 \approx 64.29\%
+\]  
+So about **64 %** of contributors have made more than 10 commits.  
+
+**Tool usage**  
+- `count_documents` with filter `{""contributions"": {""$gt"": 10}}` → 9  
+- `count_documents` with filter `{}` → 14",6272,3,CORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of commit counts across all contributors is **≈ 3 472.47**.  
+
+Tools used:  
+
+- `aggregate_collection` on `contributors` with pipeline `[{""$group"": {""_id"": null, ""stdDev"": {""$stdDevPop"": ""$contributions""}}}]` (repo_name=""apache_tomcat"").",16967,6,CORRECT
+What is the average time (in days) taken to close an issue?,"The average time to close an issue is **58.4 days**.
+
+Tool used: `aggregate_collection` on collection `issues`, filtering for `""state"":""closed""` and converting dates to compute the difference in days.",4920,2,CORRECT
+What is the median time (in days) taken to close an issue?,"The median time to close an issue is about **2.20 days**.  
+(Computed as the mean of the 51st‑ and 52nd‑longest‑closed issues after sorting by duration.)
+
+Tool calls used:  
+- count_documents(filter {""state"":""closed""}, limit 102)  
+- aggregate_collection(pipeline [{""$match"":{""state"":""closed""}},{""$addFields"":{""duration"":{""$divide"":[{""$subtract"":[{""$dateFromString"":{""dateString"":""$closed_at""}},{""$dateFromString"":{""dateString"":""$created_at""}}]},86400000]}}},{""$sort"":{""duration"":1}},{""$skip"":50},{""$limit"":2},{""$project"":{""_id"":0,""duration"":1}}])",15921,5,CORRECT
+What percentage of issues were closed within 7 days of creation?,"A little under **63 %** of closed issues were closed within seven days of their creation.
+
+Tool used: `aggregate_collection` on `issues` with a match for `state:""closed""`, date conversion, day‑difference calculation, and percentage aggregation.",11839,4,CORRECT
+What percentage of issues were closed within 30 days of creation?,"81.37 % of closed issues were resolved within 30 days.  
+(83 out of 102 closed issues.)  
+
+Tool used: aggregate_collection on collection “issues” with a pipeline that (1) matched closed issues, (2) converted `created_at` and `closed_at` to dates, (3) computed the elapsed days, (4) counted those ≤30days, and (5) counted the total closed.",12077,4,CORRECT
+Which contributor has the highest commit-to-comment ratio?,"I couldn't find any comment data for the Apache‑Tomcat repository in the commitComments collection. All aggregations on that collection returned zero records, so it’s impossible to calculate a commit‑to‑comment ratio. Please confirm that comment data is available or let me know an alternative source to use.",26124,7,NO
+What percentage of all comments are issue comments versus commit comments?,"The repository contains 200 issue comments and no commit comments.  
+Thus 100 % of all comments are issue comments, 0 % are commit comments.  
+
+**Tool call**: count_documents for issueComments and commitComments with no filter, repo_name=""apache_tomcat"".",4411,2,CORRECT
+What is the average number of commits per month since the repository was created?,"Average commits per month (from repository creation 2011‑10‑01 to last commit in 2018‑07‑06)  
+≈ 243 commits/month (19,663 commits ÷ 81 months).
+
+Tools & filters used:  
+- `count_documents(repo_name=""apache_tomcat"", collection=""commits"", filter={})` to get 19,663 commits.  
+- `aggregate_collection(repo_name=""apache_tomcat"", collection=""commits"", pipeline=[{""$sort"":{""commit.author.date"":-1}},{""$limit"":1},{""$project"":{""date"":""$commit.author.date""}}])` to get latest commit date 2018‑07‑06.  
+- `list_and_explore_schema` on `projects` provided the repo creation date 2011‑10‑01.",21654,5,INCORRECT
+What was the percentage growth or decline in commits from the previous month?,"The number of commits fell from 101 in June 2018 to 43 in July 2018, a decline of about 57 % (≈ –57.4 %).  
+
+Used aggregate_collection on `commits` with a date‑to‑string projection, grouping by month (limit 2).",19907,7,CORRECT
+What percentage of issues have at least one comment?,"About 47 % of all issues have at least one comment (54 out of 115 issues). 
+
+Tools used: count_documents on “issues” (filter={}) returned 115; aggregate_collection on “issueComments” (group by issue_url) returned 54 unique issue URLs.",8386,3,INCORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor **`markt-asf`** made 13,583 of the project’s 15,384 total commits, which is approximately **88.3 %** of all commits.  
+
+Tool used: `aggregate_collection` (sorted by `contributions` to find the top contributor).",7610,3,CORRECT
+Forecast the number of commits expected in the next month.,"**Forecast:** About **85 commits** are expected in the next month.
+
+*Tool used:* `aggregate_collection` on the `commits` collection with a project–group pipeline to get monthly totals (no limit or filtering was required).",30302,9,CORRECT
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic clusters (based on the 20 most recent issue titles/descriptions)**  
+
+| Cluster | Representative issue numbers & titles | Typical content |
+|---------|---------------------------------------|-----------------|
+| **HTTP header & caching** | #115 “Setting Timezone to GMT for Expires Header as per RFC1123” | Fixes/updates how Tomcat formats `Expires` or other caching headers. |
+| **Exception handling & API signatures** | #114 “Remove throws declaration of an exception which is not thrown” | Adjustments to Java API signatures or exception declarations. |
+| **Bug‑fixing & upstream patch application** | #113 “Modify Windows startup command from start to run” <br>#112 “Fix BZ Bug 62391” <br>#111 “Add ipv6 loopback address to the RemoteIpFilter… ” | Direct fixes of known bugs, often referencing Bugzilla IDs. |
+| **Database / properties handling** | #110 “Debug log for pool’s db properties” | Logging / debugging properties passed to JDBC drivers and databases. |
+| **File & resource handling** | #109 “FileResource can’t read the inputStream of directory” | Issues related to reading files, directories, or classpath resources. |
+| **Script / shell quirks** | #106 “Fix cygpath is checking for empty path” | Tweaks to shell scripts (e.g., `catalina.sh`) for Windows or Cygwin. |
+| **Undeployment & application lifecycle** | #108 “Improve undeployment in parallel deployment scenario” | Enhancements to context name parsing and automatic undeployment logic. |
+| **Connection / proxy management** | #107 “underlying connection closed unexpectedly, so we must destroy this proxy” | Handling of closed underlying connections and proxy lifecycle. |
+| **Concurrency & thread pool** | #104 “fix create one more thread when submitted count = pool size issue.” | Fixes to `ThreadPoolExecutor` sizing and task submission behaviour. |
+| **Compression & content‑encoding** | #101 “Fix compressibleMimeType handling for compression=\""on\""” <br>#99 “Don’t gzip brotli compressed content” | Adjustments to HTTP compression (gzip, brotli) and mime‑type handling. |
+| **Feature & flag changes** | #96 “Remove PUT and DELETE methods from an OPTIONS request if readOnly is true” | Updates to HTTP method support based on configuration flags. |
+| **Miscellaneous / other** | #95 “Fix for BZ62048” <br> #97 “Bz48672” <br> #98 “Fix for RequestDumperFilter log attribute” <br> #100 “Fix for RequestDumperFilter log attribute” | Various small bug fixes, documentation, and UI tweaks. |
+
+*The clustering was performed by inspecting the titles and brief descriptions of the latest 20 issues. Similar wording, keywords, and referenced Bugzilla IDs were used to group the issues into the themes above.*
+
+**Tools used:**  
+- `list_and_explore_schema(repo_name=""apache_tomcat"", collection_name=""issues"")`  
+- `retrieve_documents(repo_name=""apache_tomcat"", collection=""issues"", filter={}, limit=20, projection={""body"":1, ""labels"":1, ""number"":1, ""title"":1}, sort={""created_at"":-1})`",9642,2,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"The latest 10 issues in the repository focus on a handful of recurring technical themes:
+
+| Rank | Technical topic (inferred from issue titles / content) | Notes |
+|------|------------------------------------------------------|-------|
+| 1 | **HTTP header / time‑zone handling** – e.g., setting the UTCG‑style “Expires” header to satisfy RFC1123. | Reg. needs consistency with server‑time. |
+| 2 | **Exception and error handling** – removing unnecessary `throws` clauses, clarifying thrown‑exception contracts. | Improves code safety and readability. |
+| 3 | **Startup & deployment scripts** – changing Windows “start” to “run”, improving parallel undeployments, and adjusting startup commands. | Affects init scripts and environment‑specific workloads. |
+| 4 | **Bug refactoring & cleanup** – fixing a known Bugzilla ticket (BZ 62391), dropping deprecated parameters (e.g., javac `optimize`). | Keeps code base lean and up‑to‑date. |
+| 5 | **Network configuration** – adding IPv6 loopback proxies to the `RemoteIpFilter`/`Valve`. | Enhances IPv6 support and proxy handling. |
+| 6 | **Resource IO** – fixing file/resource read operations and stream handling. | Prevents resource leaks and improves performance. |
+| 7 | **Path handling** – checking and sanitizing empty paths in `cygpath` utilities. | Secures path processing on diverse OSes. |
+| 8 | **Connection stability** – preventing “underlying connection closed unexpectedly” errors. | Ensures robust client‑proxy interactions. |
+| 9 | **Logging / monitoring** – debug logs for database properties and deployment timing. | Helps in diagnostics and performance tuning. |
+| 10 | **Misc. small fixes** – various minor code improvements. | Generally maintenance work. |
+
+**Tools used**: `retrieve_documents` on collection “issues” with filter `{}` (last 10 by `created_at`), projection `{title:1,created_at:1}`. No further database calls were needed to produce this overview.",9755,3,CORRECT
+Assign issue #2 to contributor.,"I’m sorry, but I don’t have permission to modify issue data. Feel free to submit an update or pull request if you want to assign the issue.",2873,1,INCORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"The aggregator returned four groups of issues whose titles appear more than once:
+
+| Title | Duplicate Count |
+|-------|-----------------|
+| Support null for provider class name when registering a provider | 2 |
+| Update RemoteIpValve.java | 2 |
+| Commit the added comment on Application.java | 2 |
+| Fix how a link to $0 is determined | 2 |
+
+These are the only cases where a title is repeated in the current dataset.  A more fine‑grained semantic similarity analysis (beyond exact title matches) would require additional NLP tooling that isn’t available here, so only exact duplicates can be reported.
+
+**Tools used**: aggregate_collection – group by title, count duplicates, limit 50, buffer stored as `buf_329a65`.",3105,1,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"Issue #2 currently has 0 comments. There is no data to forecast future comment count.
+
+Tool used: count_documents(filter={""issue_id"": 2}, collection=""issueComments"", repo_name=""apache_tomcat"")",3268,1,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Clustered severity of the last 10 commits (based on number of files changed):**  
+
+| Commit ID | Commit date | Files changed | Severity |
+|-----------|-------------|---------------|----------|
+| 3960a4c742d656095ea1c10a2a76e8a2149267e1 | 2018‑07‑06T17:20:05Z | 1 | Low |
+| 6095a356c98d0e048614e65a9233a19b11796fde | 2018‑07‑06T17:17:30Z | 1 | Low |
+| dcf6264e1b703ff087291b764e0bd778a059bcb7 | 2018‑07‑06T17:17:04Z | 1 | Low |
+| cc0ca014c992f7cf198370d7c59f9476f363b259 | 2018‑07‑06T16:25:40Z | 4 | Medium |
+| d9878a2d643eee0faa3daf128ef6f24b2fdbfe08 | 2018‑07‑06T16:20:19Z | 2 | Low |
+| 2b6465439849396d58af97aec1833f7d381824d9 | 2018‑07‑06T15:26:30Z | 2 | Low |
+| 977f3336f22a62d18bada94bd2f1e6f8ba06b50f | 2018‑07‑06T13:00:06Z | 1 | Low |
+| 17791160f3ae4bd135bd44e414bb7a6015cf8b8b | 2018‑07‑06T10:39:44Z | 2 | Low |
+| a5321c6325bdac8bfeafe16fec4366c9903b7a55 | 2018‑07‑05T21:33:41Z | 1 | Low |
+| cccd7f232df1b3ddc3aa8f4d56ac91d0d03d3894 | 2018‑07‑05T21:28:17Z | 1 | Low |
+
+*Tool used: `aggregate_collection` on the `commits` collection with a pipeline that projects `fileCount`, assigns severity (`Low` ≤ 2 files, `Medium` ≤ 5 files, `High` otherwise), sorts by recent commit date, limits to 10, and projects the result fields.*",19044,5,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"The historical data show that of the 102 closed issues in the **apache_tomcat** repository, 83 were resolved within 30 days.  
+\[
+P(\text{closed within 30 days}) = \frac{83}{102} \approx 0.81 \text{ (81 %) }
+\]
+
+Thus, based on past patterns, there is roughly an **81%** chance that an issue would be closed within a month.  
+(The specific issue #2 was actually closed after 1 yr + 5 mths, so in reality its completion time far exceeded 30 days.)  
+
+**Tool usage:** `aggregate_collection` with `$match`, `$project`, `$subtract`, `$divide`, `$count` — 30 days threshold.",15750,5,CORRECT
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","Only one contributor appears in the most recent ten commits: **markt‑asf**.
+
+From the commit messages you can infer that this developer focuses on HTTP header handling, caching logic, and related documentation/tests. The changes involve adding, refactoring, and testing the Vary header and other cache‑interoperability aspects.
+
+No other contributor appears in the sample of ten commits, so a top‑5 list cannot be produced from this dataset.
+
+**Tools used**  
+- `retrieve_documents(repo_name=""apache_tomcat"", collection=""commits"", filter={}, limit=10, projection={""author.login"":1,""commit.author.date"":1,""commit.message"":1}, sort={""commit.author.date"":-1})`",22763,7,INCORRECT
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed 5 sub‑teams (based on the titles of the 10 latest open issues):**
+
+1. **Core API Cleanup** – Focus on removing unnecessary code and exceptions (e.g., “Remove throws declaration…”) and refactoring core logic.  
+2. **Logging & Diagnostics** – Handle diagnostics improvements and log surrounding, such as “Debug log for pool’s db properties”.  
+3. **Deployment & Undeployment** – Tackle issues around deployment lifecycles (“Improve undeployment in parallel deployment scenario”).  
+4. **Connection & Pooling** – Address connection‑pool related bugs (“underlying connection closed unexpectedly…”).  
+5. **Patch & Integration** – Apply external patches and validate integration points (“Iamtjw patch 1”, “Use initSQL…”).
+
+These groups are suggested by the issue titles; they can evolve as new issue labels or descriptions become available.  
+
+---
+
+**Tool used**: `retrieve_documents`, filter: `{""state"":""open""}`, sort by `created_at` desc, limit 10, projection `{""created_at"":1,""labels"":1,""number"":1,""title"":1}`; limit=10.",3572,1,CORRECT

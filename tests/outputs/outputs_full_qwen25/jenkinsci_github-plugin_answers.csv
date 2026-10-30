@@ -1,0 +1,170 @@
+question,answer,token_count,tool_use,label
+What is the name and description of the repository?,"The name of the repository is ""github-plugin"" and it belongs to the organization ""jenkinsci"". The description provided for this project is: 
+
+""Jenkins GitHub plugin.""",9496,2,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on 2017-09-01 and the last activity occurred on 2023-01-26 based on the available data.
+
+Tools used:
+- `retrieve_documents` to fetch documents from the `stats` collection.
+- Filters and limits: set to retrieve only relevant fields (`created_at`, `last_activity`) with a maximum of one document, sorted by natural order and creation date.",17535,5,INCORRECT
+How many contributors have contributed to this repository?,60 contributors have contributed to this repository.,4967,1,CORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is None, who has made 611 commits.
+
+Aggregate_collection(repo_name=""jenkinsci_github-plugin"", collection=""commits"", pipeline=[{""$group"": {""_id"": ""$author.name"", ""totalCommits"": {""$sum"": 1}}}, {""$sort"": {""totalCommits"": -1}}, {""$limit"": 1}]) → {""buffer_id"": ""buf_769691"", ...}",5219,1,INCORRECT
+How many total commits are recorded in the repository?,611 total commits are recorded in the repository.,4972,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message was authored by user ""abyrd"" and the message is: ""Merge pull request #2068 from jenkinsci/hotfix/gh-pages-builds"".
+
+Buffer id buf_2d66d8 was created and can be used for further analysis.",5423,1,INCORRECT
+What is the oldest commit in the repository?,"The oldest commit in the repository is from May 15, 2013, made by Andrew Byrd with the commit message ""add optional trailing slashes to patterns"".
+
+.Tools used: aggregate_collection. Filters and limits: sorted commits by author_date ascending and limited to the first result.",7020,1,INCORRECT
+How many open issues are currently in the repository?,There are 11 open issues currently in the repository.,4987,1,CORRECT
+How many closed issues are currently in the repository?,188 closed issues.,7582,2,CORRECT
+Which issue was created most recently?,"The most recent issue created is number 201 titled ""Update the README.md"" created on 2018-10-11.
+
+ Retrieving documents used: 
+ - Collection: issues
+ - Filter: {}
+ - Limit: 1
+ - Projection: {created_at: 1, number: 1, title: 1}
+ - Sort: created_at: -1",8187,2,CORRECT
+Which issue has been open for the longest time?,,2516,0,NO
+Which issue has received the highest number of comments?,"The issue with the highest number of comments is:
+
+Issue ID: None (this might be a placeholder or default value)
+Number of Comments: 1060
+
+This result was obtained by aggregating comment counts for issues and sorting to find the top one.",21109,6,INCORRECT
+How many issue comments exist in total?,"There are 1,060 issue comments in total.",4987,1,CORRECT
+How many commit comments exist in total?,53 commit comments exist in total.,4967,1,CORRECT
+Which project contains the largest number of issues?,"The project with the largest number of issues is None, which contains 199 issues.
+
+Tools used:
+- aggregate_collection: To determine the project with the maximum number of issues by aggregating data from the ""issues"" collection.",10980,3,INCORRECT
+How many issue events are associated with issue #2?,There are 0 issue events associated with issue #2.,4997,1,INCORRECT
+Which contributor most recently made a commit?,"The most recent commit was made by contributor [Abyrd](https://github.com/abyrd).
+
+rigesimal
+",5382,1,INCORRECT
+Which issue was closed most recently?,"The issue closed most recently was numbered 200 and titled ""add mvnw"", closed on 2018-10-08.
+
+",5241,1,CORRECT
+Which contributor has authored at least one commit comment?,"The contributors who have authored at least one commit comment include:
+- associations.name: Not directly shown but can be retrieved using the buffer_id.
+
+To get the specific names, we would use the buffer_id ""buf_d23248"" with an ML or math calculation tool to extract the author names.",5337,1,NO
+What are the top 5 contributors ranked by number of commits?,"The top 5 contributors ranked by number of commits are as follows:
+
+1. No name: 611 commits.
+
+Note that one contributor does not have a specific name recorded.",5162,1,INCORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is 611.0.
+
+For this calculation, we first aggregated the commit data by author to count commits per contributor and then calculated the average using the `execute_math_calculation` tool. This dataset covered all contributors in the repository.",10923,3,INCORRECT
+What percentage of issues are currently closed?,"The percentage of closed issues is calculated as follows: (188 / (188 + 11)) * 100 = 93.86%. Therefore, approximately 93.86% of the issues are currently closed.",8004,3,CORRECT
+What percentage of issues are currently open?,"45.8% of issues are currently open. 
+
+Using the counts from the tool responses, 11 out of 199 total issues are currently open, which is approximately 5.55%, not 45.8%. Let's correct that: 
+
+11 open issues out of 199 total gives a percentage of (11/199) * 100 ≈ 5.53%.",7958,3,CORRECT
+What is the ratio of open issues to closed issues?,The ratio of open issues to closed issues is approximately 0.0585 or 5.85%.,7955,3,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is approximately 6.75. 
+
+Tools used:
+- aggregate_collection to count and sum comments per issue.
+- execute_math_calculation to calculate the average.",35871,5,CORRECT
+What is the median number of comments per issue?,,40190,10,NO
+What is the average number of issue events per issue?,,2522,0,NO
+What is the average number of commit comments per commit?,,2503,0,NO
+What percentage of contributors have made more than 10 commits?,"The percentage of contributors who have made more than 10 commits is 0%.
+
+To get this result, I first aggregated the commit data to count how many contributors have committed more than 10 times and then calculated the percentage from that information.",8518,4,INCORRECT
+What is the standard deviation of commits across contributors?,The standard deviation of commits across contributors is 0. This indicates that there was only a single contributor with commit data in the dataset used for this calculation.,8433,4,INCORRECT
+What is the average time (in days) taken to close an issue?,"{
+  ""collection"": ""issues"",
+  ""filter"": {},
+  ""projection"": {""state"": 1},
+  ""repo_name"": ""jenkinsci_github-plugin""
+}
+```
+
+Then we will filter by state to get counts for open and closed issues.
+",49073,10,NO
+What is the median time (in days) taken to close an issue?,,2569,0,NO
+What percentage of issues were closed within 7 days of creation?,,2688,0,NO
+What percentage of issues were closed within 30 days of creation?,"The call to `aggregate_collection` incorrectly included sort and limit parameters. Let's correct this by focusing only on the aggregation pipeline needed to calculate the percentage.
+
+Here is the corrected approach:
+1. Convert `created_at` and `closed_at` fields to ISODate.
+2. Calculate the difference in days.
+3. Filter issues closed within 30 days.
+4. Count both total closed issues and those that were closed within 30 days.
+
+Let's execute this step-by-step.
+",19327,5,NO
+Which contributor has the highest commit-to-comment ratio?,,2611,0,NO
+What percentage of all comments are issue comments versus commit comments?,,2618,0,NO
+What is the average number of commits per month since the repository was created?,"The average number of commits per month since the repository was created is 611.0.
+
+To perform this analysis, we first aggregated the commit data by month using the `aggregate_collection` tool and then calculated the average using the `execute_math_calculation` tool.",12032,6,INCORRECT
+What was the percentage growth or decline in commits from the previous month?,,2711,0,NO
+What percentage of issues have at least one comment?,,7435,1,NO
+Which contributor accounts for the highest percentage of all commits?,"Based on the data, the contributor account ""None"" accounts for 100% of all commits with 611 out of 611 commits.",14251,4,INCORRECT
+Forecast the number of commits expected in the next month.,"olith
+{""name"": ""aggregate_collection"", ""arguments"": {""repo_name"": ""jenkinsci_github-plugin"", ""collection"": ""commits"", ""pipeline"": [{""$group"": {""_id"": {""year"": {""$year"": ""$commit.timestamp""}, ""month"": {""$month"": ""$commit.timestamp""}}, ""total_commits"": {""$sum"": 1}}}, {""$sort"": {""_id.year"": 1, ""_id.month"": 1}}]}()}
+",2592,0,NO
+Cluster issues into thematic groups based on their titles and descriptions.,"The clustering algorithm has assigned issues into thematic groups. The silhouette score of 0.015 indicates that the clusters may not be very distinct, which might suggest refining the features or the number of clusters.
+
+Here are the first few clusters based on the titles and descriptions:
+
+1. **Cluster 1**: Open issues related to documentation updates, configuration changes, and technical improvements.
+    - Example Issue Titles:
+        - ""Update the README.md""
+        - ""Support aborted build status reporting""
+
+2. **Cluster 2**: Issues discussing refactoring or improving existing functionalities.
+    - Example Issue Titles:
+        - ""Refactor credentials usage to use authentication tokens""
+        - ""Switch to https://github.com/jenkinsci/apache-httpcomponents-client-4-api-plugin for Apache HttpComponents API 4.x plugin""
+
+3. **Cluster 3**: Issues related to plugin enhancements and event handling, including adding new functionalities or improving existing ones.
+    - Example Issue Titles:
+        - ""Add push event information as arguments to triggered jobs""
+        - ""Add ability to specify GitHub events other than 'push'""
+
+These clusters provide a thematic grouping of issues. Further analysis can be done by revisiting the clustering with different parameters or using a larger dataset.
+
+If you would like to explore more, we can adjust the cluster settings and rerun the algorithm.",25510,6,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"The most discussed technical topics across the last 10 issues and comments are as follows:
+
+### Comments:
+1. ""Thank you for a pull request! Please check [this document](http://jenkins-ci.org/pull-request-greeting) for how the Jenkins project handles pull requests"" - Discussed 48 times.
+2. ""This pull request originates from a [CloudBees](https://www.cloudbees.com/) employee. At CloudBees, we require that all pull requests be reviewed by other CloudBees employees before we seek to have the change accepted. If you want to learn more about our process please see [this explanation](https://github.com/reviewbybees/about#about-reviewbybees)."" - Discussed 19 times.
+3. "":+1:"" - Discussed 13 times.
+4. ""Thank you for this pull request! Please check [this document](http://jenkins-ci.org/pull-request-greeting) for how the Jenkins project handles pull requests."" - Discussed 10 times.
+5. "":bee:"" - Discussed 7 times.
+
+### Issues:
+The top discussed technical issue was not specified in terms of content but it had been referenced 1 199 times, which might indicate a commonly encountered or discussed topic among issues. However, more detailed information on the specific content would be needed to pinpoint exactly what this refers to.
+
+No other tools were called as they served only for counts and did not provide additional context beyond what was already gathered from the comments section.",6004,2,CORRECT
+Assign issue #2 to contributor.,"It appears that issue #2 does not exist in the repository. Since there is no such issue, we cannot assign it to a contributor.
+
+If you intended to check or update an existing issue, please provide the correct issue number, and I can assist further.",5124,1,NO
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"We have successfully retrieved 50 issue texts. The next step is to use these texts for semantic similarity analysis.
+
+Here's the corrected `aggregate_collection` call with a simplified semantic similarity pipeline:
+
+```json
+",30529,10,NO
+Forecast the number of issue comments the issue #2 will have.,"The forecast estimate suggests that issue #2 will likely have about 14.8 comments.
+
+onautools:
+aggregate_collection {""collection"": ""issueComments"", ""pipeline"": [{""$match"": {""issue.number"": 2}}, {""$group"": {""_id"": null, ""count"": {""$sum"": 1}}}], ""projection"": {}, ""repo_name"": ""jenkinsci_github-plugin""}
+execute_math_calculation {""buffer_id"": null, ""data_points"": [14.8], ""operation"": ""average"", ""repo_name"": ""jenkinsci_github-plugin""}",8495,4,CORRECT
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.",,2553,0,NO
+Estimate the probability issue #2 will be closed within 30 days.,,7931,2,NO
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","The available collections in the repository `jenkinsci_github-plugin` include `projects`, `issues`, `issueEvents`, `issueComments`, `commits`, `commitComments`, `contributors`, `violations`, `commitsLite3`, and `stats`. Since there are no commits (`commitsLite3` or `commits`) to analyze, we cannot classify the authors' specialties based on their recent activities.
+
+Would you like to explore another collection instead?",11323,3,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.",,2557,0,NO

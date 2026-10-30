@@ -1,0 +1,256 @@
+question,answer,token_count,tool_use,answered,correct,label
+What is the name and description of the repository?,"The repository is **jenkinsci_github-plugin** with the description **“Jenkins GitHub plugin.”**
+
+*Used a knowledge‑graph query to retrieve the repository name and description.*",9297,2,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **2010‑12‑13** (2010‑12‑13T05:35:14Z) and its last recorded update was on **2018‑12‑24** (2018‑12‑24T23:21:25Z).
+
+*Source: knowledge‑graph query (returned `created_at` and `updated_at`).*",9489,2,1,1,CORRECT
+How many contributors have contributed to this repository?,"There are 60 contributors who have contributed to the **jenkinsci_github-plugin** repository.
+
+(Answer derived from MongoDB `count_documents` query on the **contributors** collection.)",6056,1,1,1,CORRECT
+Which contributor has made the highest number of commits?,"The contributor with the highest number of commits is **lanwen**, with **176** commits.
+
+*Answer derived from the knowledge graph (KG) query.*",9415,2,1,1,CORRECT
+How many total commits are recorded in the repository?,"There are **613** total commits recorded in the repository.
+
+**Tools used:** KG query `MATCH (c:Commit) RETURN count(c) AS total_commits` – result came from the knowledge graph.",9411,2,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit message is:
+
+**“[maven‑release‑plugin] prepare for next development iteration”**
+
+It was authored by **Kirill Merkushev** (login *lanwen*), committed on **2018‑10‑08 09:55:42 UTC**.
+
+*Answer derived from MongoDB `commits` collection (sorted by `commit.author.date`).*",12935,2,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit in the **jenkinsci/github‑plugin** repository is:
+
+- **SHA:** `b3329dd500e58e1a579484d36350f1b7e9b63daa`  
+- **Author:** `juretta`  
+- **Date:** `2009‑06‑09 20:35:36 UTC`
+
+**Tools used:** attempted a KG query (did not return date), then retrieved the earliest commit from the **commits** collection via `retrieve_documents` (sorted by `commit.author.date` ascending, limit 1). Answer sourced from MongoDB.",25837,5,1,1,CORRECT
+How many open issues are currently in the repository?,"There are **11 open issues** in the repository.
+
+*Answer source: knowledge graph query (`query_knowledge_graph`) with a filter on issue state = “open”.*",9353,2,1,1,CORRECT
+How many closed issues are currently in the repository?,"There are **188 closed issues** in the jenkinsci_github-plugin repository.  
+(Answer derived from a Knowledge Graph query that counted Issue nodes with `state = ""closed""`.)",9421,2,1,1,CORRECT
+Which issue was created most recently?,"The most recent issue is **#201 – “Update the README.md,” created on 2018‑10‑11 T05:12:44 Z.  
+
+(Answer sourced from MongoDB “issues” collection, sorted by `created_at` descending, limit 1.)",13041,3,1,1,CORRECT
+Which issue has been open for the longest time?,"The issue that has been open the longest is **#54 – “Add ability to specify GitHub events.”** It was created on **2015‑04‑27** and remains open.
+
+*Answer derived from the knowledge graph (KG) query, which returned the earliest‑created open issue.*",9603,2,1,1,CORRECT
+Which issue has received the highest number of comments?,"Issue #59 – “**[JENKINS‑27136] Workflow support for GitHub Push Triggers**” – has the most comments, with **49 comments**.
+
+*Answer derived from knowledge‑graph query (KG).*",9542,2,1,1,CORRECT
+How many issue comments exist in total?,"There are **1,060** issue comments in total.
+
+*Answer derived from a knowledge‑graph query (count of IssueComment nodes).*",9549,2,1,1,CORRECT
+How many commit comments exist in total?,"There are **53** commit comments in total.  
+(Answer derived from a knowledge‑graph query counting `CommitComment` nodes.)",9278,2,1,1,CORRECT
+Which project contains the largest number of issues?,"The **jenkinsci/github‑plugin** project contains the largest number of issues, with a total of **199** issues.
+
+*Tools used*: count_documents on `issues` (199 total) and aggregate_collection to group by `repo_name` (showing the count 199 for `jenkinsci_github-plugin`). Answer sourced from MongoDB.",24913,4,1,0,INCORRECT
+How many issue events are associated with issue #2?,"There are **2 issue events** linked to issue #2.
+
+*Used one KG query: `MATCH (e:IssueEvent)-[:ON_ISSUE]->(i:Issue {number: 2}) RETURN count(e) AS cnt` (repo = jenkinsci_github‑plugin). The count returned was 2.*",9469,2,1,1,CORRECT
+Which contributor most recently made a commit?,"The most recent commit was made by **lanwen** on **2018‑10‑08 09:55:42 UTC**.  
+
+*Answer derived from MongoDB `commits` collection (sorted by `commit.author.date`).*",18070,3,1,1,CORRECT
+Which issue was closed most recently?,"The most recently closed issue is **#200 – “add mvnw”**, closed on 2018‑10‑08 09:50:09 UTC.
+
+*Answer sourced from the knowledge graph (KG) query.*",9456,2,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"The contributors who have authored at least one commit comment are:
+
+- lanwen  
+- oleg-nenashev  
+- KostyaSha  
+- jglick  
+- watsonian  
+- ndeloof  
+- nukulb  
+- buildhive  
+- imod  
+- jzaefferer  
+- Stelk  
+- dkrugman  
+- steve‑jansen  
+- faulkner  
+- spacemoose  
+- uhafner  
+- vgaidarji  
+
+**Tool usage:** KG query with `MATCH (c:Contributor)-[:COMMENTED]->(:CommitComment) RETURN DISTINCT c.login LIMIT 20` (repo = jenkinsci_github-plugin). Answer derived from the knowledge graph.",6278,1,1,1,CORRECT
+What are the top 5 contributors ranked by number of commits?,"The top 5 contributors by number of commits are:
+
+1. **lanwen** – 176 commits  
+2. **kohsuke** – 85 commits  
+3. **KostyaSha** – 61 commits  
+4. **git:lanwen@ci.lanwen.ru** – 60 commits  
+5. **stephenc** – 34 commits  
+
+*Result obtained from the knowledge graph (KG) query.*",9625,2,1,1,CORRECT
+What is the average number of commits per contributor?,"The average number of commits per contributor is **9.4**.
+
+*Answer derived from the knowledge‑graph query.*",9418,2,1,1,CORRECT
+What percentage of issues are currently closed?,"94 % of the issues are closed.
+
+**Tools used:** KG queries returned closed = 188 and total = 200, then the percentage was calculated from these values.",12746,3,1,1,CORRECT
+What percentage of issues are currently open?,"5.5 % of the issues are currently open.  
+Tools used: KG query returned open = 11 and total = 200; percentage calculated via `execute_math_calculation`.",12973,3,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The repository has **11 open issues** and **188 closed issues**, giving an open‑to‑closed ratio of **11 : 188 (≈ 0.0586)**.
+
+*Used `count_documents` on the **issues** collection for `state:""open""` (limit = all) and `state:""closed""`; data from MongoDB.*",9105,2,1,1,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **≈ 6.75**.
+
+*Answer source: knowledge graph query (KG), returned avg_comments = 6.751592356687898.*",9516,2,1,1,CORRECT
+What is the median number of comments per issue?,"The median number of comments per issue is **4**.
+
+(Computed from the list of comment counts per issue via MongoDB aggregation; median calculated with `execute_math_calculation`.)",15379,3,1,1,CORRECT
+What is the average number of issue events per issue?,"The average number of issue events per issue is **≈ 9.31**.
+
+*Answer derived from a Knowledge‑Graph query.*",9498,2,1,1,CORRECT
+What is the average number of commit comments per commit?,"The average number of commit comments per commit in the **jenkinsci_github-plugin** repository is **≈ 0.086** (about 0.09 comment per commit).
+
+**Tools used:** KG queries to get total comment count (53) and total commit count (613); then a ratio calculation.",28276,7,1,1,CORRECT
+What percentage of contributors have made more than 10 commits?,12.3 % of contributors have made more than 10 commits. (KG query gave total contributors = 65 and those with > 10 commits = 8; percentage calculated via math tool.),12976,3,1,1,CORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of the number of commits per contributor is **≈ 25.59**.
+
+*Answer derived from the knowledge‑graph data (65 contributor‑commit counts) and a math calculation (std_dev) performed on that buffer.*",18775,4,1,1,CORRECT
+What is the average time (in days) taken to close an issue?,"The average time to close an issue is about **33.8 days**.
+
+(Computed with a MongoDB aggregation on the **issues** collection, calculating the difference between `closed_at` and `created_at` for closed issues and then averaging the result.)",13546,3,1,1,CORRECT
+What is the median time (in days) taken to close an issue?,"The median time taken to close an issue is **0 days** (the middle value of the distribution of closure times is less than one day).  
+
+*Tools used*: MongoDB `aggregate_collection` on the **issues** collection (computed closure‑time differences in days) followed by `execute_math_calculation` (median) – answer derived from MongoDB data.",16794,3,1,0,INCORRECT
+What percentage of issues were closed within 7 days of creation?,"Approximately 60.3 % of issues were closed within 7 days of creation.
+
+Tools: counted total issues (199) and closed‑within‑7‑days issues (120) via MongoDB aggregation, then calculated the percentage.",28918,7,1,1,CORRECT
+What percentage of issues were closed within 30 days of creation?,"Approximately 73.9 % of the issues in the jenkinsci_github-plugin repository were closed within 30 days of their creation.
+
+**Tools used:**  
+- `aggregate_collection` on **issues** (filtered to closed issues, computed days‑difference, counted those ≤ 30 days) → 147 closed‑within‑30‑day issues.  
+- `count_documents` on **issues** (total issues) → 199 total issues.  
+- `execute_math_calculation` (percentage = 147 / 199 × 100) → 73.87 %.  
+
+Result derived from MongoDB data.",24707,6,1,1,CORRECT
+Which contributor has the highest commit-to-comment ratio?,"The contributor with the highest commit‑to‑comment ratio is **aaronwalker**, who has 6 commits and 1 comment, giving a ratio of **6.0**.
+
+*Used query_knowledge_graph on repo “jenkinsci_github-plugin” with a Cypher query that counted AUTHORED (commits) and COMMENTED (comments) relationships per contributor and returned the top ratio.*",10162,2,1,0,INCORRECT
+What percentage of all comments are issue comments versus commit comments?,"Approximately 95 % of the comments are issue comments and 5 % are commit comments (1060 issue comments vs 53 commit comments, out of 1 113 total).  
+
+*Answer derived from Knowledge Graph query counting IssueComment and CommitComment nodes.*",13191,3,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"The repository has on average **≈ 8.37 commits per month** since its creation.
+
+*Tools used*:  
+1. **query_knowledge_graph** – attempted to calculate the average from the graph, but the commit‑date data needed for a month‑wise aggregation isn’t available in the KG.  
+2. **aggregate_collection** on the **commits** collection (with `$dateFromString` to convert the commit author date string to a Date, then grouping by year‑month and averaging the monthly counts).  
+
+Result sourced from MongoDB aggregation.",18688,3,1,0,INCORRECT
+What was the percentage growth or decline in commits from the previous month?,"The aggregation of commits shows 3 commits in the most recent month (2018‑10) and 3 commits in the month before that (2018‑09).  
+Growth = (3 − 3) / 3 × 100 % = 0 %.
+
+**Result:** 0 % change (no growth nor decline) from the previous month.  
+
+*Tools used: MongoDB aggregation on the **commits** collection (grouped by month, limited to the two most recent months).*",13250,2,1,1,CORRECT
+What percentage of issues have at least one comment?,"78.5 % of the issues have at least one comment.  
+*KG query returned total issues = 200 and commented issues = 157; percentage calculated via `execute_math_calculation`.*",12996,3,1,1,CORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor **“lanwen”** authored **176 commits**, which is about **28.8 %** of all commits in the **jenkinsci_github-plugin** repository.
+
+**Tools used:**  
+- KG query to get the top‑contributor’s commit count (lanwen – 176).  
+- `count_documents` on the **commits** collection (total = 611).  
+- `execute_math_calculation` (percentage) to compute 176 ÷ 611 × 100.",20232,5,1,1,CORRECT
+Forecast the number of commits expected in the next month.,"The forecast for the next month is **about 8 commits** (average monthly commits ≈ 8.37).
+
+*Answer derived from a MongoDB aggregation that computed the average number of commits per month across the repository’s history.*",27911,4,1,1,CORRECT
+Cluster issues into thematic groups based on their titles and descriptions.,"**Issue clusters (based on titles + descriptions):**
+
+| Cluster | Representative topics (common words) | Example issues |
+|--------|--------------------------------------|----------------|
+| **Documentation & README updates** | “README”, “documentation”, “contributing”, “typo”, “installing steps” | “Update the README.md”, “minor cleanup to contributing”, “Fix typo in GitHub hook problem message” |
+| **Security‑related fixes / merges** | “security”, “fix”, “advisory”, “SECURITY‑”, “merge security fixes” | “Integrate security tests back”, “Merge security fixes branch into master”, “[JENKINS‑48012] Require a X‑Hub‑Signature header…”, “[JENKINS‑47820] Update github‑api dependency” |
+| **Build‑/dependency‑related changes** | “POM”, “dependency”, “parent POM”, “update”, “API”, “build data calculation” | “Update Parent POM to 2.37 and use Apache HttpComponents API 4.x plugin”, “JENKINS‑53149 Fix build data calculation…”, “Add mvnw” |
+| **Hook / webhook handling** | “hook”, “webhook”, “options”, “update existing hooks”, “X‑Hub‑Signature” | “Prevent stacktrace when there are no admin credentials”, “Always update existing hooks to make sure all options…”, “[JENKINS‑48012] Require a X‑Hub‑Signature header… ” |
+| **Minor clean‑ups / formatting** | “cleanup”, “trailing whitespace”, “typo”, “checkstyle”, “translation” | “minor cleanup to contributing”, “dummy checkstyle fix for trailing whitespaces”, “Add Chinese translation” |
+| **Test / CI adjustments** | “test”, “CI”, “ignore push events”, “PCT”, “pull‑request”, “reviewable” | “[JENKINS‑48139] Support ignoring push events from certain github users”, “Update Parent POM … to resolve upper bound dependency issues”, “Restore source compatibility of GitHub plugin after #183” |
+
+**How this was derived** – Retrieved the latest 20 issue titles + bodies from the `issues` collection, then ran a clustering ML pipeline on the `title` and `body` fields, which produced a silhouette score of 0.022 (low separation, but still useful for high‑level grouping). The clusters above were interpreted from the resulting groups.
+
+*Tools used:* `retrieve_documents` (issues, limit 20, fields title + body) → `execute_ml_pipeline` (clustering). Answer based on ML clustering of MongoDB data.",22669,3,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Most discussed technical topics in the last 10 issues ( #192‑#201 ) and their comments**
+
+| Topic | How often it appears (issues + comments) | Typical points raised |
+|-------|------------------------------------------|-----------------------|
+| **Release coordination / plugin publishing** | 9 mentions (issues 196, 198, 199, 201 and many comments) | Who should be contacted for a release, approval flow, timing of the 1.29.3 release, and the “release‑without‑maintainer” concern. |
+| **Build‑data handling / multiple build actions** | 7 mentions (issues 196, 197 and several comments) | Incorrect calculation when a build has more than one workspace, design‑mistake of `BuildDataHelper`, need for a fix and discussion of the new logic. |
+| **Documentation / README updates** | 6 mentions (issues 194, 195, 201 and related comments) | Improving the README, removing redundant install instructions, clarifying usage for developers, and a cleanup of the contributing guide. |
+| **Security fixes / vulnerability remediation** | 5 mentions (issues 198, 199 and comments) | Merging a security‑fixes branch, testing fixes locally, and confirming the 1.29.3 release addresses reported vulnerabilities. |
+| **Internationalisation – Chinese translation** | 4 mentions (issue 193 and its comments) | Request for review of the Chinese translation PR, discussion of contributor availability, and acknowledgment of the translator’s work. |
+| **Pull‑request review & code style** | 4 mentions (issues 193, 198, 200 and comments) | General PR reviews, line‑width suggestion (120 chars), and final approvals before merging. |
+| **Tooling addition (mvnw)** | 2 mentions (issue 200) | Adding the Maven wrapper to simplify builds. |
+
+**Summary**
+
+Across the most recent ten issues, the community’s conversation revolves mainly around *release management* and *build‑data processing*—both topics dominate the discussion thread. Documentation improvements and security‑related updates are the next most frequent concerns, followed by a brief but focused effort on *Chinese localisation* and *code‑style* conventions. Minor tooling changes (adding `mvnw`) appear only sporadically.  
+
+*Data sources:* Issue titles (issues #192‑#201) and comment bodies (36 retrieved comments) from MongoDB collections **issues** and **issueComments**. No knowledge‑graph query was applicable, so MongoDB was used directly.",18518,3,1,1,CORRECT
+Assign issue #2 to contributor.,"Issue #2 is currently unassigned (`assignee: null`). To assign it, I need the username (or GitHub login) of the contributor you’d like to set as the assignee. Please provide the contributor’s name, and I can confirm the update.  
+
+*Tool used:* `retrieve_documents` on collection **issues** with filter `{""number"": 2}` (limit 5, projection `{""assignee"":1,""number"":1,""title"":1}`) – result came from MongoDB.",6327,1,1,0,INCORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"**Duplicate / highly‑similar issue pairs (similarity ≥ 0.80)**  
+
+| # | Issue ID (title) | # | Issue ID (title) | Similarity |
+|---|----------------------------|---|----------------------------|------------|
+| 6 | *minor cleanup to contributing* | 7 | *Help markup* | **0.9999** |
+| 16 | *Always update existing hooks to make sure all options (e.g. shared se…)* | 17 | *Always update existing hooks to make sure all options (e.g. shared se…)* | **0.937** |
+
+These two pairs have the highest semantic‑similarity scores returned by the ML pipeline (the similarity matrix was produced with the `semantic_similarity` task on the 50 retrieved issue documents).
+
+**How the answer was derived**
+
+1. `retrieve_documents` (repo = *jenkinsci_github-plugin*, collection = *issues*, limit = 50, projection = `{_id:1, title:1, body:1}`) → buffer **buf_31be4b**.  
+2. `execute_ml_pipeline` with `task_type=""semantic_similarity""` on that buffer → similarity matrix (50 × 50).  
+3. Scanned the matrix for off‑diagonal values ≥ 0.80 and mapped the corresponding row/column indices back to the retrieved issue titles.
+
+**Result source:** MongoDB retrieval + ML‑pipeline (semantic similarity) – no KG query was required.",49592,2,1,1,CORRECT
+Forecast the number of issue comments the issue #2 will have.,"The issue #2 currently has **1 comment** (count_documents on the issueComments collection). There is only a single historical comment for this issue, so there isn’t enough time‑series data to build a reliable forecast of future comment activity. Consequently, a forecast cannot be provided.  
+
+*Tools used: count_documents on issueComments with filter { ""issue_url"": ""https://api.github.com/repos/jenkinsci/github-plugin/issues/2"" } – result count = 1.*",18182,4,1,0,NO
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Commit‑severity clustering (based on number of files changed)**  
+
+| Severity | Files changed | Commits (SHA) |
+|----------|----------------|----------------|
+| **Low** | 1 file | `1c5c10ea29b130f1619b7ec09dbbc301455ebac9`, `d776b02e9b312f1c3d03fcca93dfe26520db326f`, `272ec52a4b31b41d17e488042ddb174976dba2c6`, `497f43251e3bfc130f125f75e45f73e06894361d`, `9f615c92f29147b2c60ababb611d27ad0ca2caac` |
+| **Medium** | 2 – 10 files | `1f5b40a8169516b58f4c715373836dba6ff96216`, `1b430c0d84f52838cf939cbee9ca6f3606dfc040`, `8d4f71d09b32fc93a24fdca889d51ccb64c0d65a` |
+| **High** | 10 files | `db880789178c2af06b12fa4838d3251c9e2713f4`, `97c85e36bc0ca25b46769e237e968c9e242a18f0` |
+
+*The “Low”, “Medium”, and “High” labels correspond to the three automatically‑generated buckets from the aggregation (bucket 1 = fewest files changed, bucket 3 = most).*
+
+**Tool used:** `aggregate_collection` on the **commits** collection (sorted by date, limited to the last 10, added a `file_count` field, then `$bucketAuto` with 3 buckets). Data sourced from MongoDB.",14463,2,1,1,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,"Issue #2 is already closed (its `state` is “closed” and it has a `closed_at` timestamp), so the probability that it will be closed within the next 30 days is 100 %.  
+
+*Tools used: schema inspection of the issues collection, then `retrieve_documents` (filter `{""number"":2}`) showing the issue’s `state` = “closed”.*",15758,3,1,1,CORRECT
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","**Specialty classification (based on the most recent 10 commit messages for each of the top 5 contributors):**
+
+| Contributor | Inferred specialty | Supporting commit‑message cues |
+|------------|-------------------|--------------------------------|
+| **lanwen** | Release & build‑tooling, CI configuration | “prepare for next development iteration”, “add mvnw”, “Update codecov.yml”, “Merge pull request … security fixes”, “ignore cache tests on windows” |
+| **kohsuke** | Core plugin configuration & UI refinement | “Configuration”, “Mentioning megabytes as per requested”, “validate button can only work with fields that are defined before”, “Everything here is clearly configuration” |
+| **KostyaSha** | Code cleanup, documentation & release preparation | “minor cleanup to contributing”, “Fix typo”, “Clarify trigger algorithm”, “Set @since”, “Merge pull request …” |
+| **stephenc** | CI/ testing infrastructure & bug‑fixes around Jenkins core | “Reduce the likelihood of a core dump due to groovy dependency conflict”, “Add CI service from ci.jenkins.io”, “Checkstyle doesn’t like name shadowing”, “Add getDisplayName to return the formatted display name” |
+| **None** (anonymous commits) | – (insufficient author information) | – |
+
+*Sources: commit messages retrieved from the `commits` collection (last 10 entries per author) via `retrieve_documents` on the MongoDB side.*",44218,6,1,1,CORRECT
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams (derived from the themes of the last 10 open issues)**  
+
+| Sub‑team | Core focus (issue themes) | Representative open issues |
+|----------|---------------------------|-----------------------------|
+| **Documentation** | Updating and clarifying README/guide material. | #201 “Update the README.md” |
+| **Hooks & Configuration** | Maintaining and improving hook‑update logic and shared‑settings handling. | #185 “Always update existing hooks …” |
+| **Compatibility & Migration** | Adapting the plugin to newer libraries/APIs and POM versions. | #179 “More compatible adaptation”, #187 “Update Parent POM …” |
+| **Work‑in‑Progress (Feature) Team** | Tracking larger, multi‑step feature work that is still in progress. | #181 “Consolidation of the GitHub Server list” (work‑in‑progress label), #187 (work‑in‑progress) |
+| **Event & Reporting** | Adding or refining event data (push, build status) passed to jobs. | #169 “Add push event information …”, #133 “Support aborted build status reporting” |
+
+These five groups map directly to the predominant topics seen in the most recent open issues, allowing each sub‑team to own a clear, bounded set of responsibilities.  
+
+*Tool used:* `retrieve_documents` on the **issues** collection (last 10 open issues, fields title, labels, created_at). No KG query was applicable, so MongoDB was used.",7165,1,1,1,CORRECT

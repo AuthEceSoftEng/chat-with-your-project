@@ -1,0 +1,270 @@
+question,answer,token_count,tool_use,answered,correct,label
+What is the name and description of the repository?,"The repository is named **hibernate-orm** and its description is **“Hibernate's core Object/Relational Mapping functionality.”**  
+
+*Tools used: list_and_explore_schema on the **projects** collection to read the `name` and `description` fields.*",4191,1,1,1,CORRECT
+"When was the repository created, and when was it last updated?","The repository was created on **2010‑10‑04** and last updated on **2018‑11‑08**.  
+
+*Tool:* `retrieve_documents` on **projects** with filter `{}`, limit 1, projection `{""created_at"":1,""updated_at"":1}`.",8700,2,1,1,CORRECT
+How many contributors have contributed to this repository?,"**Answer:** 341 contributors have contributed to this repository.
+
+*Tool used:* `count_documents` on the **contributors** collection with an empty filter (i.e., all documents).",3421,1,1,1,CORRECT
+Which contributor has made the highest number of commits?,"The top contributor is **sebersole** with a total of **2,569** commits.
+
+Tool used: `aggregate_collection` on the contributors collection (grouped by login, summed contributions, sorted descending, limited to 1).",205058,4,1,1,CORRECT
+How many total commits are recorded in the repository?,"There are **9,313** commits recorded in the repository.  
+(Used `count_documents` on the **commits** collection with an empty filter.)",2549,1,1,1,CORRECT
+What is the most recent commit message and who authored it?,"The most recent commit in the repository is:
+
+- **Message:** HHH-13091 Upgrade Ehcache 2 to 2.10.6 and Ehcache 3 to 3.6.1  
+- **Author:** Guillaume Smet  
+- **Date:** 2018‑11‑08 14:13:45 UTC  
+
+(Commit retrieved with a limit 1, sorted by author date descending.)",69964,2,1,1,CORRECT
+What is the oldest commit in the repository?,"The oldest commit is 41e94b3cf8192f0f3b4d2948f26760ac412745a0, authored on 2007‑06‑29 19:17:02 UTC with message “starting SVN layout migration for core”.  
+
+(Used retrieve_documents sorted by commit.author.date ascending, limit 1.)",69946,2,1,1,CORRECT
+How many open issues are currently in the repository?,"There are **106 open issues** in the repository.  
+Tool used: `count_documents` on collection **issues** with filter `{""state"":""open""}`.",2522,1,1,1,CORRECT
+How many closed issues are currently in the repository?,"There are **2,523** closed issues in the repository.
+
+**Tool used:** `count_documents` on the `issues` collection with filter `{""state"":""closed""}`.",5252,2,1,1,CORRECT
+Which issue was created most recently?,"The most recently created issue is **#2629** – “HHH-12945”, created on **2018‑11‑09T00:42:10Z**.
+
+(Used retrieve_documents on the issues collection sorted by created_at descending, limit 1, projection created_at, number, state, title.)",2766,1,1,1,CORRECT
+Which issue has been open for the longest time?,"The earliest (oldest) open issue is #893 **“HHH‑9622: AuditProcess should be flushable”**, opened on 2015‑02‑18 17:27:30 UTC.
+
+(Used a retrieve_documents call filtered on state=""open"", sorted by created_at ascending, limited to 1, projecting only created_at, number, title.)",5552,2,1,1,CORRECT
+Which issue has received the highest number of comments?,"Issue **#643** has received the highest number of comments, with **30** comments.
+
+*Tools used:* aggregated `issueComments` by `issue_url` (sorted descending, limit 1) → issue URL `…/issues/643` with count 30; attempted to fetch the issue document by that URL, but the issue record was not found in the `issues` collection. The comment count itself identifies the issue with the most discussion.",14286,5,1,1,CORRECT
+How many issue comments exist in total?,"There are **6,060** issue comments in total.  
+
+*Tool:* `count_documents` on collection `issueComments` with an empty filter (counts all documents).",2560,1,1,1,CORRECT
+How many commit comments exist in total?,"There are **0** commit comments in total.
+
+Tool: count_documents on collection `commitComments` with an empty filter (all documents).",2556,1,1,1,CORRECT
+Which project contains the largest number of issues?,"The project **hibernate_hibernate-orm** contains the largest number of issues, with **2,629** issues.
+
+*Used aggregate_collection on `issues` to group by `repo_name`, sort by count descending, and limit to 1.*",5466,2,1,0,INCORRECT
+How many issue events are associated with issue #2?,"There are **0** issue events associated with issue #2.
+
+Tool: `count_documents` on collection `issueEvents` with filter `{""issue.number"": 2}`.",5734,2,1,1,CORRECT
+Which contributor most recently made a commit?,"The most recent commit was made by user **gsmet** on 2018‑11‑08 14:13:45 UTC.
+
+(Used commits collection, sorted by author date descending, limit 5, projected author login and date.)",169871,3,1,1,CORRECT
+Which issue was closed most recently?,"The issue closed most recently is #2626 — “HHH-13090 Depend on Ehcache interface instead of depending on one of the implem…”, closed at 2018‑11‑08 14:28:40 UTC. [Link](https://github.com/hibernate/hibernate-orm/pull/2626)  
+
+Used `retrieve_documents` on **issues** filtered by `state:""closed""` sorted by `closed_at` descending, limit 1, projecting `closed_at`, `html_url`, `number`, `title`.",5603,2,1,1,CORRECT
+Which contributor has authored at least one commit comment?,"There are no commit comments in this repository, so no contributor has authored a commit comment. 
+
+*Tools used: count_documents on “commitComments” (filter = {}), aggregate_collection on “commitComments” (grouping by user.login). Both returned zero records.*",10423,4,1,1,CORRECT
+What are the top 5 contributors ranked by number of commits?,"Top 5 contributors by number of commits:
+
+| Rank | Login           | Commits |
+|------|----------------|--------:|
+| 1    | sebersole      | 2,569 |
+| 2    | gbadner        | 686 |
+| 3    | dreab8         | 550 |
+| 4    | vladmihalcea   | 487 |
+| 5    | hferentschik   | 457 |
+
+(Used `retrieve_documents` on the **contributors** collection, sorted by `contributions` descending, limit 5, projected `login` and `contributions`.)",4871,2,1,1,CORRECT
+What is the average number of commits per contributor?,"The repository has **9313 commits** made by **341 contributors**, giving an average of **≈27.3 commits per contributor** (9313 ÷ 341 ≈ 27.27).  
+
+*Tools used: count_documents on `commits` (total 9313) and on `contributors` (total 341).*",4102,2,1,1,CORRECT
+What percentage of issues are currently closed?,"There are **2629 issues** in total.  
+Using a count with an empty filter returned the total number of issue documents.
+
+**Tools used:** `count_documents` on collection **issues** with filter `{}` (no state filter) – total count = 2629.",5307,2,1,0,INCORRECT
+What percentage of issues are currently open?,"106 out of 2,629 issues are currently open, which is about **4.03 %**.
+
+(Used count_documents on the issues collection with filter {} for total issues and with {""state"":""open""} for open issues.)",3974,2,1,1,CORRECT
+What is the ratio of open issues to closed issues?,"The repository has **106 open issues** and **2,523 closed issues**, giving a ratio of **approximately 0.042 open issues per closed issue** (106 ÷ 2,523).
+
+**Tools used:** `count_documents` on the `issues` collection with filters `{""state"":""open""}` and `{""state"":""closed""}`.",3986,2,1,1,CORRECT
+What is the average number of comments per issue?,"The average number of comments per issue is **2.31**.
+
+*Tool: aggregate_collection on `issues` with pipeline `[{""$group"":{""_id"":null,""avgComments"":{""$avg"":""$comments""}}}]`*",5381,2,1,1,CORRECT
+What is the median number of comments per issue?,"The median number of comments per issue is **1**.
+
+(Used an aggregation that sorted the `comments` field, collected all comment counts into an array, and computed the median via a `$let` expression.)",8520,3,1,1,CORRECT
+What is the average number of issue events per issue?,"The repository contains **2,629 issues** but **no issue‑event records** were found in the `issueEvents` collection.  
+
+Therefore, the average number of issue events per issue is:
+
+**0 event per issue** (0 ÷ 2,629).
+
+*Tools used:* `count_documents` on `issues` (count = 2629) and on `issueEvents` (count = 0).",6668,3,1,1,CORRECT
+What is the average number of commit comments per commit?,"The repository has **0 commit comments** in total, while there are **9,313 commits**.  
+
+Average commit comments per commit = 0 ÷ 9,313 ≈ **0**.
+
+*Used `count_documents` on `commits` (count = 9313) and on `commitComments` (count = 0).*",4068,2,1,1,CORRECT
+What percentage of contributors have made more than 10 commits?,"There are **341 contributors** in the repository.  
+Tools used: `count_documents` on the **contributors** collection with an empty filter.",205211,4,1,0,INCORRECT
+What is the standard deviation of commits across contributors?,"The standard deviation of commit counts per contributor is **≈ 161.10**.  
+
+Tool: aggregate_collection on the `commits` collection, grouping by author login to count commits, then computing the population standard deviation of those counts.",70044,2,1,1,CORRECT
+What is the average time (in days) taken to close an issue?,"The average time to close an issue is **≈ 55.6 days**.
+
+*Used an aggregation on the **issues** collection: matched closed issues, computed the difference between `closed_at` and `created_at` in days, then took the average.*",8221,3,1,1,CORRECT
+What is the median time (in days) taken to close an issue?,"The median time to close an issue is **≈ 5.10 days**.
+
+*Tool:* `aggregate_collection` on **issues** with a pipeline that:
+- filtered closed issues,
+- computed the difference in days between `closed_at` and `created_at`,
+- sorted and collected all differences,
+- then selected the middle value as the median.",8986,3,1,1,CORRECT
+What percentage of issues were closed within 7 days of creation?,"About 56 % of the closed issues were resolved within 7 days of being opened.
+
+*Tools used*: `count_documents` (state = ""closed"") → 2,523 closed issues; `aggregate_collection` (diff ≤ 7 days) → 1,412 such issues. The percentage is (1,412 ÷ 2,523) × 100 ≈ 55.9 % (rounded to 56 %).",17004,6,1,1,CORRECT
+What percentage of issues were closed within 30 days of creation?,"About **78 %** of the closed issues were resolved within 30 days of their creation (1967 of 2523 closed issues ≈ 77.96 %).  
+
+*Tools used*:  
+- `count_documents` on **issues** with `{""state"":""closed""}` → 2523 closed issues.  
+- `aggregate_collection` to count closed issues where the difference between `closed_at` and `created_at` ≤ 30 days → 1967 issues.",23622,8,1,1,CORRECT
+Which contributor has the highest commit-to-comment ratio?,"The contributor **j‑alimohammadi** has the highest commit‑to‑comment ratio: 3 comments for the single commit they made (ratio = 3 comments per commit).
+
+*Derived from the aggregation on **commits** that summed each author’s `commit.comment_count` and number of commits.*",320337,5,1,0,INCORRECT
+What percentage of all comments are issue comments versus commit comments?,"The repository contains **6,060 issue comments** and **0 commit comments**, so 100 % of all comments are issue comments.
+
+(Counts: issueComments = 6060, commitComments = 0)",3976,2,1,1,CORRECT
+What is the average number of commits per month since the repository was created?,"The repository contains 9,313 commits. The earliest commit is from 2007‑06‑29 and the latest from 2018‑11‑08, a span of 4 years 199 months.  
+Average commits per month ≈ 9,313 ÷ 199 ≈ 46.8 commits/month.  
+
+Tools: aggregated the `commits` collection to count commits and find the min/max commit dates.",70207,2,1,1,CORRECT
+What was the percentage growth or decline in commits from the previous month?,"The repository made 14 commits in November 2018 versus 97 commits in October 2018, a decline of about 86 percent.  
+
+(Used an aggregation on the commits collection grouping by month, sorted descending, limited to the two most recent months.)",70089,2,1,1,CORRECT
+What percentage of issues have at least one comment?,"Out of 2,629 total issues, 2,254 have at least one comment.  
+Percentage = (2,254 / 2,629) × 100 ≈ 85.8 %.
+
+**Tools used**: count_documents on `issues` (total count) and count_documents on `issues` filtered with `{""comments"": {""$gt"": 0}}`.",7540,3,1,1,CORRECT
+Which contributor accounts for the highest percentage of all commits?,"The contributor **sebersole** accounts for the highest percentage of all commits, with **2,569 commits** (the most among all contributors).
+
+Tools used: count_documents on commits (total 9,313); aggregate_collection on commits → grouped by author login, summed commit counts, sorted descending, limited to top 1.",104232,3,1,1,CORRECT
+Forecast the number of commits expected in the next month.,"The average commit activity observed over the sampled months is about **67 commits per month**, which can be used as a baseline for forecasting the next month’s commits. (aggregation used commits collection, projected month field, grouped by month, then averaged)",70131,2,1,1,CORRECT
+Cluster issues into thematic groups based on their titles and descriptions.,"**Thematic clusters of recent issues (based on titles & descriptions)**  
+
+| Theme | Representative issues (title / JIRA or description excerpt) |
+|-------|-------------------------------------------------------------|
+| **1. JDK 11 / OSGi / JAXB integration** | – “HHH‑13022 Make OSGi integration work on JDK11” (JAXB dependency problems) <br> – “HHH‑12946 Include JAXB as a dependency … JDK 11” <br> – “HHH‑12990 JPA Model generator does not work in Java 9+” |
+| **2. EntityGraph / Metamodel API changes** | – “HHH‑12713 EntityGraph changes – Restore (most) SPI backward compatibility” <br> – “HHH‑12713 – Make EntityGraph creation more convenient” <br> – “HHH‑12944 – MultiIdentifierLoadAccess ignores the 2nd‑level cache” |
+| **3. Query / Criteria API refactorings** | – “HHH‑12945 Properly support entry() criteria expression” <br> – “HHH‑13085 : Use FetchMode.Join to load OneToOne associations …” <br> – “HHH‑13057 Prevent Byte Buddy’s Advice helper to reload too many resources” |
+| **4. Mapping / Annotation issues** | – “HHH‑13041 – Move @Any and other association mappings to the association chapter” <br> – “HHH‑13040 – MetadataBuilderContributor should be applied before …” <br> – “HHH‑13047 Deprecate Environment#verifyProperties” |
+| **5. Cache / Ehcache & second‑level cache** | – “HHH‑13090 Depend on Ehcache interface instead of depending on one of the implementation” <br> – “HHH‑12944 – MultiIdentifierLoadAccess ignores the 2nd‑level cache” |
+| **6. Logging / Debug level adjustments** | – “HHH‑11209 : Change log message to DEBUG when due to rollback” <br> – “HHH‑13073 – AnyMetaDef.metaType should default to ‘string’” (minor warning) |
+| **7. Database dialect / SQL specific fixes** | – “Choose the right dialect for Sybase SQL Anywhere” <br> – “added st_makeenvelope” (PostGIS function support) |
+| **8. Build / Maven / Gradle deprecation warnings** | – “Fix maven3 warnings” (older issue) <br> – “HHH‑13071: use SourceSetOutput.getClassesDirs to prevent deprecation warnings” |
+| **9. Batch & statement logging performance** | – “HHH‑13050 – On release of batch it still contained JDBC statements logged” |
+| **10. Migration / Upgrade guides** | – “HHH‑13062 – Migrate User Guide links from Java EE 7 to 8” <br> – “HHH‑13011 migration guide (5.3)” |
+
+*The clusters were derived from a sample of 50 recent issues (titles + bodies) retrieved from the **issues** collection.*  
+
+**Tools used:** `retrieve_documents(repo_name=""hibernate_hibernate-orm"", collection=""issues"", filter={}, limit=50, projection={""title"":1,""body"":1}, sort={""created_at"":-1})`.",12372,2,1,1,CORRECT
+Summarize the most discussed technical topics across last 10 issues and comments.,"**Summary of the most discussed technical topics in the last 10 issues (based on their labels):**
+
+| Topic (label)            | Mentions |
+|--------------------------|----------|
+| **5.4** (version focus) | 10 |
+| Ready for review         | 3 |
+| Requires JIRA issue       | 1 |
+| Requires changes          | 1 |
+
+The dominant discussion revolves around the **5.4 release**, showing it appears in the majority of recent issues. The next‑most frequent concerns are about getting issues ready for review, linking to JIRA tickets, and indicating that changes are required.
+
+*Tool used: `aggregate_collection` on the `issues` collection, sorting by creation date, limiting to the last 10 issues, unwinding the `labels` array, grouping by label name, and counting occurrences.*",3496,1,1,1,CORRECT
+Assign issue #2 to contributor.,"Issue #2 is currently unassigned:
+
+- **Number**: 2  
+- **Title**: HHH‑5631 : Fixed warnings reported by Maven 3  
+- **Current assignee**: None  
+
+To assign this issue to a contributor you must update the issue via the GitHub API (or via the GitHub web UI). Below is the typical API call you can use:
+
+```bash
+# Replace <TOKEN> with a personal access token that has the `repo` scope
+# Replace <USERNAME> with the GitHub login of the contributor you want to assign
+curl -X PATCH \
+  -H ""Authorization: token <TOKEN>"" \
+  -H ""Accept: application/vnd.github+json"" \
+  https://api.github.com/repos/hibernate/hibernate-orm/issues/2 \
+  -d '{""assignee"":""<USERNAME>""}'
+```
+
+**What this does**
+
+| Field | Meaning |
+|-------|---------|
+| `assignee` | The GitHub username of the single assignee you want to set. |
+| `assignees` (optional) | If you need to assign multiple users, use an array: `{""assignees"":[""user1"",""user2""]}`. |
+| `Authorization` header | Must contain a token with write access to the repository. |
+| `Accept` header | Requests the latest API version. |
+
+**Alternative via the web UI**
+
+1. Open the issue page: `https://github.com/hibernate/hibernate-orm/issues/2`.
+2. On the right‑hand sidebar, locate **Assignees**.
+3. Click the **+** button, search for the contributor’s username, and select it.
+
+After performing either step, the issue will show the new assignee. No changes can be made directly in the data store from this assistant; you must use the GitHub interface or API as shown.  
+
+*Tool used*: `retrieve_documents` – fetched issue #2 (limit 1, projection of `assignee`, `assignees`, `number`, `title`, `user.login`).",6055,2,1,0,INCORRECT
+Find duplicate or highly similar issues across 50 examples using semantic similarity.,"I can pull a sample of 50 issues (titles and bodies) from the repository, but the available MCP tools do not include a semantic‑similarity or clustering function, so I cannot automatically flag duplicates or “highly similar” issues inside this environment. You could export the issue texts I retrieve here and run a similarity analysis (e.g., using sentence‑transformers or TF‑IDF clustering) in your own environment.
+
+**Tool call:** `retrieve_documents(repo_name=""hibernate_hibernate-orm"", collection=""issues"", filter={}, sort={""created_at"": -1}, limit=50, projection={""number"": 1, ""title"": 1, ""body"": 1, ""created_at"": 1})`",1520,0,1,0,NO
+Forecast the number of issue comments the issue #2 will have.,"The issue #2 currently has **1 comment**. (No forecasting model is available; this is the present count.)
+
+Tool: count_documents on `issueComments` filtered by `issue_url` ending with “/issues/2”, limit = none.",5086,2,1,1,CORRECT
+"Cluster the last 10 commits in severity (Low, Medium, High) based on files changed.","**Answer**
+
+The 10 most recent commits (by author date) are clustered by the number of files changed:
+
+| Commit SHA | Author date (UTC) | Files changed | Severity |
+|------------|-------------------|---------------|----------|
+| 509f6fed10ee1c93334c0d685f05d592f13c2368 | 2018‑11‑08 14:13:45 | 1 | Low |
+| c17e4832a9fb982472c2a9af6695ec8ad2efe08b | 2018‑11‑08 13:35:50 | 1 | Low |
+| 736d9dd6154b87b05245a0334b8df795dc893a6f | 2018‑11‑08 08:43:23 | 1 | Low |
+| b00f580d8daa3bffbcff854dc815887756de9664 | 2018‑11‑07 20:31:47 | 0 | Low |
+| 8a7497377635195f550d7b2983280120ad8e57bc | 2018‑11‑07 20:30:11 | 0 | Low |
+| 563758669a1a54c2f9e845da67b6aaa634ab7654 | 2018‑11‑05 20:55:42 | 0 | Low |
+| e67f3dfa8215f9ed2e7ec0f510891dcb08dc8fab | 2018‑11‑05 10:38:30 | 0 | Low |
+| 12d34965ff59fe53abcd7dd2fe34a7f3fd2ba11d | 2018‑11‑05 09:42:11 | 0 | Low |
+| df12675150b2b5a004d39112b94eee22576ff385 | 2018‑11‑05 09:41:43 | 0 | Low |
+| 88b3edfcee240b693483fd759e19902d725a8114 | 2018‑11‑02 18:55:00 | 0 | Low |
+
+**Clustering method**
+
+* Retrieved the last 10 commits sorted by `commit.author.date` (descending) with `retrieve_documents`.
+* Counted the number of entries in the `files` array for each commit.
+* Mapped the count to a severity level:
+  * **Low** – 0‑2 files changed  
+  * **Medium** – 3‑5 files changed  
+  * **High** – > 5 files changed  
+
+All retrieved commits changed ≤ 2 files, so they fall into the **Low** severity bucket.",84244,2,1,1,CORRECT
+Estimate the probability issue #2 will be closed within 30 days.,,40256,10,0,0,ERROR
+"Based on last 10 commits of top 5 contributors, classify them in their specialty.","**Result:** I was unable to retrieve any commit documents for the top five contributors ( `sebersole`, `gbadner`, `dreab8`, `vladmihalcea`, `hferentschik` ). All queries against the **commits** collection returned zero records, so the repository does not contain the last‑10‑commit data needed to infer each contributor’s specialty.
+
+**Explanation of tool usage**
+
+- `aggregate_collection` on **contributors** (sorted by `contributions` descending, limited to 5) → top contributors: sebersole, gbadner, dreab8, vladmihalcea, hferentschik.  
+- `retrieve_documents` on **commits** (filter `author.login = ""sebersole""` and similar for the others) → 0 records returned each time.  
+
+Because the commit information is absent, I cannot classify the contributors by specialty based on their recent commits.",520418,10,1,0,NO
+"Based on last 10 open issues, propose 5 sub teams to split workload.","**Proposed sub‑teams for the last 10 open issues**
+
+| Sub‑team | Primary focus (based on issue labels) | Typical tasks |
+|----------|----------------------------------------|---------------|
+| **Core 5.4 Team** | `5.4` (present on all 10 issues) | Implement and maintain features/revisions for the current 5.4 release line, handle version‑specific bugs, and ensure compatibility. |
+| **Review Team** | `Ready for review` (3 issues) | Perform code reviews, verify that PRs satisfy quality standards, and triage any feedback needed before merge. |
+| **Gail‑Support Team** | `Requires Gail` (1 issue) | Address issues explicitly assigned to Gail (e.g., metadata defaults), coordinate with her for domain‑specific decisions. |
+| **Karel‑Support Team** | `Requires Karel` (1 issue) | Tackle issues that need Karel’s expertise (e.g., specific annotations or configuration nuances). |
+| **Changes Team** | `Requires changes` (1 issue) | Apply required code modifications, update documentation or log messages, and verify that the changes satisfy the issue’s acceptance criteria. |
+
+**Rationale**  
+- The dominant label `5.4` suggests a general “core” team that can handle any issue not covered by a more specific label.  
+- The `Ready for review` label groups issues that are at the review stage, justifying a dedicated review sub‑team.  
+- Single‑occurrence labels (`Requires Gail`, `Requires Karel`, `Requires changes`) naturally map to small, focused teams that can address those niche concerns quickly.  
+
+These five sub‑teams together cover all label‑driven dimensions of the most recent open workload, allowing parallel progress while keeping responsibilities clear.",8181,2,1,1,CORRECT

@@ -1,0 +1,23 @@
+Question,Result
+What is the name and description of the repository?,Name: hibernate-orm; Description: Hibernate's core Object/Relational Mapping functionality
+"When was the repository created, and when was it last updated?",Created: 2010-10-04T16:15:52Z; Updated: 2018-11-08T23:46:24Z
+How many contributors have contributed to this repository?,341
+Which contributor has made the highest number of commits?,Steve Ebersole (2582 commits)
+How many total commits are recorded in the repository?,9313
+What is the most recent commit message and who authored it?,Date: 2018-11-08T14:13:45Z Message: HHH-13091 Upgrade Ehcache 2 to 2.10.6 and Ehcache 3 to 3.6.1; Author: gsmet
+What is the oldest commit in the repository?,"Date: 2007-06-29T19:17:02Z Message: starting SVN layout migration for core
+
+git-svn-id: https://svn.jboss.org/repos/hibernate/core/trunk@11719 1b8cb986-b30d-0410-93ca-fae66ebed9b2; Author: sebersole"
+How many open issues are currently in the repository?,106
+How many closed issues are currently in the repository?,2523
+Which issue was created most recently?,Title: HHH-12945; Created at: 2018-11-09T00:42:10Z
+Which issue has been open for the longest time?,Title: HHH-9622: AuditProcess should be flushable; Created at: 2015-02-18T17:27:30Z
+Which issue has received the highest number of comments?,Issue #643 (HHH-8732 Upgraded Ehcache to 2.7.5) with 30 comments
+How many issue comments exist in total?,6060
+How many commit comments exist in total?,0
+Which project contains the largest number of issues?,Repository: dotCMS_core with 15747 issues
+How many issue events are associated with issue #X?,0
+Which contributor most recently made a commit?,Author: gsmet; Date: 2018-11-08T14:13:45Z
+Which issue was closed most recently?,Title: HHH-13090 Depend on Ehcache interface instead of depending on one of the implem…; Closed at: 2018-11-08T14:28:40Z
+Which contributor has authored at least one commit comment?,No commit comments found
+What are the top 5 contributors ranked by number of commits?,sebersole (2569 commits); gbadner (683 commits); dreab8 (550 commits); vladmihalcea (486 commits); hferentschik (457 commits)
