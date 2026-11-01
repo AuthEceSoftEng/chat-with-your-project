@@ -1,0 +1,11 @@
+langchain-core>=1.4.0
+langchain-ollama>=1.1.0
+langchain-openai>=1.2.1
+langchain_google_genai>=4.2.2
+langchain-mcp-adapters>=0.2.2
+python-dotenv>=1.2.2
+streamlit>=1.57.0
+asyncio
+motor
+fastmcp
+streamlit>=1.57.0

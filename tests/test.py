@@ -113,7 +113,7 @@ async def run_agent_batch(repo_name: str, questions: list, output_csv: str = "re
     bound_model = aimodel.bind_tools(tools)
 
     try:
-        with open("system_prompts/system_prompt_brute_force.txt", "r", encoding="utf-8") as infile:
+        with open("system_prompts/system_prompt_full.txt", "r", encoding="utf-8") as infile:
             system_prompt_text = infile.read().strip().replace("{repo_name}", repo_name)
     except FileNotFoundError:
         system_prompt_text = f"You are an AI assistant for {repo_name}."
@@ -222,7 +222,7 @@ async def run_agent_batch(repo_name: str, questions: list, output_csv: str = "re
 
 
 async def main():
-    output_dir = Path("outputs_bf_gpt")
+    output_dir = Path("outputs_configuration_model")
     output_dir.mkdir(parents=True, exist_ok=True)
     
     for repo in REPOS:
