@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Tokens per question (median, IQR, P95), tool calls per question (mean, SD), and tokens per correct answer (total over correct answers). Baseline tokens exclude the query-generation call. KG: knowledge graph.}
+\label{tab:cost-results}
+\begin{tabular}{lrrrcc@{\hspace{6pt}}c}
+\toprule
+ & \multicolumn{3}{c}{\textbf{Tokens per question}} & \multicolumn{2}{c}{\textbf{Tool calls}} & \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-6}
+\textbf{Configuration} & \textbf{Median} & \textbf{IQR} & \textbf{P95} & \textbf{Mean} & \textbf{SD} & \shortstack{\textbf{Tokens per}\\\textbf{correct answer}} \\
+\midrule
+\multicolumn{7}{l}{\textit{gpt-oss:20b}} \\
+Baseline   & 376    & 146     & 1{,}379  & -- & -- & 1{,}404  \\
+Mongo-only   & 7{,}376    & 7{,}991     & 38{,}761  & 2.95 & 2.18 & 14{,}869  \\
+Full   & 11{,}527    & 15{,}608     & 70{,}562  & 3.17 & 2.07 & 25{,}495  \\
+KG   & 15{,}824    & 18{,}202     & 58{,}948  & 3.33 & 2.06 & 26{,}795  \\
+\midrule
+\multicolumn{7}{l}{\textit{gpt-oss:120b}} \\
+Baseline   & 348    & 81     & 2{,}089  & -- & -- & 1{,}349  \\
+Mongo-only   & 7{,}092    & 7{,}322     & 69{,}743  & 2.68 & 1.87 & 20{,}387  \\
+Full   & 10{,}506    & 15{,}059     & 79{,}121  & 3.12 & 2.17 & 29{,}466  \\
+KG   & 12{,}928    & 12{,}182     & 59{,}145  & 3.16 & 2.00 & 23{,}445  \\
+\bottomrule
+\end{tabular}
+\end{table}

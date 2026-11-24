@@ -1,0 +1,24 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\caption{Answer rate, accuracy, and precision (\%), with Wilson 95\% intervals in brackets (KG: knowledge graph). Best accuracy and precision per model in bold.}
+\label{tab:accuracy-results}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Configuration} & \textbf{Answer rate} & \textbf{Accuracy} & \textbf{Precision} & \textbf{SD (repo)} \\
+\midrule
+\multicolumn{5}{l}{\textit{gpt-oss:20b}} \\
+Baseline   & 48.4  & 34.4 [28.8, 40.5] & 71.1 [62.4, 78.4] & 3.8 \\
+Mongo-only   & 90.8  & 81.6 [76.3, 85.9] & 89.9 [85.3, 93.2] & 3.8 \\
+Full   & 94.0  & \textbf{86.8 [82.0, 90.4]} & \textbf{92.3 [88.2, 95.1]} & 3.0 \\
+KG   & 96.0  & 86.8 [82.0, 90.4] & 90.4 [86.0, 93.5] & 7.8 \\
+\midrule
+\multicolumn{5}{l}{\textit{gpt-oss:120b}} \\
+Baseline   & 63.2  & 48.0 [41.9, 54.2] & 75.9 [68.7, 81.9] & 5.5 \\
+Mongo-only   & 93.2  & 81.6 [76.3, 85.9] & 87.6 [82.7, 91.2] & 4.6 \\
+Full   & 95.2  & 84.8 [79.8, 88.7] & 89.1 [84.5, 92.4] & 4.6 \\
+KG   & 96.0  & \textbf{87.6 [82.9, 91.1]} & \textbf{91.2 [87.0, 94.2]} & 2.6 \\
+\bottomrule
+\end{tabular}
+\end{table}

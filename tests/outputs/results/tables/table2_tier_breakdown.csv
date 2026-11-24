@@ -1,0 +1,25 @@
+Model,Config,Tier,N,AnswerRate,Precision,Accuracy
+gpt-oss:20b,Baseline,Informational,100,69.0,79.7,55.0
+gpt-oss:20b,Baseline,Computational,100,37.0,48.6,18.0
+gpt-oss:20b,Baseline,Machine Learning,50,30.0,86.7,26.0
+gpt-oss:120b,Baseline,Informational,100,83.0,77.1,64.0
+gpt-oss:120b,Baseline,Computational,100,51.0,66.7,34.0
+gpt-oss:120b,Baseline,Machine Learning,50,48.0,91.7,44.0
+gpt-oss:20b,Mongo-only,Informational,100,100.0,93.0,93.0
+gpt-oss:20b,Mongo-only,Computational,100,93.0,89.2,83.0
+gpt-oss:20b,Mongo-only,Machine Learning,50,68.0,82.4,56.0
+gpt-oss:120b,Mongo-only,Informational,100,100.0,94.0,94.0
+gpt-oss:120b,Mongo-only,Computational,100,97.0,80.4,78.0
+gpt-oss:120b,Mongo-only,Machine Learning,50,72.0,88.9,64.0
+gpt-oss:20b,Full,Informational,100,100.0,95.0,95.0
+gpt-oss:20b,Full,Computational,100,93.0,91.4,85.0
+gpt-oss:20b,Full,Machine Learning,50,84.0,88.1,74.0
+gpt-oss:120b,Full,Informational,100,100.0,96.0,96.0
+gpt-oss:120b,Full,Computational,100,96.0,82.3,79.0
+gpt-oss:120b,Full,Machine Learning,50,84.0,88.1,74.0
+gpt-oss:20b,KG,Informational,100,100.0,96.0,96.0
+gpt-oss:20b,KG,Computational,100,97.0,85.6,83.0
+gpt-oss:20b,KG,Machine Learning,50,86.0,88.4,76.0
+gpt-oss:120b,KG,Informational,100,100.0,91.0,91.0
+gpt-oss:120b,KG,Computational,100,99.0,91.9,91.0
+gpt-oss:120b,KG,Machine Learning,50,82.0,90.2,74.0

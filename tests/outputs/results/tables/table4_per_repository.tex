@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Per-repository Strict Accuracy (\% of 50 questions correct), Mongo-only (M) vs.\ Full+KG (K) configuration, for each model. Repository order: Kafka, Tomcat, Hibernate, Jenkins, Spring Boot.}
+\label{tab:per-repo}
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{2}{c}{\textbf{gpt-oss:20b}} & \multicolumn{2}{c}{\textbf{gpt-oss:120b}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+\textbf{Repository} & \textbf{M} & \textbf{K} & \textbf{M} & \textbf{K} & \textbf{M} & \textbf{K} \\
+\midrule
+Kafka   & 80  & 92  & 82  & 90  \\
+Tomcat   & 84  & 86  & 82  & 86  \\
+Hibernate   & 86  & 94  & 84  & 84  \\
+Jenkins   & 82  & 88  & 86  & 88  \\
+SpringBoot   & 76  & 74  & 74  & 90  \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,6 @@
+Repository,gpt-oss:20b_Mongo,gpt-oss:20b_KG,gpt-oss:120b_Mongo,gpt-oss:120b_KG
+Kafka,80.0,92.0,82.0,90.0
+Tomcat,84.0,86.0,82.0,86.0
+Hibernate,86.0,94.0,84.0,84.0
+Jenkins,82.0,88.0,86.0,88.0
+SpringBoot,76.0,74.0,74.0,90.0
